@@ -34,7 +34,7 @@ const NavItem = styled.li`
 `;
 
 export default function Nav() {
-  const { theme, themeSetter } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <nav>

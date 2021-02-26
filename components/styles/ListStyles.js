@@ -1,4 +1,3 @@
-import { GrWifiNone } from 'react-icons/gr';
 import styled from 'styled-components';
 
 const ListStyles = styled.li`

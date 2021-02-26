@@ -5,7 +5,6 @@ import Contact from './Contact';
 import Stack from './Stack';
 import ListStyles from './styles/ListStyles';
 import SelectStyle from './styles/SelectStyle';
-import { ServerStyleSheet } from 'styled-components';
 import MobileSelect from './styles/MobileSelect';
 
 export default function ContStack() {

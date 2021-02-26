@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useTheme } from '../utils/themeState';
 import { device } from './styles/sizes';
 
-const ThemeBtnStyle = styled.div`
+const ThemeBtnStyle = styled.aside`
   text-align: center;
   color: ${(props) => props.theme.color};
   font-family: var(--abril);
@@ -96,7 +96,7 @@ export default function Theme() {
     <ThemeBtnStyle
       ref={btn}
       theme={theme}
-      onClick={() => setShow(!show)}
+      onClick={() => setShow(true)}
       onFocus={() => setShow(true)}
       onBlur={() => setShow(false)}
       tabIndex="0"

@@ -59,7 +59,7 @@ const WildStyleThree = styled.div`
 
 export default function Wild({ theme }) {
   return (
-    <WildContainer>
+    <WildContainer aria-hidden="true">
       <WildStyle> * </WildStyle>
       <WildStyleTwo> * </WildStyleTwo>
       <WildStyleThree> * </WildStyleThree>

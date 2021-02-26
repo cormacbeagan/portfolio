@@ -14,6 +14,17 @@ const ListStyles = styled.li`
   a {
     margin: 0;
     font-size: 24px;
+    color: ${(props) => props.theme.color};
+  }
+  .accessibly-hidden {
+    border: 0;
+    clip: rect(0000);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
   }
 `;
 

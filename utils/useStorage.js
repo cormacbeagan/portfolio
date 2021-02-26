@@ -20,7 +20,6 @@ export default function useStorage(key, init) {
       console.log(e);
     }
   };
-  console.log(value);
   return [value, setStorageValue];
 }
 

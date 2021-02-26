@@ -27,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
     --dark: #333333;
     --brown: #757474;
     --offWhite: rgb(246, 246, 246);
-    --sgBlue: rgb(106, 144, 180);
+    --sgBlue: rgb(64, 106, 141);
     --black: rgb(13, 15, 49);
     --lineGradDark: linear-gradient(rgb(21, 16, 16
     ), rgb(246, 246, 246), rgb(21, 16, 16));

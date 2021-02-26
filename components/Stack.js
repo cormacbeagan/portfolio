@@ -14,7 +14,7 @@ import {
 import { device } from './styles/sizes';
 import { useState } from 'react';
 
-const H4Styles = styled.h4`
+const H4Styles = styled.h2`
   margin: 0 0 2rem 0;
   font-family: var(--oleo);
   font-size: 3rem;
@@ -34,7 +34,7 @@ const StackDivStyles = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
-const StackHeadingStyles = styled.h5`
+const StackHeadingStyles = styled.h3`
   font-size: 2.5rem;
   font-family: var(--oleo);
   @media ${device.tablet} {
@@ -125,8 +125,11 @@ export default function Contact() {
               setSelected('js');
             }}
           >
-            <p className="accessibly-hidden">Javascript details</p>
-            <SiJavascript alt="tech logo" className="tech-link" />
+            <SiJavascript
+              alt="tech logo"
+              className="tech-link"
+              aria-label="Javascript details"
+            />
           </TechLink>
           <TechLink
             onClick={() => {
@@ -134,8 +137,11 @@ export default function Contact() {
             }}
             color={'#e34c26'}
           >
-            <p className="accessibly-hidden">HTML details</p>
-            <SiHtml5 alt="tech logo" className="tech-link" />
+            <SiHtml5
+              alt="tech logo"
+              className="tech-link"
+              aria-label="HTML details"
+            />
           </TechLink>
           <TechLink
             onClick={() => {
@@ -143,8 +149,11 @@ export default function Contact() {
             }}
             color={'#2864f1'}
           >
-            <p className="accessibly-hidden">CSS details</p>
-            <SiCss3 alt="tech logo" className="tech-link" />
+            <SiCss3
+              alt="tech logo"
+              className="tech-link"
+              aria-label="CSS details"
+            />
           </TechLink>
           <TechLink
             onClick={() => {
@@ -152,8 +161,11 @@ export default function Contact() {
             }}
             color={'#5ad7f1'}
           >
-            <p className="accessibly-hidden">React JS details</p>
-            <GrReactjs alt="tech logo" className="tech-link" />
+            <GrReactjs
+              alt="tech logo"
+              className="tech-link"
+              aria-label="React JS details"
+            />
           </TechLink>
           <TechLink
             onClick={() => {
@@ -161,8 +173,11 @@ export default function Contact() {
             }}
             color={'#4fa94d'}
           >
-            <p className="accessibly-hidden">Node JS details</p>
-            <FaNodeJs alt="tech logo" className="tech-link" />
+            <FaNodeJs
+              alt="tech logo"
+              className="tech-link"
+              aria-label="Node JS details"
+            />
           </TechLink>
           <TechLink
             onClick={() => {
@@ -170,8 +185,11 @@ export default function Contact() {
             }}
             color={'#0072f7'}
           >
-            <p className="accessibly-hidden">Next JS details</p>
-            <SiNextDotJs alt="tech logo" className="tech-link" />
+            <SiNextDotJs
+              alt="tech logo"
+              className="tech-link"
+              aria-label="Next JS details"
+            />
           </TechLink>
           <TechLink
             onClick={() => {
@@ -179,8 +197,11 @@ export default function Contact() {
             }}
             color={'#faa730'}
           >
-            <p className="accessibly-hidden">Firebase details</p>
-            <SiFirebase alt="tech logo" className="tech-link" />
+            <SiFirebase
+              alt="tech logo"
+              className="tech-link"
+              aria-label="Firebase details"
+            />
           </TechLink>
           <TechLink
             onClick={() => {
@@ -188,8 +209,11 @@ export default function Contact() {
             }}
             color={'#d57ec4'}
           >
-            <p className="accessibly-hidden">Styled Components details</p>
-            <SiStyledComponents alt="tech logo" className="tech-link" />
+            <SiStyledComponents
+              alt="tech logo"
+              className="tech-link"
+              aria-label="Styled Components details"
+            />
           </TechLink>
         </LinkCont>
       </StackGrid>

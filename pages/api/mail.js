@@ -1,4 +1,4 @@
-import { createTransport, getTestMessageUrl } from 'nodemailer';
+import { createTransport } from 'nodemailer';
 
 const transport = createTransport({
   host: process.env.MAIL_HOST,
@@ -10,14 +10,12 @@ const transport = createTransport({
 });
 
 export default async (req, res) => {
-  console.log(req);
   const { text, email } = req.body;
   if (!text || !email) {
     res.status(403).send();
     return;
   }
   const resp = await sendEmail(text, email);
-  console.log(resp);
   res.send(resp);
 };
 

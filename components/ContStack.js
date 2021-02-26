@@ -6,10 +6,13 @@ import Stack from './Stack';
 import ListStyles from './styles/ListStyles';
 import SelectStyle from './styles/SelectStyle';
 import MobileSelect from './styles/MobileSelect';
+import Link from 'next/link';
+import { useTheme } from '../utils/themeState';
 
 export default function ContStack() {
-  const [selected, setSelected] = useState(true);
+  const [selected, setSelected] = useState(false);
   const [mobile, setMobile] = useState(false);
+  const { theme } = useTheme();
   const router = useRouter();
 
   useEffect(() => {
@@ -25,25 +28,11 @@ export default function ContStack() {
 
   const list = (
     <>
-      <ListStyles
-        onClick={() => {
-          router.asPath = '/#contact';
-          setSelected(true);
-        }}
-        tabIndex="0"
-        selected={selected}
-      >
-        contact
+      <ListStyles selected={selected} theme={theme}>
+        <Link href="#contact">contact</Link>
       </ListStyles>
-      <ListStyles
-        onClick={() => {
-          router.asPath = '/#stack';
-          setSelected(false);
-        }}
-        tabIndex="0"
-        selected={!selected}
-      >
-        stack
+      <ListStyles selected={!selected} theme={theme}>
+        <Link href="#stack">stack</Link>
       </ListStyles>
     </>
   );

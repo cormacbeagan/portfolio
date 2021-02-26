@@ -20,9 +20,18 @@ export default function ProjectSection() {
     <ListStyles
       key={item.name}
       onClick={() => setSelected(item.name)}
+      onKeyDown={(e) => {
+        const key = e.key || e.keyCode;
+        if (key === 'Enter' || key === 13) {
+          setSelected(item.name);
+        }
+      }}
       theme={theme}
     >
-      <a tabIndex="0">{item.name}</a>
+      <a tabIndex="0">
+        {item.name}
+        <span className="accessibly-hidden"> Project details</span>
+      </a>
     </ListStyles>
   ));
   return (

@@ -8,7 +8,7 @@ import BtnStyles from './styles/BtnStyles';
 import ContactStackContainer from './styles/ContactStackContainer';
 import { device } from './styles/sizes';
 
-const H4Styles = styled.h4`
+const H2Styles = styled.h2`
   margin: 0.5rem;
   font-family: var(--oleo);
   font-size: 3rem;
@@ -98,7 +98,8 @@ const CopyStyle = styled.button`
       margin-left: -140px;
     }
   }
-  span {
+  .accessibly-hidden {
+    color: ${(props) => props.theme.color};
     border: 0;
     clip: rect(0000);
     height: 1px;
@@ -209,7 +210,7 @@ export default function Contact() {
 
   return (
     <ContactStackContainer id="contact">
-      <H4Styles>{text.contact.heading}</H4Styles>
+      <H2Styles>{text.contact.heading}</H2Styles>
       <form onSubmit={handleSubmit}>
         <HiddenLabel htmlFor="text">email text </HiddenLabel>
         <TextStyles
@@ -287,14 +288,16 @@ export default function Contact() {
             }, 1500);
           }}
         >
-          <span>copy email address to clipboard</span>
+          <span className="accessibly-hidden">
+            copy email address to clipboard
+          </span>
           <FaCopy className="copy-btn" />
           <div className="text">Email address copied</div>
         </CopyStyle>
       </LineStyle>
       <input
         aria-hidden="true"
-        role="none"
+        tabIndex="-1"
         ref={copyEmail}
         type="text"
         value="cor@macbeagan.me"

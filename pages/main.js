@@ -58,32 +58,34 @@ export default function Home() {
         <Nav />
         {theme.isWild && <Wild theme={theme} />}
         <Theme />
-        <SectionStyle id="home">
-          <ArticleDisplay>
-            <HeadingStyles>
-              <H1Styles>{text.one}</H1Styles>
-              <H1Styles>{text.two}</H1Styles>
-              <ParaStyles>{paragraph}</ParaStyles>
-            </HeadingStyles>
-          </ArticleDisplay>
-          <SelectStyle>
-            <ListStyle theme={theme}>
-              <Link href="#projects">projects</Link>
-            </ListStyle>
-            <ListStyle theme={theme}>
-              <Link href="#stack">stack</Link>
-            </ListStyle>
-            <ListStyle theme={theme}>
-              <Link href="#contact">contact</Link>
-            </ListStyle>
-          </SelectStyle>
-        </SectionStyle>
-        <SectionStyle flip id="projects">
-          <ProjectSection />
-        </SectionStyle>
-        <SectionStyle>
-          <ContStack />
-        </SectionStyle>
+        <main>
+          <SectionStyle id="home">
+            <ArticleDisplay>
+              <HeadingStyles>
+                <H1Styles>{text.one}</H1Styles>
+                <H1Styles>{text.two}</H1Styles>
+                <ParaStyles>{paragraph}</ParaStyles>
+              </HeadingStyles>
+            </ArticleDisplay>
+            <SelectStyle>
+              <ListStyle theme={theme}>
+                <Link href="#projects">projects</Link>
+              </ListStyle>
+              <ListStyle theme={theme}>
+                <Link href="#stack">stack</Link>
+              </ListStyle>
+              <ListStyle theme={theme}>
+                <Link href="#contact">contact</Link>
+              </ListStyle>
+            </SelectStyle>
+          </SectionStyle>
+          <SectionStyle flip id="projects">
+            <ProjectSection />
+          </SectionStyle>
+          <SectionStyle>
+            <ContStack />
+          </SectionStyle>
+        </main>
       </ThemeBody>
     </>
   );

@@ -52,6 +52,10 @@ export default function Home() {
   return (
     <>
       <Head>
+        <meta
+          name="description"
+          content="Personal portfolio website for Web Developer Mac Beagan."
+        />
         <title>Mac Beagan | Web Developer</title>
       </Head>
       <ThemeBody theme={theme}>

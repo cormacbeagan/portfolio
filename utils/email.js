@@ -11,7 +11,7 @@ export async function sendMail(inputs) {
       },
       data: inputs,
     });
-    console.log(response);
+    console.log(res);
     return res;
   } catch (err) {
     console.log(err);

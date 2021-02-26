@@ -4,17 +4,20 @@ const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Oleo Script';
     src: url('static/OleoScript-Regular.woff2') format('woff2');
+    font-display: swap;
   }
   @font-face {
     font-family: Kanit;
     src: url('static/Kanit-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: italic;
+    font-display: swap;
   }
   @font-face {
     font-family: 'Abril Fatface';
     src: url('static/AbrilFatface-Regular.woff2') format('woff2');
     font-weight: 400;
+    font-display: swap;
   }
 
   html {

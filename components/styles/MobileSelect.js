@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { device } from './sizes';
 
-const MobileSelect = styled.div`
+const MobileSelect = styled.ul`
+  margin: 0;
   height: 7rem;
   width: 100vw;
   margin-left: -2rem;

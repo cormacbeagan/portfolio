@@ -8,7 +8,7 @@ import BtnStyles from './styles/BtnStyles';
 import ContactStackContainer from './styles/ContactStackContainer';
 import { device } from './styles/sizes';
 
-const H3Styles = styled.h3`
+const H4Styles = styled.h4`
   margin: 0.5rem;
   font-family: var(--oleo);
   font-size: 3rem;
@@ -210,7 +210,7 @@ export default function Contact() {
 
   return (
     <ContactStackContainer id="contact">
-      <H3Styles>{text.contact.heading}</H3Styles>
+      <H4Styles>{text.contact.heading}</H4Styles>
       <form onSubmit={handleSubmit}>
         <HiddenLabel htmlFor="text">email text </HiddenLabel>
         <TextStyles

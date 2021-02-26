@@ -15,11 +15,8 @@ function ThemeProvider({ children }) {
     themeSetter(value);
     setMounted(true);
   }, []);
-  //todo set up the useLocalStorage hook and store the theme in it
-  //* language will also be kept there
-  //* it does not like being rerendered when it lands in the browser
+
   //* https://www.joshwcomeau.com/react/dark-mode/
-  //* need to check for  "prefers-color-scheme: dark"
 
   function themeSetter(theme) {
     setStorageValue(theme);

@@ -5,7 +5,6 @@ import SectionStyle from '../components/styles/SectionStyle';
 import ArticleDisplay from '../components/ArticleDisplay';
 import SelectStyle from '../components/styles/SelectStyle';
 import styled from 'styled-components';
-import { useState } from 'react';
 import ProjectSection from '../components/ProjectSection';
 import { useTheme } from '../utils/themeState';
 import Theme from '../components/Theme';

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { FaCopy } from 'react-icons/fa';
-import styled, { keyframes } from 'styled-components';
-import { sendEmail, sendMail } from '../utils/email';
+import styled from 'styled-components';
+import { sendMail } from '../utils/email';
 import { useTheme } from '../utils/themeState';
 import useForm from '../utils/useForm';
 import BtnStyles from './styles/BtnStyles';
@@ -198,7 +198,6 @@ export default function Contact() {
       }, 5000);
       setLoading(false);
     } else {
-      // show success and remove loading
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);

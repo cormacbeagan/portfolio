@@ -57,49 +57,6 @@ const WildStyleThree = styled.div`
   animation: ${movingStars} 200s linear infinite;
 `;
 
-//todo make this function
-//* make a fun that generates random text.shadows from 0 - 2000
-//* call it with variables to decide how many stars to generate
-//* 1 make a random generator
-//* 2. use it to generate the shadows
-//* maybe put it in an array
-//* 3. create a variable to hold the string
-//* return the string
-//todo generate three text shadow variables and then pass them to the three dots
-//* just call the function three times 100 200 700
-//* still need to figure out how to set the size
-
-//* generate the animation to move the stars down the screen
-//* then call the animations with different speeds
-//todo reference this guy https://codepen.io/saransh/details/BKJun
-
-// .check-btn-white-checking:after {
-//     content: '.';
-//     animation: dots 1s steps(5, end) infinite;
-// }
-
-// @keyframes dots {
-
-//   0%, 20% {
-//     color: rgba(0,0,0,0);
-//     text-shadow:
-//       .25em 0 0 rgba(0,0,0,0),
-//       .5em 0 0 rgba(0,0,0,0);}
-//   40% {
-//     color: white;
-//     text-shadow:
-//       .25em 0 0 rgba(0,0,0,0),
-//       .5em 0 0 rgba(0,0,0,0);}
-//   60% {
-//     text-shadow:
-//       .25em 0 0 white,
-//       .5em 0 0 rgba(0,0,0,0);}
-//   80%, 100% {
-//     text-shadow:
-//       .25em 0 0 white,
-//       .5em 0 0 white;}
-// }
-
 export default function Wild({ theme }) {
   return (
     <WildContainer>

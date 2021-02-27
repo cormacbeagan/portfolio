@@ -105,10 +105,6 @@ const LineStyle = styled.div`
   }
 `;
 
-const InlineLink = styled.a`
-  text-decoration: underline;
-`;
-
 export default function Contact() {
   const { theme, text } = useTheme();
   const [selected, setSelected] = useState('main');

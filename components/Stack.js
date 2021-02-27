@@ -12,9 +12,9 @@ import {
   SiStyledComponents,
 } from 'react-icons/si';
 import { device } from './styles/sizes';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const H4Styles = styled.h2`
+const H2Styles = styled.h2`
   margin: 0 0 2rem 0;
   font-family: var(--oleo);
   font-size: 3rem;
@@ -26,6 +26,7 @@ const H4Styles = styled.h2`
   }
   @media ${device.mobileS} {
     font-size: 2.2rem;
+    margin-bottom: 1rem;
   }
 `;
 const StackDivStyles = styled.div`
@@ -46,7 +47,7 @@ const StackHeadingStyles = styled.h3`
 `;
 const StackParaStyles = styled.p`
   width: 80%;
-  height: 15rem;
+  height: auto;
   margin: 0 0 0 auto;
   @media ${device.tablet} {
     width: 100%;
@@ -104,6 +105,10 @@ const LineStyle = styled.div`
   }
 `;
 
+const InlineLink = styled.a`
+  text-decoration: underline;
+`;
+
 export default function Contact() {
   const { theme, text } = useTheme();
   const [selected, setSelected] = useState('main');
@@ -112,7 +117,7 @@ export default function Contact() {
     <ContactStackContainer>
       <StackGrid>
         <StackDivStyles>
-          <H4Styles>{text.stack.heading}</H4Styles>
+          <H2Styles>{text.stack.heading}</H2Styles>
           <StackHeadingStyles>
             {text.stack[selected].heading}
           </StackHeadingStyles>

@@ -19,7 +19,6 @@ export default function ProjectLinks({ links }) {
   }
   return (
     <ExDivStyles
-      tabIndex="0"
       onMouseEnter={handleDisplay}
       onMouseOver={handleDisplay}
       onMouseOut={removeDisplay}

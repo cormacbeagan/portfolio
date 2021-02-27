@@ -42,6 +42,9 @@ const HeadingStyles = styled.div`
 const ParaStyles = styled.div`
   max-width: 700px;
   margin: 0 0 0 auto;
+  p {
+    margin: 0;
+  }
 `;
 
 export default function Home() {

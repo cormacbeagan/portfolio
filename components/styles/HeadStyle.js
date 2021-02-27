@@ -7,6 +7,8 @@ const HeadStyle = styled.h2`
   font-weight: normal;
   text-transform: uppercase;
   text-align: left;
+  height: 3rem;
+  margin: 0;
 `;
 
 export default HeadStyle;

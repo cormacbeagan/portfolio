@@ -1,3 +1,5 @@
+import { FaLandmark } from 'react-icons/fa';
+
 export const text = {
   one: 'Mac Beagan',
   two: 'Web Developer',
@@ -18,11 +20,12 @@ export const text = {
         {
           heading: 'motivation',
           paragraph:
-            "Radio-playerLorem Ipsum is simply dummy text of the printing and typesettinG industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            'Fed up with shazaming songs from my favorite radio station in order to add them to Spotify I decided to make an app which does just this.',
         },
         {
-          heading: 'stack',
-          paragraph: 'blab bla  techy bal bla blaaah',
+          heading: 'challenges',
+          paragraph:
+            'As my first react app creating this project posed many challenges. From getting the Web Audio API to work across browsers, querying an API with bit chunks all the way to presenting data in a meaningfull manner and adding keyboard controls for ease of use. ',
         },
       ],
     },
@@ -39,11 +42,12 @@ export const text = {
         {
           heading: 'motivation',
           paragraph:
-            "Visit Munich Lorem Ipsum is simply dummy text of the printing and typesettinG industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            'For years I have been looking for ways to recommend works of Graffiti to guests of the Hostel where I have been working, it is however not easy to give someone directions to a random motorway bridge over the river...',
         },
         {
-          heading: 'stack',
-          paragraph: 'blab bla visit muncih techy bal bla blaaah',
+          heading: 'challenges',
+          paragraph:
+            'This site gave many learning opportunities - building a site with its own content management, handling state with Redux, getting to grips with JS date objects, routing with React-Router and storing data and photos with firebase to name but a few.',
         },
       ],
     },
@@ -54,16 +58,21 @@ export const text = {
           url: 'https://github.com/cormacbeagan/MHLWellnessHackathon',
           text: 'Repo',
         },
+        {
+          url: 'https://devpost.com/software/wellnews',
+          text: 'Devpost',
+        },
       ],
       descriptions: [
         {
           heading: 'motivation',
           paragraph:
-            "Portfolio Lorem Ipsum is simply dummy text of the printing and typesettinG industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            "The mews media has a significant impact on stress and wellbeing. For the 'Hack and Wellness' hackathon we built a chrome extension which allows the user to interact with and quantify the negative content they consume.",
         },
         {
-          heading: 'stack',
-          paragraph: 'blab bla port next folio techy bal bla blaaah',
+          heading: 'challenges',
+          paragraph:
+            'As my first team project taking full advantage of Git and GitHub was a great learning experience. The other challenges were configuring Webpack, creating and presenting data analysis in a purely client side setup as well as working to a tight deadline - the hackathon lasted 48hrs',
         },
       ],
     },
@@ -78,43 +87,46 @@ export const text = {
     main: {
       heading: 'My journey',
       text:
-        "Tech stack Lorem Ipsum is simply dummy text of the printing and typesettinG industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+        "I've always loved a good website, and truly hated a bad one. There is nothing worse than watching the clock tick while a little circle goes round and round, knawing away at your free time. For me web development is clearly the art of producing websites which not only look good but which are fast reliable and accessible.",
     },
     js: {
       heading: 'Javascript',
       text:
-        'A sentence about javascript why I love it and some of my favorite things. Perhaps a whitty anectdote to bring it to life',
+        "Because vanilla is the best flavour. Having worked with JS for over a year now with numerous small projects and various courses I feel confident of achieving what I set out to create when I'm in JS land. ",
     },
     html: {
       heading: 'HTML',
-      text: 'Some interesting facts about html and what is exciting about it.',
+      text:
+        'As the basis of all access to websites, good foundational HTML skills are essential to my toolkit.',
     },
     css: {
       heading: 'CSS',
       text:
-        'Css is the genius which brings ideas to life the paint on the html canvas',
+        'Having completed the Codecademy pro full stack web developer course and numerous projects I have a good basic knowledge of CSS3. Although I have to admit I find whole new CSS concepts to wrap my head around every day.',
     },
     react: {
       heading: 'React JS',
-      text:
-        'React is some kind of genius brain child which makes everything small and straightforward',
+      text: `With a number of courses (pro Codecademy Wed Development, the Odinproject and Wes Bos' Full-Stack Advanced-React), giving me the skills to start building I have truly learned the joy and satisfaction of building things with code through working with React. For an assessment of my skills please refer to the source code for this site, my radio player or my travelers tips site.`,
     },
     node: {
       heading: 'Node JS',
-      text: 'Some text about how I enjoy working on the backend with Node',
+      text:
+        'Although I have not yet built a backend from scratch for one of my projects, Codecademy covered node and express quite extensively in their pro Fullstack course and I feel confident I have basics, enough to start building and continue the learning process.',
     },
     next: {
       heading: 'Next JS',
-      text: 'The latest and greatest in static and server generated sites',
+      text:
+        'My introduction to next has been building this site, which has been fun. The site is server rendered, uses node serverless functions for sending emails. I look forward to taking advantage of the slick routing when I add separate static pages for the projects, ',
     },
     firebase: {
       heading: 'Firebase',
       text:
-        'Some text about my two projects which are on firebase flexible and dynamic bla',
+        'Firebase is great resource, I have made use of it extensively in my travel tips website -  authorisation, firestore, storage and hosting.',
     },
     styled: {
       heading: 'Styled Components',
-      text: 'Some text about how I love making styled components',
+      text:
+        'Discovering Styled Components was a eureka moment, this site is styled exclusively with styled components and I look forward to developing my personal library of components in the coming months.',
     },
   },
 };

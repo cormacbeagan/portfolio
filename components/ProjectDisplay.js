@@ -11,7 +11,7 @@ const DivStyles = styled.div`
   font-family: Kanit;
   justify-content: center;
   @media ${device.mobileL} {
-    width: 100vw;
+    width: 90vw;
   }
   @media ${device.mobileM} {
     margin-top: 3rem;

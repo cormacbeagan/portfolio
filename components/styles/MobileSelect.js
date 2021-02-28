@@ -16,6 +16,9 @@ const MobileSelect = styled.ul`
   list-style-type: none;
   background: rgba(0, 0, 0, 0.2);
   text-align: center;
+  @media ${device.mobileL} {
+    min-height: 7rem;
+  }
   @media ${device.mobileS} {
     margin-left: -1rem;
   }

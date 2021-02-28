@@ -14,6 +14,7 @@ const ContactStackContainer = styled.div`
     width: 100%;
   }
   @media ${device.mobileL} {
+    min-height: 40rem;
     margin: 7rem 0 0 0;
     width: 100%;
   }

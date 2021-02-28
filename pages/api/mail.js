@@ -21,7 +21,7 @@ export default async (req, res) => {
 
 function sendEmail(text, email) {
   const message = {
-    to: 'cor@macbeagan.me',
+    to: 'cormac.webdev@gmail.com',
     from: 'cor@macbeagan.me',
     subject: 'New Message from MacBeagan.me',
     html: `<div

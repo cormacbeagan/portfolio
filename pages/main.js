@@ -12,6 +12,7 @@ import Wild from '../components/Wild';
 import Nav from '../components/Nav';
 import ContStack from '../components/ContStack';
 import { device } from '../components/styles/sizes';
+import { useEffect, useState } from 'react';
 
 const ThemeBody = styled.div`
   width: 100%;
@@ -49,6 +50,12 @@ const ParaStyles = styled.div`
 
 export default function Home() {
   const { theme, text } = useTheme();
+  const [height, setHeight] = useState('100vh');
+
+  useEffect(() => {
+    const heightValue = window.innerHeight;
+    setHeight(`${heightValue}px`);
+  }, []);
   const paragraph = text.paragraph.map((item, index) => (
     <p key={index}>{item}</p>
   ));
@@ -66,7 +73,7 @@ export default function Home() {
         {theme.isWild && <Wild theme={theme} />}
         <Theme />
         <main>
-          <SectionStyle id="home">
+          <SectionStyle id="home" height={height}>
             <ArticleDisplay>
               <HeadingStyles>
                 <H1Styles>{text.one}</H1Styles>
@@ -86,10 +93,10 @@ export default function Home() {
               </ListStyle>
             </SelectStyle>
           </SectionStyle>
-          <SectionStyle flip id="projects">
+          <SectionStyle flip id="projects" height={height}>
             <ProjectSection />
           </SectionStyle>
-          <SectionStyle>
+          <SectionStyle height={height}>
             <ContStack />
           </SectionStyle>
         </main>

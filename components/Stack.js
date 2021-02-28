@@ -26,7 +26,7 @@ const H2Styles = styled.h2`
   }
   @media ${device.mobileS} {
     font-size: 2.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
   }
 `;
 const StackDivStyles = styled.div`
@@ -55,11 +55,21 @@ const StackParaStyles = styled.p`
   @media ${device.mobileM} {
     font-size: 1.8rem;
   }
+  @media ${device.mobileS} {
+    margin: 0;
+  }
 `;
 
 const StackGrid = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
+  @media ${device.mobileM} {
+    grid-template-columns: 5fr 1fr;
+  }
+  @media ${device.mobileS} {
+    margin-top: -25px;
+    grid-template-columns: auto 40px;
+  }
 `;
 
 const LinkCont = styled.ul`
@@ -67,6 +77,18 @@ const LinkCont = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media ${device.mobileM} {
+    padding: 0;
+    width: 40px;
+    li {
+      width: 50px;
+    }
+  }
+  @media ${device.mobileS} {
+    li {
+      width: 32px;
+    }
+  }
 `;
 
 const TechLink = styled.a`

@@ -3,7 +3,7 @@ import { device } from './sizes';
 
 const MobileSelect = styled.ul`
   margin: 0;
-  height: 7rem;
+  height: auto;
   width: 100vw;
   margin-left: -2rem;
   box-sizing: border-box;

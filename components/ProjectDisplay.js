@@ -8,7 +8,7 @@ const DivStyles = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  font-family: Kanit;
+  font-family: var(--kanit);
   justify-content: center;
   @media ${device.mobileL} {
     width: 90vw;

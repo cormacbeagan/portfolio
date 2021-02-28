@@ -5,16 +5,15 @@ export const text = {
   two: 'Web Developer',
   paragraph: [
     'Munich based web developer looking for my first professional experience. I build websites using React and co.',
-    'I think that fast and accessible websites are the future of the internet and know that the devil is in the detail.',
+    'Originally from Edinburgh, Scotland I have dual Irish British citizenship and grew up on a farm',
     "You can see what I'm working on in my projects and for any questions or comments please don't hesitate to drop me a line.",
   ],
-
   projects: [
     {
       name: 'radio player',
       links: [
-        { url: 'https://github.com/cormacbeagan/player', text: 'Repo' },
         { url: 'https://radio-player-5a684.web.app/', text: 'Live Site' },
+        { url: 'https://github.com/cormacbeagan/player', text: 'Repo' },
       ],
       descriptions: [
         {
@@ -55,12 +54,12 @@ export const text = {
       name: 'neg-o-meter',
       links: [
         {
-          url: 'https://github.com/cormacbeagan/MHLWellnessHackathon',
-          text: 'Repo',
-        },
-        {
           url: 'https://devpost.com/software/wellnews',
           text: 'Devpost',
+        },
+        {
+          url: 'https://github.com/cormacbeagan/MHLWellnessHackathon',
+          text: 'Repo',
         },
       ],
       descriptions: [
@@ -85,7 +84,7 @@ export const text = {
   stack: {
     heading: 'Tech I love working with',
     main: {
-      heading: 'My journey',
+      heading: 'My motivation',
       text:
         "I've always loved a good website, and truly hated a bad one. There is nothing worse than watching the clock tick while a little circle goes round and round, knawing away at your free time. For me web development is clearly the art of producing websites which not only look good but which are fast reliable and accessible.",
     },

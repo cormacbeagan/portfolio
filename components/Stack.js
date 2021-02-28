@@ -62,7 +62,7 @@ const StackGrid = styled.div`
   grid-template-columns: 3fr 1fr;
 `;
 
-const LinkCont = styled.div`
+const LinkCont = styled.ul`
   margin: 1rem;
   display: flex;
   flex-direction: column;
@@ -83,16 +83,6 @@ const TechLink = styled.a`
       width: 32px;
     }
   }
-  .accessibly-hidden {
-    border: 0;
-    clip: rect(0000);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-  }
 `;
 const LineStyle = styled.div`
   margin: 3rem 0 0 0;
@@ -105,13 +95,15 @@ const LineStyle = styled.div`
   }
 `;
 
+// todo render the buttons from an array
+
 export default function Contact() {
   const { theme, text } = useTheme();
   const [selected, setSelected] = useState('main');
 
   return (
     <ContactStackContainer>
-      <StackGrid>
+      <StackGrid tabIndex="0">
         <StackDivStyles>
           <H2Styles>{text.stack.heading}</H2Styles>
           <StackHeadingStyles>
@@ -120,102 +112,174 @@ export default function Contact() {
           <StackParaStyles>{text.stack[selected].text}</StackParaStyles>
         </StackDivStyles>
         <LinkCont>
-          <TechLink
-            color={'gold'}
-            onClick={() => {
-              setSelected('js');
-            }}
-          >
-            <SiJavascript
-              alt="tech logo"
-              className="tech-link"
-              aria-label="Javascript details"
-            />
-          </TechLink>
-          <TechLink
-            onClick={() => {
-              setSelected('html');
-            }}
-            color={'#e34c26'}
-          >
-            <SiHtml5
-              alt="tech logo"
-              className="tech-link"
-              aria-label="HTML details"
-            />
-          </TechLink>
-          <TechLink
-            onClick={() => {
-              setSelected('css');
-            }}
-            color={'#2864f1'}
-          >
-            <SiCss3
-              alt="tech logo"
-              className="tech-link"
-              aria-label="CSS details"
-            />
-          </TechLink>
-          <TechLink
-            onClick={() => {
-              setSelected('react');
-            }}
-            color={'#5ad7f1'}
-          >
-            <GrReactjs
-              alt="tech logo"
-              className="tech-link"
-              aria-label="React JS details"
-            />
-          </TechLink>
-          <TechLink
-            onClick={() => {
-              setSelected('node');
-            }}
-            color={'#4fa94d'}
-          >
-            <FaNodeJs
-              alt="tech logo"
-              className="tech-link"
-              aria-label="Node JS details"
-            />
-          </TechLink>
-          <TechLink
-            onClick={() => {
-              setSelected('next');
-            }}
-            color={'#0072f7'}
-          >
-            <SiNextDotJs
-              alt="tech logo"
-              className="tech-link"
-              aria-label="Next JS details"
-            />
-          </TechLink>
-          <TechLink
-            onClick={() => {
-              setSelected('firebase');
-            }}
-            color={'#faa730'}
-          >
-            <SiFirebase
-              alt="tech logo"
-              className="tech-link"
-              aria-label="Firebase details"
-            />
-          </TechLink>
-          <TechLink
-            onClick={() => {
-              setSelected('styled');
-            }}
-            color={'#d57ec4'}
-          >
-            <SiStyledComponents
-              alt="tech logo"
-              className="tech-link"
-              aria-label="Styled Components details"
-            />
-          </TechLink>
+          <li>
+            <TechLink
+              color={'gold'}
+              onClick={() => {
+                setSelected('js');
+              }}
+            >
+              <SiJavascript
+                tabIndex="0"
+                alt="tech logo"
+                className="tech-link"
+                aria-label="Javascript details"
+                onKeyDown={(e) => {
+                  const key = e.key || e.keyCode;
+                  if (key === 'Enter' || key === 13) {
+                    setSelected('js');
+                  }
+                }}
+              />
+            </TechLink>
+          </li>
+          <li>
+            <TechLink
+              onClick={() => {
+                setSelected('html');
+              }}
+              color={'#e34c26'}
+            >
+              <SiHtml5
+                tabIndex="0"
+                alt="tech logo"
+                className="tech-link"
+                aria-label="HTML details"
+                onKeyDown={(e) => {
+                  const key = e.key || e.keyCode;
+                  if (key === 'Enter' || key === 13) {
+                    setSelected('html');
+                  }
+                }}
+              />
+            </TechLink>
+          </li>
+          <li>
+            <TechLink
+              onClick={() => {
+                setSelected('css');
+              }}
+              color={'#2864f1'}
+            >
+              <SiCss3
+                tabIndex="0"
+                alt="tech logo"
+                className="tech-link"
+                aria-label="CSS details"
+                onKeyDown={(e) => {
+                  const key = e.key || e.keyCode;
+                  if (key === 'Enter' || key === 13) {
+                    setSelected('css');
+                  }
+                }}
+              />
+            </TechLink>
+          </li>
+          <li>
+            <TechLink
+              onClick={() => {
+                setSelected('react');
+              }}
+              color={'#5ad7f1'}
+            >
+              <GrReactjs
+                tabIndex="0"
+                alt="tech logo"
+                className="tech-link"
+                aria-label="React JS details"
+                onKeyDown={(e) => {
+                  const key = e.key || e.keyCode;
+                  if (key === 'Enter' || key === 13) {
+                    setSelected('react');
+                  }
+                }}
+              />
+            </TechLink>
+          </li>
+          <li>
+            <TechLink
+              onClick={() => {
+                setSelected('node');
+              }}
+              color={'#4fa94d'}
+            >
+              <FaNodeJs
+                tabIndex="0"
+                alt="tech logo"
+                className="tech-link"
+                aria-label="Node JS details"
+                onKeyDown={(e) => {
+                  const key = e.key || e.keyCode;
+                  if (key === 'Enter' || key === 13) {
+                    setSelected('node');
+                  }
+                }}
+              />
+            </TechLink>
+          </li>
+          <li>
+            <TechLink
+              onClick={() => {
+                setSelected('next');
+              }}
+              color={'#0072f7'}
+            >
+              <SiNextDotJs
+                tabIndex="0"
+                alt="tech logo"
+                className="tech-link"
+                aria-label="Next JS details"
+                onKeyDown={(e) => {
+                  const key = e.key || e.keyCode;
+                  if (key === 'Enter' || key === 13) {
+                    setSelected('next');
+                  }
+                }}
+              />
+            </TechLink>
+          </li>
+          <li>
+            <TechLink
+              onClick={() => {
+                setSelected('firebase');
+              }}
+              color={'#faa730'}
+            >
+              <SiFirebase
+                tabIndex="0"
+                alt="tech logo"
+                className="tech-link"
+                aria-label="Firebase details"
+                onKeyDown={(e) => {
+                  const key = e.key || e.keyCode;
+                  if (key === 'Enter' || key === 13) {
+                    setSelected('firebase');
+                  }
+                }}
+              />
+            </TechLink>
+          </li>
+          <li>
+            <TechLink
+              onClick={() => {
+                setSelected('styled');
+              }}
+              color={'#d57ec4'}
+            >
+              <SiStyledComponents
+                tabIndex="0"
+                alt="tech logo"
+                className="tech-link"
+                aria-label="Styled Components details"
+                onKeyDown={(e) => {
+                  const key = e.key || e.keyCode;
+                  if (key === 'Enter' || key === 13) {
+                    setSelected('styled');
+                  }
+                }}
+              />
+            </TechLink>
+          </li>
         </LinkCont>
       </StackGrid>
       <LineStyle theme={theme}></LineStyle>

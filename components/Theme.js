@@ -105,20 +105,20 @@ export default function Theme() {
       <ThemeDropDown theme={theme} show={show}>
         <DropDownArrow theme={theme} />
         <ul>
-          <li onClick={() => themeSetter('light')}>
-            <button>light</button>
+          <li>
+            <button onClick={() => themeSetter('light')}>light</button>
           </li>
-          <li onClick={() => themeSetter('dark')}>
-            <button>dark</button>
+          <li>
+            <button onClick={() => themeSetter('dark')}>dark</button>
           </li>
-          <li onClick={() => themeSetter('blue')}>
-            <button>blue</button>
+          <li>
+            <button onClick={() => themeSetter('blue')}>blue</button>
           </li>
-          <li onClick={() => themeSetter('rainbow')}>
-            <button>rainbows</button>
+          <li>
+            <button onClick={() => themeSetter('rainbow')}>rainbows</button>
           </li>
-          <li onClick={() => themeSetter('wild')}>
-            <button>go wild</button>
+          <li>
+            <button onClick={() => themeSetter('wild')}>go wild</button>
           </li>
         </ul>
       </ThemeDropDown>

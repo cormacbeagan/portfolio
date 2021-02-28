@@ -24,6 +24,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     height: 500px;
+    scroll-behavior: smooth;
     --dark: #333333;
     --brown: #757474;
     --offWhite: rgb(246, 246, 246);
@@ -109,6 +110,18 @@ body::-webkit-scrollbar-track {
     text-align: right;
     margin: 0;
     padding: 0;
+  }
+
+  .accessibly-hidden {
+    color: inherit;
+    border: 0;
+    clip: rect(0000);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
   }
 
 `;

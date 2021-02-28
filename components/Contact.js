@@ -98,17 +98,6 @@ const CopyStyle = styled.button`
       margin-left: -140px;
     }
   }
-  .accessibly-hidden {
-    color: ${(props) => props.theme.color};
-    border: 0;
-    clip: rect(0000);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-  }
 `;
 
 const HiddenLabel = styled.label`
@@ -153,7 +142,6 @@ const LinkStyle = styled.a`
   @media ${device.tablet} {
     margin: 1rem 0rem;
   }
-
   @media ${device.mobileL} {
     margin: 1rem 1rem;
   }
@@ -167,7 +155,7 @@ const LinkStyle = styled.a`
 `;
 
 const MsgStyle = styled.div`
-  margin: 2rem 0;
+  margin: 0.5rem 0;
   color: ${(props) => props.theme.color};
   background: white;
   box-shadow: ${(props) => props.theme.bs};
@@ -175,33 +163,39 @@ const MsgStyle = styled.div`
   text-align: center;
   padding: 0 1rem;
   background: transparent;
+  height: ${(props) => (props.show ? '3rem' : '0')};
+  opacity: ${(props) => (props.show ? '1' : '.5')};
+  overflow: hidden;
+  transition: all 800ms ease;
 `;
-// todo animate in please
 
 export default function Contact() {
   const { theme, text } = useTheme();
   const { inputs, handleChange, resetForm } = useForm({ text: '', email: '' });
   const [show, setShow] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
+  const [msg, setMsg] = useState('');
   const copyEmail = useRef();
+  const [showMsg, setShowMsg] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
     const resp = await sendMail(inputs);
     if (!resp.status) {
-      console.log(resp.message);
-      setError(resp.message);
+      setMsg(resp.message);
+      setShowMsg(true);
       setTimeout(() => {
-        setError('');
+        setMsg('');
+        setShowMsg(false);
       }, 5000);
       setLoading(false);
     } else {
-      setSuccess(true);
+      setShowMsg(true);
+      setMsg('Message sent - thank you');
       setTimeout(() => {
-        setSuccess(false);
+        setMsg('');
+        setShowMsg(false);
       }, 5000);
       resetForm();
       setLoading(false);
@@ -212,7 +206,7 @@ export default function Contact() {
     <ContactStackContainer id="contact">
       <H2Styles>{text.contact.heading}</H2Styles>
       <form onSubmit={handleSubmit}>
-        <HiddenLabel htmlFor="text">email text </HiddenLabel>
+        <HiddenLabel htmlFor="text">Enter message text </HiddenLabel>
         <TextStyles
           name="text"
           id="text"
@@ -223,7 +217,7 @@ export default function Contact() {
           required
         />
 
-        <HiddenLabel htmlFor="email">email address: </HiddenLabel>
+        <HiddenLabel htmlFor="email">Enter your email address: </HiddenLabel>
         <EmailStyles
           type="email"
           name="email"
@@ -242,10 +236,9 @@ export default function Contact() {
             {text.contact.sendButton}
           </BtnStyles>
         </div>
-        {success && (
-          <MsgStyle theme={theme}>Message sent - thank you!</MsgStyle>
-        )}
-        {error && <MsgStyle theme={theme}>Message not sent: {error}</MsgStyle>}
+        <MsgStyle theme={theme} show={showMsg}>
+          {msg}
+        </MsgStyle>
       </form>
       <LineStyle theme={theme}>
         <LinkStyle
@@ -293,17 +286,16 @@ export default function Contact() {
           </span>
           <FaCopy className="copy-btn" />
           <div className="text">Email address copied</div>
+          <input
+            className="accessibly-hidden"
+            ref={copyEmail}
+            name="email address"
+            type="text"
+            value="cor@macbeagan.me"
+            readOnly
+          ></input>
         </CopyStyle>
       </LineStyle>
-      <input
-        aria-hidden="true"
-        tabIndex="-1"
-        ref={copyEmail}
-        type="text"
-        value="cor@macbeagan.me"
-        style={{ opacity: '0' }}
-        readOnly
-      ></input>
     </ContactStackContainer>
   );
 }

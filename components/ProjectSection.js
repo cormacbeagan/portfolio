@@ -10,20 +10,26 @@ export default function ProjectSection() {
   const { text, theme } = useTheme();
   const [selected, setSelected] = useState(text.projects[0].name);
   const [mobile, setMobile] = useState(false);
+  const [motivation, setMotivation] = useState();
   useEffect(() => {
     if (window.innerWidth <= 420) {
       setMobile(true);
     }
+    setMotivation(document.getElementById('motivation'));
   }, []);
 
   const list = text.projects.map((item) => (
     <ListStyles
       key={item.name}
-      onClick={() => setSelected(item.name)}
+      onClick={() => {
+        setSelected(item.name);
+        motivation.focus();
+      }}
       onKeyDown={(e) => {
         const key = e.key || e.keyCode;
         if (key === 'Enter' || key === 13) {
           setSelected(item.name);
+          motivation.focus();
         }
       }}
       theme={theme}

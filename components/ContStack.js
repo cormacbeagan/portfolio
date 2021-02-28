@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { useTheme } from '../utils/themeState';
 
 export default function ContStack() {
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(true);
   const [mobile, setMobile] = useState(false);
   const { theme } = useTheme();
   const router = useRouter();

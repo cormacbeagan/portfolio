@@ -34,7 +34,7 @@ const HeadingStyles = styled.div`
     margin: 15rem 0 0 0;
   }
   @media ${device.mobileM} {
-    margin: 12rem 0 0 0;
+    margin: 8rem 0 0 0;
   }
   @media ${device.mobileS} {
     margin: 4rem 0 0 0;
@@ -51,12 +51,9 @@ const ParaStyles = styled.div`
 
 export default function Home() {
   const { theme, text } = useTheme();
-  const [heightValue, setHeightValue] = useState('100vh');
   const { height, width } = useDimensionSetter();
 
-  useEffect(() => {
-    setHeightValue(`${height}px`);
-  });
+  useEffect(() => {}, [height]);
   const paragraph = text.paragraph.map((item, index) => (
     <p key={index}>{item}</p>
   ));

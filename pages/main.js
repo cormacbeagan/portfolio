@@ -13,6 +13,7 @@ import Nav from '../components/Nav';
 import ContStack from '../components/ContStack';
 import { device } from '../components/styles/sizes';
 import { useEffect, useState } from 'react';
+import { useDimensionSetter } from '../utils/useDimensionSetter';
 
 const ThemeBody = styled.div`
   width: 100%;
@@ -50,12 +51,12 @@ const ParaStyles = styled.div`
 
 export default function Home() {
   const { theme, text } = useTheme();
-  const [height, setHeight] = useState('100vh');
+  const [heightValue, setHeightValue] = useState('100vh');
+  const { height, width } = useDimensionSetter();
 
   useEffect(() => {
-    const heightValue = window.innerHeight;
-    setHeight(`${heightValue}px`);
-  }, []);
+    setHeightValue(`${height}px`);
+  });
   const paragraph = text.paragraph.map((item, index) => (
     <p key={index}>{item}</p>
   ));

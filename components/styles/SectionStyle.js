@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { device } from './sizes';
 
 const SectionStyle = styled.section`
-  height: ${(props) => props.height};
+  height: ${(props) => props.height}px;
   display: grid;
   grid-template-columns: ${(props) => (props.flip ? '2fr 5fr' : '5fr 2fr')};
   scroll-snap-align: start;

@@ -105,7 +105,7 @@ export const text = {
     },
     react: {
       heading: 'React JS',
-      text: `With a number of courses (pro Codecademy Wed Development, the Odinproject and Wes Bos' Full-Stack Advanced-React), giving me the skills to start building I have truly learned the joy and satisfaction of building things with code through working with React. For an assessment of my skills please refer to the source code for this site, my radio player or my travelers tips site.`,
+      text: `With a number of courses (pro Codecademy Web Development, the Odinproject and Wes Bos' Full-Stack Advanced-React), giving me the skills to start building I have truly learned the joy and satisfaction of building things with code through working with React. For an assessment of my skills please refer to the source code for this site, my radio player or my travelers tips site.`,
     },
     node: {
       heading: 'Node JS',

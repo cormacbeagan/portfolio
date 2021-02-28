@@ -3,6 +3,7 @@ import { FaCopy } from 'react-icons/fa';
 import styled from 'styled-components';
 import { sendMail } from '../utils/email';
 import { useTheme } from '../utils/themeState';
+import { useDimensionSetter } from '../utils/useDimensionSetter';
 import useForm from '../utils/useForm';
 import BtnStyles from './styles/BtnStyles';
 import ContactStackContainer from './styles/ContactStackContainer';
@@ -16,7 +17,7 @@ const H2Styles = styled.h2`
 
 const TextStyles = styled.textarea`
   width: 90%;
-  height: 15rem;
+  height: ${(props) => (props.height < 400 ? '8rem' : '15rem')};
   padding: 1rem;
   border: none;
   border-radius: 10px;
@@ -177,6 +178,7 @@ export default function Contact() {
   const [msg, setMsg] = useState('');
   const copyEmail = useRef();
   const [showMsg, setShowMsg] = useState(false);
+  const { width, height } = useDimensionSetter();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -214,6 +216,7 @@ export default function Contact() {
           placeholder="Message:"
           value={inputs.text}
           onChange={handleChange}
+          height={height}
           required
         />
 

@@ -22,5 +22,8 @@ const ContactStackContainer = styled.div`
     margin: 3rem 0 0 0;
     width: 100%;
   }
+  @media ${device.mobileS} {
+    margin: 2rem 0 0 0;
+  }
 `;
 export default ContactStackContainer;

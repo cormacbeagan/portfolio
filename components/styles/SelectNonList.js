@@ -20,6 +20,7 @@ const SelectNonList = styled.div`
     font-weight: 500;
     cursor: ${(props) => (props.live ? 'pointer' : 'arrow')};
     text-align: ${(props) => (props.flip ? 'left' : 'right')};
+    color: ${(props) => props.theme.color};
     &:hover,
     &:focus {
       text-decoration: ${(props) => (props.live ? 'underline' : 'none')};

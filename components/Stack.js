@@ -341,7 +341,7 @@ export default function Contact() {
           <LineStyle theme={theme}></LineStyle>
         </StackContainer>
       </ArticleDisplay>
-      <SelectNonList flip live={selected !== 'main'}>
+      <SelectNonList live={selected !== 'main'} theme={theme}>
         <button
           onClick={() => {
             setSelected('main');

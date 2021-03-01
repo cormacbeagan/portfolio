@@ -229,7 +229,7 @@ export default function Contact() {
         <h2>contact</h2>
       </SelectNonList>
       <ArticleDisplay flip unflip>
-        <ContactContainer id="contact">
+        <ContactContainer>
           <H2Styles>{text.contact.heading}</H2Styles>
           <form onSubmit={handleSubmit}>
             <label htmlFor="text" className="accessibly-hidden">

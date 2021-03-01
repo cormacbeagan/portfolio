@@ -11,10 +11,10 @@ import Theme from '../components/Theme';
 import Wild from '../components/Wild';
 import Nav from '../components/Nav';
 import { device } from '../components/styles/sizes';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDimensionSetter } from '../utils/useDimensionSetter';
 import Contact from '../components/Contact';
-import StackCont from '../components/StackCont';
+import Stack from '../components/Stack';
 
 const ThemeBody = styled.div`
   width: 100%;
@@ -94,10 +94,10 @@ export default function Home() {
           <SectionStyle flip id="projects" height={height}>
             <ProjectSection />
           </SectionStyle>
-          <SectionStyle height={height}>
-            <StackCont />
+          <SectionStyle height={height} id="stack">
+            <Stack />
           </SectionStyle>
-          <SectionStyle height={height} flip>
+          <SectionStyle height={height} flip id="contact">
             <Contact />
           </SectionStyle>
         </main>

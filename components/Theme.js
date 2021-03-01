@@ -76,6 +76,7 @@ const ThemeDropDown = styled.div`
     &:hover,
     &:focus {
       text-decoration: underline;
+      cursor: pointer;
     }
   }
 `;

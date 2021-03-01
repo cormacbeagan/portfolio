@@ -11,20 +11,26 @@ const LinkDiv = styled.div`
 export default function ProjectLinks({ links }) {
   const { theme } = useTheme();
   const [display, setDisplay] = useState(false);
+  let timeout;
   function handleDisplay() {
     setDisplay(true);
   }
   function removeDisplay() {
-    console.log('calling');
-    setDisplay(false);
+    timeout = setTimeout(() => {
+      setDisplay(false);
+    });
+  }
+
+  function handleFocus() {
+    clearTimeout(timeout);
   }
   return (
     <ExDivStyles
+      tabIndex="0"
       onClick={handleDisplay}
       onFocus={handleDisplay}
       onBlur={removeDisplay}
       show={display}
-      tabIndex="0"
     >
       <HeadStyle>links</HeadStyle>
       <LinkDiv>
@@ -35,6 +41,7 @@ export default function ProjectLinks({ links }) {
             target="_blank"
             rel="noreferrer"
             theme={theme}
+            onFocus={handleFocus}
           >
             {item.text}
           </LinkStyles>

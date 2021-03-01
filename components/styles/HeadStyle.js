@@ -9,6 +9,10 @@ const HeadStyle = styled.h2`
   text-align: left;
   height: 3rem;
   margin: 0;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;
 
 export default HeadStyle;

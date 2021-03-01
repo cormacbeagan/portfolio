@@ -13,10 +13,17 @@ const SelectNonList = styled.div`
   padding: 0;
   z-index: 1;
   a,
-  h2 {
+  h2,
+  button {
     font-family: 'Abril Fatface';
     font-size: 3rem;
     font-weight: 500;
+    cursor: ${(props) => (props.live ? 'pointer' : 'arrow')};
+    text-align: ${(props) => (props.flip ? 'left' : 'right')};
+    &:hover,
+    &:focus {
+      text-decoration: ${(props) => (props.live ? 'underline' : 'none')};
+    }
   }
   @media ${device.tablet} {
     display: none;

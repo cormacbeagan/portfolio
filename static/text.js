@@ -10,7 +10,7 @@ export const text = {
     {
       name: 'radio player',
       links: [
-        { url: 'https://radio-player-5a684.web.app/', text: 'Live Site' },
+        { url: 'https://radio-player-5a684.web.app/', text: 'Demo' },
         { url: 'https://github.com/cormacbeagan/player', text: 'Repo' },
       ],
       descriptions: [

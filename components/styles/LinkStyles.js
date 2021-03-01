@@ -9,10 +9,7 @@ const LinkStyles = styled.a`
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
   transition: box-shadow 200ms;
   cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-    box-shadow: ${(props) => props.theme.bs};
-  }
+  &:hover,
   &:focus {
     text-decoration: underline;
     box-shadow: ${(props) => props.theme.bs};

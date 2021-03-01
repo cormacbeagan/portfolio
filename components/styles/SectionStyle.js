@@ -6,9 +6,10 @@ const SectionStyle = styled.section`
   display: grid;
   grid-template-columns: ${(props) => (props.flip ? '2fr 5fr' : '5fr 2fr')};
   scroll-snap-align: start;
-  @media ${device.mobileL} {
+  @media ${device.tablet} {
     display: flex;
-    margin: 0;
+    flex-direction: column;
+    margin: 0rem;
   }
 `;
 

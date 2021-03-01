@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { device } from './sizes';
 
-const SelectStyle = styled.ul`
+const SelectNonList = styled.div`
   width: 150px;
   display: flex;
   flex-direction: column;
@@ -23,4 +23,4 @@ const SelectStyle = styled.ul`
   }
 `;
 
-export default SelectStyle;
+export default SelectNonList;

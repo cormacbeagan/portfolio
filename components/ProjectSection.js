@@ -5,16 +5,24 @@ import ProjectDisplay from './ProjectDisplay';
 import ListStyles from './styles/ListStyles';
 import MobileSelect from './styles/MobileSelect';
 import SelectStyle from './styles/SelectStyle';
+import { useDimensionSetter } from '../utils/useDimensionSetter';
 
 export default function ProjectSection() {
   const { text, theme } = useTheme();
   const [selected, setSelected] = useState(text.projects[0].name);
+
+  const { width } = useDimensionSetter();
   const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    if (width <= 740) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+  }, [width]);
+
   const [motivation, setMotivation] = useState();
   useEffect(() => {
-    if (window.innerWidth <= 420) {
-      setMobile(true);
-    }
     setMotivation(document.getElementById('motivation'));
   }, []);
 
@@ -33,11 +41,12 @@ export default function ProjectSection() {
         }
       }}
       theme={theme}
+      selected={selected === item.name}
     >
-      <a tabIndex="0">
+      <button tabIndex="0">
         {item.name}
-        <span className="accessibly-hidden"> Project details</span>
-      </a>
+        <span className="accessibly-hidden">Open Project details</span>
+      </button>
     </ListStyles>
   ));
   return (

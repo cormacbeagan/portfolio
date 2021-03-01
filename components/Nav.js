@@ -1,13 +1,15 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useTheme } from '../utils/themeState';
 import { device } from './styles/sizes';
+import { useDimensionSetter } from '../utils/useDimensionSetter';
 
 const NavStyles = styled.ul`
   width: 100%;
   height: 2.5rem;
   margin: 0 auto;
-  padding: 0.5rem 0 1rem 0;
+  padding: 1rem 0 1.2rem 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -17,7 +19,9 @@ const NavStyles = styled.ul`
   bottom: 0px;
   position: fixed;
   z-index: 10;
-  background: rgba(0, 0, 0, 0.2);
+  background: ${(props) => props.theme.background};
+  opacity: ${(props) => (props.displayNav ? '1' : '0')};
+  transition: opacity 800ms ease;
   @media ${device.tablet} {
     font-size: 1.8rem;
   }
@@ -35,10 +39,33 @@ const NavItem = styled.li`
 
 export default function Nav() {
   const { theme } = useTheme();
+  const [displayNav, setDisplayNav] = useState(false);
+  const { width, height } = useDimensionSetter();
+
+  useEffect(() => {
+    if (width <= 740) {
+      setDisplayNav(true);
+    }
+  }, [width]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth <= 740) return;
+      if (window.scrollY >= height - 100) {
+        setDisplayNav(true);
+      } else {
+        setDisplayNav(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <nav>
-      <NavStyles>
+      <NavStyles theme={theme} displayNav={displayNav}>
         <NavItem theme={theme}>
           <Link href="#home">home</Link>
         </NavItem>

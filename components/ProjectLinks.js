@@ -15,17 +15,16 @@ export default function ProjectLinks({ links }) {
     setDisplay(true);
   }
   function removeDisplay() {
+    console.log('calling');
     setDisplay(false);
   }
   return (
     <ExDivStyles
-      onMouseEnter={handleDisplay}
-      onMouseOver={handleDisplay}
-      onMouseOut={removeDisplay}
-      onMouseLeave={removeDisplay}
+      onClick={handleDisplay}
       onFocus={handleDisplay}
       onBlur={removeDisplay}
       show={display}
+      tabIndex="0"
     >
       <HeadStyle>links</HeadStyle>
       <LinkDiv>

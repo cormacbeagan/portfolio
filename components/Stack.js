@@ -1,18 +1,44 @@
 import styled from 'styled-components';
 import { useTheme } from '../utils/themeState';
-import ContactStackContainer from './styles/ContactStackContainer';
 import { FaNodeJs } from 'react-icons/fa';
 import { GrReactjs } from 'react-icons/gr';
 import {
   SiCss3,
   SiFirebase,
   SiHtml5,
+  SiJava,
   SiJavascript,
   SiNextDotJs,
   SiStyledComponents,
 } from 'react-icons/si';
 import { device } from './styles/sizes';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+
+const StackContainer = styled.div`
+  margin: 0 0 0 auto;
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  @media ${device.laptop} {
+    width: 45rem;
+  }
+  @media ${device.tablet} {
+    width: 100%;
+  }
+  @media ${device.mobileL} {
+    min-height: 40rem;
+    margin: 7rem 0 0 0;
+    width: 100%;
+  }
+  @media ${device.mobileM} {
+    margin: 3rem 0 0 0;
+    width: 100%;
+  }
+  @media ${device.mobileS} {
+    margin: 7rem 0 0 0;
+  }
+`;
 
 const H2Styles = styled.h2`
   margin: 0 0 2rem 0;
@@ -63,7 +89,7 @@ const StackParaStyles = styled.p`
 const StackGrid = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
-  @media ${device.mobileM} {
+  @media ${device.tablet} {
     grid-template-columns: 5fr 1fr;
   }
   @media ${device.mobileS} {
@@ -77,6 +103,13 @@ const LinkCont = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media ${device.tablet} {
+    padding: 2rem;
+    width: 40px;
+    li {
+      width: 50px;
+    }
+  }
   @media ${device.mobileM} {
     padding: 0;
     width: 40px;
@@ -117,14 +150,12 @@ const LineStyle = styled.div`
   }
 `;
 
-// todo render the buttons from an array
-
 export default function Contact() {
   const { theme, text } = useTheme();
   const [selected, setSelected] = useState('main');
 
   return (
-    <ContactStackContainer>
+    <StackContainer id="stack">
       <StackGrid tabIndex="0">
         <StackDivStyles>
           <H2Styles>{text.stack.heading}</H2Styles>
@@ -305,6 +336,6 @@ export default function Contact() {
         </LinkCont>
       </StackGrid>
       <LineStyle theme={theme}></LineStyle>
-    </ContactStackContainer>
+    </StackContainer>
   );
 }

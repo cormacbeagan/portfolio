@@ -16,8 +16,6 @@ function ThemeProvider({ children }) {
     setMounted(true);
   }, []);
 
-  //* https://www.joshwcomeau.com/react/dark-mode/
-
   function themeSetter(theme) {
     setStorageValue(theme);
     setTheme(themes[theme]);

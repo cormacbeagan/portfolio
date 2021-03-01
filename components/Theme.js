@@ -8,15 +8,22 @@ const ThemeBtnStyle = styled.aside`
   color: ${(props) => props.theme.color};
   font-family: var(--abril);
   z-index: 10;
-  position: fixed;
+  position: absolute;
+  overflow: hidden;
   top: 20px;
   right: 20px;
   transition: height 2s ease;
-  &:hover {
-    text-decoration: underline;
-  }
+
   p {
     cursor: pointer;
+  }
+  .theme-btn {
+    cursor: pointer;
+    color: ${(props) => props.theme.color};
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
   }
   @media ${device.mobileL} {
     position: absolute;
@@ -44,9 +51,9 @@ const DropDownArrow = styled.div`
   transform: rotate(45deg);
 `;
 const ThemeDropDown = styled.div`
-  right: ${(props) => (props.show ? '0' : '-250px')};
-  top: ${(props) => (props.show ? '0' : '-150px')};
-  transform: ${(props) => (props.show ? 'rotate(0)' : 'rotate(-90deg)')};
+  height: ${(props) => (props.show ? '200px' : '0px')};
+  opacity: ${(props) => (props.show ? '1' : '0')};
+  visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
   margin: 0.5rem 0;
   position: relative;
   padding: 0.1rem 2rem;
@@ -61,7 +68,7 @@ const ThemeDropDown = styled.div`
   li {
     padding: 0;
   }
-  button {
+  .theme-li-btn {
     color: ${(props) =>
       props.theme.background.includes('line')
         ? 'grey'
@@ -73,53 +80,54 @@ const ThemeDropDown = styled.div`
   }
 `;
 
+const themes = ['light', 'dark', 'blue', 'rainbow', 'wild'];
+
 export default function Theme() {
   const { theme, themeSetter } = useTheme();
   const [show, setShow] = useState(false);
-  const btn = useRef();
-  useEffect(() => {
-    const themeBtn = btn.current;
+  const div = useRef();
+  let timeout;
 
-    function handleUp(e) {
-      if (!e.target.contains(themeBtn)) {
-        setShow(false);
-      }
-    }
-    document.addEventListener('click', handleUp);
-    return () => {
-      document.removeEventListener('click', handleUp);
-    };
-  }, []);
+  const handleBlur = () => {
+    timeout = setTimeout(() => {
+      setShow(false);
+    });
+  };
 
-  // todo add onEnter selection for themes
+  const handleFocus = () => {
+    clearTimeout(timeout);
+  };
+
   return (
-    <ThemeBtnStyle
-      ref={btn}
-      theme={theme}
-      onClick={() => setShow(true)}
-      onFocus={() => setShow(true)}
-      onBlur={() => setShow(false)}
-      tabIndex="0"
-    >
-      theme
-      <ThemeDropDown theme={theme} show={show}>
+    <ThemeBtnStyle ref={div} theme={theme} onBlur={handleBlur}>
+      <button
+        className="theme-btn"
+        theme={theme}
+        onFocus={() => {
+          setShow(true);
+          handleFocus();
+        }}
+        tabIndex="0"
+      >
+        theme
+      </button>
+      <ThemeDropDown theme={theme} show={show} aria-hidden={show}>
         <DropDownArrow theme={theme} />
         <ul>
-          <li>
-            <button onClick={() => themeSetter('light')}>light</button>
-          </li>
-          <li>
-            <button onClick={() => themeSetter('dark')}>dark</button>
-          </li>
-          <li>
-            <button onClick={() => themeSetter('blue')}>blue</button>
-          </li>
-          <li>
-            <button onClick={() => themeSetter('rainbow')}>rainbows</button>
-          </li>
-          <li>
-            <button onClick={() => themeSetter('wild')}>go wild</button>
-          </li>
+          {themes.map((theme, index) => (
+            <li key={index}>
+              <button
+                className="theme-li-btn"
+                onClick={() => {
+                  themeSetter(theme);
+                  setShow(false);
+                }}
+                onFocus={handleFocus}
+              >
+                {theme === 'wild' ? 'go wild' : theme}
+              </button>
+            </li>
+          ))}
         </ul>
       </ThemeDropDown>
     </ThemeBtnStyle>

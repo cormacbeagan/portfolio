@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 export const useDimensionSetter = () => {
-  const isSSR = typeof window === 'undefined';
+  const notSSR = typeof window !== 'undefined';
   const [dimensions, setDimensions] = useState({
-    width: isSSR ? 1200 : window.innerWidth,
-    height: isSSR ? 800 : window.innerHeight,
+    width: notSSR ? window.innerWidth : 1000,
+    height: notSSR ? window.innerHeight : 800,
   });
 
   useEffect(() => {

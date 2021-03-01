@@ -5,11 +5,41 @@ import { sendMail } from '../utils/email';
 import { useTheme } from '../utils/themeState';
 import { useDimensionSetter } from '../utils/useDimensionSetter';
 import useForm from '../utils/useForm';
+import ArticleDisplay from './ArticleDisplay';
 import BtnStyles from './styles/BtnStyles';
-import ContactStackContainer from './styles/ContactStackContainer';
+import SelectNonList from './styles/SelectNonList';
 import { device } from './styles/sizes';
 
-const H2Styles = styled.h2`
+const ContactContainer = styled.div`
+  margin: 0 auto 0 0;
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media ${device.laptop} {
+    width: 45rem;
+  }
+  @media ${device.tablet} {
+    width: 100%;
+    align-items: flex-end;
+    margin: 7rem 0 0 0;
+  }
+  @media ${device.mobileL} {
+    min-height: 40rem;
+    margin: 7rem 0 0 0;
+    width: 100%;
+  }
+  @media ${device.mobileM} {
+    margin: 3rem 0 0 0;
+    width: 100%;
+  }
+  @media ${device.mobileS} {
+    margin: 5rem 0 0 0;
+  }
+`;
+
+const H2Styles = styled.h3`
   margin: 0.5rem;
   font-family: var(--oleo);
   font-size: 3rem;
@@ -99,17 +129,6 @@ const CopyStyle = styled.button`
       margin-left: -140px;
     }
   }
-`;
-
-const HiddenLabel = styled.label`
-  border: 0;
-  clip: rect(0000);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
 `;
 
 const LineStyle = styled.div`
@@ -205,100 +224,114 @@ export default function Contact() {
   }
 
   return (
-    <ContactStackContainer id="contact">
-      <H2Styles>{text.contact.heading}</H2Styles>
-      <form onSubmit={handleSubmit}>
-        <HiddenLabel htmlFor="text">Enter message text </HiddenLabel>
-        <TextStyles
-          name="text"
-          id="text"
-          theme={theme}
-          placeholder="Message:"
-          value={inputs.text}
-          onChange={handleChange}
-          height={height}
-          required
-        />
+    <>
+      <SelectNonList flip>
+        <h2>contact</h2>
+      </SelectNonList>
+      <ArticleDisplay flip unflip>
+        <ContactContainer id="contact">
+          <H2Styles>{text.contact.heading}</H2Styles>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="text" className="accessibly-hidden">
+              Enter message text{' '}
+            </label>
+            <TextStyles
+              name="text"
+              id="text"
+              theme={theme}
+              placeholder="Message:"
+              value={inputs.text}
+              onChange={handleChange}
+              height={height}
+              required
+            />
 
-        <HiddenLabel htmlFor="email">Enter your email address: </HiddenLabel>
-        <EmailStyles
-          type="email"
-          name="email"
-          id="email"
-          theme={theme}
-          placeholder="email"
-          value={inputs.email}
-          onChange={handleChange}
-          required
-        />
-        <div>
-          <BtnStyles type="button" theme={theme} onClick={resetForm}>
-            {text.contact.clearButton}
-          </BtnStyles>
-          <BtnStyles type="submit" disabled={loading} theme={theme}>
-            {text.contact.sendButton}
-          </BtnStyles>
-        </div>
-        <MsgStyle theme={theme} show={showMsg}>
-          {msg}
-        </MsgStyle>
-      </form>
-      <LineStyle theme={theme}>
-        <LinkStyle
-          href="https://twitter.com/Mac53637606"
-          rel="noreferrer"
-          target="_blank"
-          theme={theme}
-        >
-          twitter
-        </LinkStyle>
-        <LinkStyle
-          href="https://www.instagram.com/macbeagan/"
-          rel="noreferrer"
-          target="_blank"
-          theme={theme}
-        >
-          insta
-        </LinkStyle>
-        <LinkStyle
-          href="https://github.com/cormacbeagan"
-          rel="noreferrer"
-          target="_blank"
-          theme={theme}
-        >
-          github
-        </LinkStyle>
-        <LinkStyle theme={theme} href="mailto:cor@macbeagan.me">
-          email
-        </LinkStyle>
-        <CopyStyle
-          theme={theme}
-          show={show}
-          onClick={() => {
-            const email = copyEmail.current;
-            email.select();
-            document.execCommand('copy');
-            setShow(1);
-            setTimeout(() => {
-              setShow(0);
-            }, 1500);
-          }}
-        >
-          <span className="accessibly-hidden">
-            copy email address to clipboard
-          </span>
-          <FaCopy className="copy-btn" />
-          <div className="text">Email address copied</div>
-          <input
-            className="accessibly-hidden"
-            ref={copyEmail}
-            name="email address"
-            type="text"
-            value="cor@macbeagan.me"
-            readOnly
-          ></input>
-        </CopyStyle>
-      </LineStyle>
-    </ContactStackContainer>
+            <label htmlFor="email" className="accessibly-hidden">
+              Enter your email address:{' '}
+            </label>
+            <EmailStyles
+              type="email"
+              name="email"
+              id="email"
+              theme={theme}
+              placeholder="email"
+              value={inputs.email}
+              onChange={handleChange}
+              required
+            />
+            <div>
+              <BtnStyles type="button" theme={theme} onClick={resetForm}>
+                {text.contact.clearButton}
+              </BtnStyles>
+              <BtnStyles type="submit" disabled={loading} theme={theme}>
+                {text.contact.sendButton}
+              </BtnStyles>
+            </div>
+            <MsgStyle theme={theme} show={showMsg}>
+              {msg}
+            </MsgStyle>
+          </form>
+          <LineStyle theme={theme}>
+            <LinkStyle
+              href="https://twitter.com/Mac53637606"
+              rel="noreferrer"
+              target="_blank"
+              theme={theme}
+            >
+              twitter
+            </LinkStyle>
+            <LinkStyle
+              href="https://www.instagram.com/macbeagan/"
+              rel="noreferrer"
+              target="_blank"
+              theme={theme}
+            >
+              insta
+            </LinkStyle>
+            <LinkStyle
+              href="https://github.com/cormacbeagan"
+              rel="noreferrer"
+              target="_blank"
+              theme={theme}
+            >
+              github
+            </LinkStyle>
+            <LinkStyle theme={theme} href="mailto:cor@macbeagan.me">
+              email
+            </LinkStyle>
+            <CopyStyle
+              theme={theme}
+              show={show}
+              onClick={() => {
+                const email = copyEmail.current;
+                email.select();
+                document.execCommand('copy');
+                setShow(1);
+                setTimeout(() => {
+                  setShow(0);
+                }, 1500);
+              }}
+            >
+              <span className="accessibly-hidden">
+                copy email address to clipboard
+              </span>
+              <FaCopy className="copy-btn" />
+              <div className="text">Email address copied</div>
+              <label className="accessibly-hidden">
+                My contact email:
+                <input
+                  className="accessibly-hidden"
+                  ref={copyEmail}
+                  name="email address"
+                  type="text"
+                  value="cor@macbeagan.me"
+                  readOnly
+                ></input>
+              </label>
+            </CopyStyle>
+          </LineStyle>
+        </ContactContainer>
+      </ArticleDisplay>
+    </>
   );
 }

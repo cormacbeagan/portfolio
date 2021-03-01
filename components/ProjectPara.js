@@ -28,10 +28,7 @@ export default function ProjectPara({ description }) {
   return (
     <ExDivStyles
       tabIndex="0"
-      onMouseEnter={handleDisplay}
-      onMouseOver={handleDisplay}
-      onMouseOut={removeDisplay}
-      onMouseLeave={removeDisplay}
+      onClick={handleDisplay}
       onFocus={handleDisplay}
       onBlur={removeDisplay}
       show={display}

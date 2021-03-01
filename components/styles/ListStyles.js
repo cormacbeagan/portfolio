@@ -16,6 +16,12 @@ const ListStyles = styled.li`
     font-size: 24px;
     color: ${(props) => props.theme.color};
   }
+  button {
+    margin: 0;
+    font-size: 24px;
+    color: ${(props) => props.theme.color};
+    text-decoration: ${(props) => (props.selected ? 'underline' : 'none')};
+  }
 `;
 
 export default ListStyles;

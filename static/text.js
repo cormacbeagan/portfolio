@@ -1,5 +1,3 @@
-import { FaLandmark } from 'react-icons/fa';
-
 export const text = {
   one: 'Mac Beagan',
   two: 'Web Developer',

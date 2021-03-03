@@ -6,7 +6,7 @@ const SelectNonList = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: ${(props) => (props.flip ? 'right' : 'left')};
+  text-align: ${(props) => (props.flip ? 'left' : 'right')};
   margin-left: ${(props) => (props.flip ? 'auto' : '5rem')};
   margin-right: ${(props) => (props.flip ? '5rem' : 'auto')};
   line-height: 2;
@@ -19,7 +19,7 @@ const SelectNonList = styled.div`
     font-size: 3rem;
     font-weight: 500;
     cursor: ${(props) => (props.live ? 'pointer' : 'arrow')};
-    text-align: ${(props) => (props.flip ? 'left' : 'right')};
+    text-align: ${(props) => (props.flip ? 'right' : 'left')};
     color: ${(props) => props.theme.color};
     &:hover,
     &:focus {

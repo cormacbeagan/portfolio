@@ -23,8 +23,7 @@ const GlobalStyles = createGlobalStyle`
   html {
     margin: 0;
     padding: 0;
-    height: 500px;
-    scroll-behavior: smooth;
+    overflow: hidden;
     --dark: #333333;
     --brown: #757474;
     --offWhite: rgb(246, 246, 246);
@@ -40,39 +39,22 @@ const GlobalStyles = createGlobalStyle`
     --lineGradGo: linear-gradient(rgb(18, 48, 69), rgb(246, 246, 246), rgb(18, 48, 69));
     --bsLight: 0 5px 10px rgba(0,0,0, 0.2);
     --bsDark: 0 10px 20px rgba(0,0,0, 0.5);
-    box-sizing: border-box;
     font-size: 62.5%;
     --maxWidth: 1000px;
     --kanit: Kanit;
     --oleo: 'Oleo Script';
     --abril: 'Abril Fatface';
-    scroll-snap-type: y proximity;
   }
-  ${'' /* todo add manadtory scroll snapping when the chrome bug is fixed */}
-
+ 
   body {
     font-family: 'Kanit', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
     font-size: 2rem;
     line-height: 1.5;
-    color: var(--dark);
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0,0,0,0.2) #333333;
+    overflow: hidden;
   }
 
-  body::-webkit-scrollbar {
-      width: 9px;
-  }
-
-body::-webkit-scrollbar-track {
-      background: rgba(0,0,0,0.2);
-  }
-
-  body::-webkit-scrollbar-thumb {
-      background-color: #333333;
-      border-radius: 6px;
-  }
 
 *:focus {
   outline: none;

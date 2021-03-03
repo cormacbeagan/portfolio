@@ -17,9 +17,30 @@ import Contact from '../components/Contact';
 import Stack from '../components/Stack';
 
 const ThemeBody = styled.div`
+  position: relative;
   width: 100%;
+  height: 100vh;
   background: ${(props) => props.theme.background};
   color: ${(props) => props.theme.color};
+  overflow-y: scroll;
+  scroll-snap-type: y
+    ${(props) =>
+      props.theme.background.includes('line') ? 'mandatory' : 'proximity'};
+  scrollbar-width: normal;
+  scrollbar-color: ${(props) => props.theme.color} rgba(0, 0, 0, 0.2);
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme.color};
+    border-radius: 6px;
+  }
 `;
 
 const ListStyle = styled.li`
@@ -67,7 +88,7 @@ export default function Home() {
         />
         <title>Mac Beagan | Web Developer</title>
       </Head>
-      <ThemeBody theme={theme}>
+      <ThemeBody theme={theme} id="root">
         <Nav />
         {theme.isWild && <Wild theme={theme} />}
         <main>

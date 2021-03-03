@@ -26,6 +26,9 @@ const MobileSelect = styled.ul`
     font-size: 2rem;
     font-weight: 500;
     margin: auto 0.7rem;
+    button {
+      text-align: center;
+    }
     @media ${device.mobileL} {
       font-size: 2rem;
       line-height: 1.2;

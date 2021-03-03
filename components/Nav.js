@@ -10,18 +10,19 @@ const NavStyles = styled.ul`
   height: 2.5rem;
   margin: 0 auto;
   padding: 1rem 0 1.2rem 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  bottom: 0px;
+  right: 12px;
+  position: fixed;
   list-style-type: none;
   font-family: 'Abril Fatface';
   font-size: 2rem;
-  bottom: 0px;
-  position: fixed;
-  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   background: ${(props) => props.theme.background};
   opacity: ${(props) => (props.displayNav ? '1' : '0')};
   transition: opacity 800ms ease;
+  z-index: 10;
   @media ${device.tablet} {
     font-size: 1.8rem;
   }
@@ -49,17 +50,18 @@ export default function Nav() {
   }, [width]);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (e) => {
       if (window.innerWidth <= 740) return;
-      if (window.scrollY >= height - 100) {
+      if (e.target.scrollTop >= height - 100) {
         setDisplayNav(true);
       } else {
         setDisplayNav(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    const root = document.getElementById('root');
+    root.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      root.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

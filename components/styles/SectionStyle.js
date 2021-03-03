@@ -6,6 +6,7 @@ const SectionStyle = styled.section`
   display: grid;
   grid-template-columns: ${(props) => (props.flip ? '2fr 5fr' : '5fr 2fr')};
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   @media ${device.tablet} {
     display: flex;
     flex-direction: column;

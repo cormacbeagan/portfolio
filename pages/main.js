@@ -26,7 +26,7 @@ const ThemeBody = styled.div`
 const ScrollContent = styled.div`
   z-index: 2;
   width: 100%;
-  height: 100vh;
+  height: ${(props) => props.height}px;
   position: relative;
   overflow-y: scroll;
   scroll-snap-type: y proximity;
@@ -94,7 +94,7 @@ export default function Home() {
       </Head>
       <ThemeBody theme={theme}>
         {theme.isWild && <Wild theme={theme} />}
-        <ScrollContent theme={theme} id="root">
+        <ScrollContent theme={theme} id="root" height={height}>
           <Nav />
           <main>
             <SectionStyle id="home" height={height}>

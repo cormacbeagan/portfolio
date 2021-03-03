@@ -34,8 +34,8 @@ const ContactContainer = styled.div`
     margin: 3rem 0 0 0;
     width: 100%;
   }
-  @media ${device.mobileS} {
-    margin: 5rem 0 0 0;
+  @media (max-height: 460px) {
+    margin: 1rem 0 0 0;
   }
 `;
 

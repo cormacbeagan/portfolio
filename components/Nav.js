@@ -50,6 +50,7 @@ export default function Nav() {
   }, [width]);
 
   useEffect(() => {
+    window.scrollTo(0, 1);
     const handleScroll = (e) => {
       if (window.innerWidth <= 740) return;
       if (e.target.scrollTop >= height - 100) {

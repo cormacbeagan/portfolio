@@ -18,14 +18,18 @@ import Stack from '../components/Stack';
 
 const ThemeBody = styled.div`
   position: relative;
-  width: 100%;
-  height: 100vh;
+  z-index: 0;
   background: ${(props) => props.theme.background};
   color: ${(props) => props.theme.color};
+`;
+
+const ScrollContent = styled.div`
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  position: relative;
   overflow-y: scroll;
-  scroll-snap-type: y
-    ${(props) =>
-      props.theme.background.includes('line') ? 'mandatory' : 'proximity'};
+  scroll-snap-type: y proximity;
   scrollbar-width: normal;
   scrollbar-color: ${(props) => props.theme.color} rgba(0, 0, 0, 0.2);
   scroll-behavior: smooth;
@@ -88,41 +92,43 @@ export default function Home() {
         />
         <title>Mac Beagan | Web Developer</title>
       </Head>
-      <ThemeBody theme={theme} id="root">
-        <Nav />
+      <ThemeBody theme={theme}>
         {theme.isWild && <Wild theme={theme} />}
-        <main>
-          <SectionStyle id="home" height={height}>
-            <ArticleDisplay top>
-              <HeadingStyles>
-                <H1Styles>{text.one}</H1Styles>
-                <H1Styles>{text.two}</H1Styles>
-                <ParaStyles>{paragraph}</ParaStyles>
-              </HeadingStyles>
-            </ArticleDisplay>
-            <SelectStyle>
-              <ListStyle theme={theme}>
-                <Link href="#projects">projects</Link>
-              </ListStyle>
-              <ListStyle theme={theme}>
-                <Link href="#stack">stack</Link>
-              </ListStyle>
-              <ListStyle theme={theme}>
-                <Link href="#contact">contact</Link>
-              </ListStyle>
-            </SelectStyle>
-          </SectionStyle>
-          <SectionStyle flip id="projects" height={height}>
-            <ProjectSection />
-          </SectionStyle>
-          <SectionStyle height={height} id="stack">
-            <Stack />
-          </SectionStyle>
-          <SectionStyle height={height} flip id="contact">
-            <Contact />
-          </SectionStyle>
-        </main>
-        <Theme />
+        <ScrollContent theme={theme} id="root">
+          <Nav />
+          <main>
+            <SectionStyle id="home" height={height}>
+              <ArticleDisplay top>
+                <HeadingStyles>
+                  <H1Styles>{text.one}</H1Styles>
+                  <H1Styles>{text.two}</H1Styles>
+                  <ParaStyles>{paragraph}</ParaStyles>
+                </HeadingStyles>
+              </ArticleDisplay>
+              <SelectStyle>
+                <ListStyle theme={theme}>
+                  <Link href="#projects">projects</Link>
+                </ListStyle>
+                <ListStyle theme={theme}>
+                  <Link href="#stack">stack</Link>
+                </ListStyle>
+                <ListStyle theme={theme}>
+                  <Link href="#contact">contact</Link>
+                </ListStyle>
+              </SelectStyle>
+            </SectionStyle>
+            <SectionStyle flip id="projects" height={height}>
+              <ProjectSection />
+            </SectionStyle>
+            <SectionStyle height={height} id="stack">
+              <Stack />
+            </SectionStyle>
+            <SectionStyle height={height} flip id="contact">
+              <Contact />
+            </SectionStyle>
+          </main>
+          <Theme />
+        </ScrollContent>
       </ThemeBody>
     </>
   );

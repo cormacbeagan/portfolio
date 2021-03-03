@@ -19,7 +19,7 @@ const movingStars = keyframes`
 `;
 
 const WildContainer = styled.div`
-  z-index: 0;
+  z-index: -1;
   position: fixed;
   width: 100vw;
   height: 100vh;

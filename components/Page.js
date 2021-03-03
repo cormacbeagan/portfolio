@@ -23,6 +23,7 @@ const GlobalStyles = createGlobalStyle`
   html {
     margin: 0;
     padding: 0;
+    height: 100vh;
     overflow: hidden;
     --dark: #333333;
     --brown: #757474;
@@ -50,6 +51,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Kanit', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
+    height: 100%;
     font-size: 2rem;
     line-height: 1.5;
     overflow: hidden;

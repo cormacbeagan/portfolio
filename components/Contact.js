@@ -34,7 +34,7 @@ const ContactContainer = styled.div`
     margin: 3rem 0 0 0;
     width: 100%;
   }
-  @media (max-height: 490px) {
+  @media (max-height: 470px) {
     margin: 1.5rem 0 0 0;
   }
 `;
@@ -54,7 +54,7 @@ const TextStyles = styled.textarea`
   box-shadow: ${(props) => props.theme.bs};
   font-family: var(--kanit);
   font-size: 2rem;
-  text-align: right;
+  text-align: inherit;
   @media ${device.mobileM} {
     width: 93%;
   }
@@ -69,7 +69,7 @@ const EmailStyles = styled.input`
   border-radius: 5px;
   font-family: var(--kanit);
   font-size: 2rem;
-  text-align: right;
+  text-align: inherit;
   z-index: 2;
   @media ${device.tablet} {
     width: 90%;

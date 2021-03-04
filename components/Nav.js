@@ -13,7 +13,6 @@ const NavStyles = styled.ul`
   bottom: 0px;
   right: 12px;
   position: fixed;
-  overflow-anchor: none;
   list-style-type: none;
   font-family: 'Abril Fatface';
   font-size: 2rem;

@@ -196,13 +196,14 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState('');
   const copyEmail = useRef();
-  const sendBtn = useRef();
+  const message = useRef();
   const [showMsg, setShowMsg] = useState(false);
   const { width, height } = useDimensionSetter();
 
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
+    message.current.focus();
     const resp = await sendMail(inputs);
     if (!resp.status) {
       setMsg(resp.message);
@@ -261,19 +262,21 @@ export default function Contact() {
               required
             />
             <div>
-              <BtnStyles type="button" theme={theme} onClick={resetForm}>
+              <BtnStyles
+                type="button"
+                theme={theme}
+                onClick={() => {
+                  resetForm();
+                  message.current.focus();
+                }}
+              >
                 {text.contact.clearButton}
               </BtnStyles>
-              <BtnStyles
-                type="submit"
-                ref={sendBtn}
-                disabled={loading}
-                theme={theme}
-              >
+              <BtnStyles type="submit" disabled={loading} theme={theme}>
                 {text.contact.sendButton}
               </BtnStyles>
             </div>
-            <MsgStyle theme={theme} show={showMsg}>
+            <MsgStyle theme={theme} ref={message} show={showMsg}>
               {msg}
             </MsgStyle>
           </form>

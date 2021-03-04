@@ -17,7 +17,6 @@ const BorderStyle = styled.div`
 
 const ArticleStyles = styled.article`
   height: ${(props) => props.height}px;
-  overflow: hidden;
   text-align: ${(props) => (props.flip ? 'left' : 'right')};
   margin: ${(props) => (props.flip ? '0 0 0 3px' : '0 3px 0 0')};
   position: relative;

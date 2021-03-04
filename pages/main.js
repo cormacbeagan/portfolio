@@ -28,6 +28,8 @@ const ScrollContent = styled.div`
   width: 100%;
   height: ${(props) => props.height}px;
   position: relative;
+  bottom: 0;
+  left: 0;
   overflow-y: scroll;
   scroll-snap-type: y proximity;
   scrollbar-width: normal;

@@ -3,6 +3,7 @@ import { device } from './sizes';
 
 const MobileSelect = styled.ul`
   margin: 0;
+  margin-top: 1px;
   height: 8.4rem;
   width: 100vw;
   margin-left: -2rem;

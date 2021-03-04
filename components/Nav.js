@@ -13,6 +13,7 @@ const NavStyles = styled.ul`
   bottom: 0px;
   right: 12px;
   position: fixed;
+  overflow-anchor: none;
   list-style-type: none;
   font-family: 'Abril Fatface';
   font-size: 2rem;
@@ -58,17 +59,9 @@ export default function Nav() {
         setDisplayNav(false);
       }
     };
-    const ell = window.document.documentElement;
-    const handleFullscreen = () => {
-      console.log('callin');
-      root.requestFullscreen();
-    };
 
     const root = document.getElementById('root');
     root.addEventListener('scroll', handleScroll);
-    root.addEventListener('touchend', handleFullscreen, {
-      once: true,
-    });
     return () => {
       root.removeEventListener('scroll', handleScroll);
     };

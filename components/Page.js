@@ -23,7 +23,6 @@ const GlobalStyles = createGlobalStyle`
   html {
     margin: 0;
     padding: 0;
-    height: 100vh;
     overflow: hidden;
     --dark: #333333;
     --brown: #757474;
@@ -57,10 +56,9 @@ const GlobalStyles = createGlobalStyle`
     overflow: hidden;
   }
 
-
-*:focus {
-  outline: none;
-}
+  *:focus {
+    outline: none;
+  }
 
   a:focus,
   button:focus {

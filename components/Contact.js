@@ -196,6 +196,7 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState('');
   const copyEmail = useRef();
+  const sendBtn = useRef();
   const [showMsg, setShowMsg] = useState(false);
   const { width, height } = useDimensionSetter();
 
@@ -263,7 +264,12 @@ export default function Contact() {
               <BtnStyles type="button" theme={theme} onClick={resetForm}>
                 {text.contact.clearButton}
               </BtnStyles>
-              <BtnStyles type="submit" disabled={loading} theme={theme}>
+              <BtnStyles
+                type="submit"
+                ref={sendBtn}
+                disabled={loading}
+                theme={theme}
+              >
                 {text.contact.sendButton}
               </BtnStyles>
             </div>

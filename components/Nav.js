@@ -58,10 +58,18 @@ export default function Nav() {
         setDisplayNav(false);
       }
     };
+    const handleFullscreen = (e) => {
+      const requestFullScreen =
+        e.target.requestFullscreen ||
+        e.target.mozRequestFullScreen ||
+        e.target.webkitRequestFullScreen ||
+        e.target.msRequestFullscreen;
+      requestFullScreen();
+    };
+
     const root = document.getElementById('root');
     root.addEventListener('scroll', handleScroll);
-    root.scrollTo(0, 1);
-
+    root.addEventListener('scroll', handleFullscreen, { once: true });
     return () => {
       root.removeEventListener('scroll', handleScroll);
     };

@@ -3,6 +3,7 @@ import { device } from './sizes';
 
 const SectionStyle = styled.section`
   height: ${(props) => props.height}px;
+  min-height: 480px;
   display: grid;
   grid-template-columns: ${(props) => (props.flip ? '2fr 5fr' : '5fr 2fr')};
   overflow: hidden;

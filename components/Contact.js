@@ -34,7 +34,7 @@ const ContactContainer = styled.div`
     margin: 3rem 0 0 0;
     width: 100%;
   }
-  @media (max-height: 460px) {
+  @media (max-height: 490px) {
     margin: 1.5rem 0 0 0;
   }
 `;
@@ -47,7 +47,7 @@ const H2Styles = styled.h3`
 
 const TextStyles = styled.textarea`
   width: 90%;
-  height: ${(props) => (props.height < 400 ? '8rem' : '15rem')};
+  height: ${(props) => (props.height < 490 ? '8rem' : '15rem')};
   padding: 1rem;
   border: none;
   border-radius: 10px;
@@ -196,14 +196,12 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState('');
   const copyEmail = useRef();
-  const message = useRef();
   const [showMsg, setShowMsg] = useState(false);
   const { width, height } = useDimensionSetter();
 
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    message.current.focus();
     const resp = await sendMail(inputs);
     if (!resp.status) {
       setMsg(resp.message);
@@ -262,21 +260,14 @@ export default function Contact() {
               required
             />
             <div>
-              <BtnStyles
-                type="button"
-                theme={theme}
-                onClick={() => {
-                  resetForm();
-                  message.current.focus();
-                }}
-              >
+              <BtnStyles type="button" theme={theme} onClick={resetForm}>
                 {text.contact.clearButton}
               </BtnStyles>
               <BtnStyles type="submit" disabled={loading} theme={theme}>
                 {text.contact.sendButton}
               </BtnStyles>
             </div>
-            <MsgStyle theme={theme} ref={message} show={showMsg}>
+            <MsgStyle theme={theme} show={showMsg}>
               {msg}
             </MsgStyle>
           </form>

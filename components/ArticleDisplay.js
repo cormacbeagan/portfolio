@@ -37,7 +37,7 @@ const ArticleInnerStyle = styled.div`
   padding: 2rem 6rem;
   @media ${device.tablet} {
     padding: 20rem 2rem;
-    height: 100vh;
+    height: 100%;
   }
   @media ${device.mobileL} {
     padding: 0 2rem;

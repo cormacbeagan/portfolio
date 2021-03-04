@@ -10,7 +10,7 @@ export const useDimensionSetter = () => {
   useEffect(() => {
     const debouncedResizeHandle = debounce(() => {
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    }, 100);
+    });
     window.addEventListener('resize', debouncedResizeHandle);
     return () => window.removeEventListener('resize', debouncedResizeHandle);
   }, []);

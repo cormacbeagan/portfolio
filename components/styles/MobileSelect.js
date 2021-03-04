@@ -5,13 +5,15 @@ const MobileSelect = styled.ul`
   margin: 0;
   height: 8.4rem;
   width: 100vw;
+  position: absolute;
+  top: 0;
   margin-left: -2rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: center;
   line-height: 2;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 1rem 0.8rem;
   z-index: 1;
   list-style-type: none;
   background: ${(props) => props.theme.background};

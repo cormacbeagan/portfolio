@@ -166,7 +166,7 @@ const LinkStyle = styled.a`
     margin: 1rem 1rem;
   }
   @media ${device.mobileM} {
-    margin: 1rem 0.5rem;
+    margin: 1rem 0.3rem;
   }
   @media ${device.mobileS} {
     margin: 1rem 0;

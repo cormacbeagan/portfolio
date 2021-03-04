@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useTheme } from '../utils/themeState';
+import { useDimensionSetter } from '../utils/useDimensionSetter';
 import { device } from './styles/sizes';
 
 const BorderStyle = styled.div`
@@ -15,7 +16,7 @@ const BorderStyle = styled.div`
 `;
 
 const ArticleStyles = styled.article`
-  height: 100%;
+  height: ${(props) => props.height}px;
   overflow: hidden;
   text-align: ${(props) => (props.flip ? 'left' : 'right')};
   margin: ${(props) => (props.flip ? '0 0 0 3px' : '0 3px 0 0')};
@@ -49,8 +50,9 @@ const ArticleInnerStyle = styled.div`
 
 export default function ArticleDisplay({ children, flip, unflip, top }) {
   const { theme } = useTheme();
+  const { height, width } = useDimensionSetter();
   return (
-    <ArticleStyles theme={theme} flip={flip} unflip={unflip}>
+    <ArticleStyles theme={theme} flip={flip} unflip={unflip} height={height}>
       <ArticleInnerStyle>{children}</ArticleInnerStyle>
       <BorderStyle theme={theme} flip={flip} top={top} />
     </ArticleStyles>

@@ -53,7 +53,7 @@ export default function ProjectSection() {
     <>
       {!mobile && <SelectStyle flip>{list}</SelectStyle>}
       <ArticleDisplay flip>
-        {mobile && <MobileSelect>{list}</MobileSelect>}
+        {mobile && <MobileSelect theme={theme}>{list}</MobileSelect>}
         <ProjectDisplay
           project={text.projects.find((item) => item.name === selected)}
         />

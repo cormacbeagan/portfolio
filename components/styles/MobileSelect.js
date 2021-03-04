@@ -14,9 +14,9 @@ const MobileSelect = styled.ul`
   padding: 1rem 2rem;
   z-index: 1;
   list-style-type: none;
-  background: rgba(0, 0, 0, 0.2);
+  background: ${(props) => props.theme.background};
+  background: rgba(0, 0, 0, 0.1);
   text-align: center;
-
   @media ${device.mobileS} {
     margin-left: -1rem;
   }

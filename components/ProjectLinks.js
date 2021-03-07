@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { useTheme } from '../utils/themeState';
 import ExDivStyles from './styles/ExDivStyles';
-import HeadStyle from './styles/HeadStyle';
 import LinkStyles from './styles/LinkStyles';
 
 const LinkDiv = styled.div`
@@ -32,7 +31,7 @@ export default function ProjectLinks({ links }) {
       onBlur={removeDisplay}
       show={display}
     >
-      <HeadStyle>links</HeadStyle>
+      <h2>links</h2>
       <LinkDiv>
         {links.map((item) => (
           <LinkStyles

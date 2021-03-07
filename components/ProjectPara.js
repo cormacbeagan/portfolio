@@ -1,26 +1,13 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 import ExDivStyles from './styles/ExDivStyles';
-import HeadStyle from './styles/HeadStyle';
-import { device } from './styles/sizes';
-
-const PStyles = styled.p`
-  width: 80%;
-  margin: 0rem;
-  font-family: var(--kanit);
-  @media ${device.tablet} {
-    width: 100%;
-  }
-  @media ${device.mobileL} {
-    font-size: 1.8rem;
-  }
-`;
 
 export default function ProjectPara({ description }) {
   const [display, setDisplay] = useState(false);
 
   function handleDisplay() {
-    setDisplay(true);
+    setTimeout(() => {
+      setDisplay(true);
+    }, 100);
   }
   function removeDisplay() {
     setDisplay(false);
@@ -31,11 +18,11 @@ export default function ProjectPara({ description }) {
       onClick={handleDisplay}
       onFocus={handleDisplay}
       onBlur={removeDisplay}
-      show={display}
+      show={display ? 1 : 0}
       id={description.heading}
     >
-      <HeadStyle>{description.heading}</HeadStyle>
-      <PStyles show={display}>{description.paragraph}</PStyles>
+      <h2>{description.heading}</h2>
+      <p show={display}>{description.paragraph}</p>
     </ExDivStyles>
   );
 }

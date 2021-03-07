@@ -8,6 +8,7 @@ const SectionStyle = styled.section`
   overflow: hidden;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  transition: height 400ms ease;
   @media ${device.tablet} {
     display: flex;
     flex-direction: column;

@@ -64,7 +64,7 @@ export const text = {
         {
           heading: 'Motivation',
           paragraph:
-            "The mews media has a significant impact on stress and wellbeing. For the 'Hack and Wellness' hackathon we built a chrome extension which allows the user to interact with and quantify the negative content they consume.",
+            "The news media has a significant impact on stress and wellbeing. For the 'Hack and Wellness' hackathon we built a chrome extension which allows the user to interact with and quantify the negative content they consume.",
         },
         {
           heading: 'Challenges',

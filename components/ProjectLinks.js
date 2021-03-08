@@ -31,7 +31,7 @@ export default function ProjectLinks({ links }) {
       onBlur={removeDisplay}
       show={display}
     >
-      <h2>links</h2>
+      <h2>Links</h2>
       <LinkDiv>
         {links.map((item) => (
           <LinkStyles

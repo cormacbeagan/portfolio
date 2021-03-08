@@ -15,12 +15,12 @@ export const text = {
       ],
       descriptions: [
         {
-          heading: 'motivation',
+          heading: 'Motivation',
           paragraph:
             'Fed up with shazaming songs from my favorite radio station in order to add them to Spotify I decided to make an app which does just this.',
         },
         {
-          heading: 'challenges',
+          heading: 'Challenges',
           paragraph:
             'As my first react app creating this project posed many challenges. From getting the Web Audio API to work across browsers, querying an API with bit chunks all the way to presenting data in a meaningfull manner and adding keyboard controls for ease of use. ',
         },
@@ -37,12 +37,12 @@ export const text = {
       ],
       descriptions: [
         {
-          heading: 'motivation',
+          heading: 'Motivation',
           paragraph:
             'For years I have been looking for ways to recommend works of Graffiti to guests of the Hostel where I have been working, it is however not easy to give someone directions to a random motorway bridge over the river...',
         },
         {
-          heading: 'challenges',
+          heading: 'Challenges',
           paragraph:
             'This site gave many learning opportunities - building a site with its own content management, handling state with Redux, getting to grips with JS date objects, routing with React-Router and storing data and photos with firebase to name but a few.',
         },
@@ -62,12 +62,12 @@ export const text = {
       ],
       descriptions: [
         {
-          heading: 'motivation',
+          heading: 'Motivation',
           paragraph:
             "The mews media has a significant impact on stress and wellbeing. For the 'Hack and Wellness' hackathon we built a chrome extension which allows the user to interact with and quantify the negative content they consume.",
         },
         {
-          heading: 'challenges',
+          heading: 'Challenges',
           paragraph:
             'As my first team project taking full advantage of Git and GitHub was a great learning experience. The other challenges were configuring Webpack, creating and presenting data analysis in a purely client side setup as well as working to a tight deadline - the hackathon lasted 48hrs',
         },

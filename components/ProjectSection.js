@@ -23,7 +23,7 @@ export default function ProjectSection() {
 
   const [motivation, setMotivation] = useState();
   useEffect(() => {
-    setMotivation(document.getElementById('motivation'));
+    setMotivation(document.getElementById('Motivation'));
   }, []);
 
   const list = text.projects.map((item) => (

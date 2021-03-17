@@ -43,7 +43,7 @@ const ArticleInnerStyle = styled.div`
     padding: 0 2rem;
   }
   @media ${device.mobileS} {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
 `;
 

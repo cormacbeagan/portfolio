@@ -61,6 +61,9 @@ const StackDivStyles = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media ${device.mobileS} {
+    margin: 1rem;
+  }
 `;
 const StackHeadingStyles = styled.h3`
   font-size: 2.5rem;
@@ -78,9 +81,6 @@ const StackParaStyles = styled.p`
   margin: 0 0 0 auto;
   @media ${device.tablet} {
     width: 100%;
-  }
-  @media ${device.mobileM} {
-    font-size: 1.8rem;
   }
   @media ${device.mobileS} {
     margin: 0;

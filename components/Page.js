@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { device } from './styles/sizes';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -104,6 +105,16 @@ const GlobalStyles = createGlobalStyle`
     overflow: hidden;
     padding: 0;
     position: absolute;
+  }
+  p {
+    @media ${device.mobileL} {
+      font-size: 1.8rem;
+      line-height: 1.3;
+    }
+    @media ${device.mobileS} {
+      font-size: 1.6rem;
+      line-height: 1.2;
+    }
   }
 
 `;

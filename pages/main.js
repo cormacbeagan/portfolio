@@ -65,7 +65,7 @@ const HeadingStyles = styled.div`
     margin: 8rem 0 0 0;
   }
   @media ${device.mobileS} {
-    margin: 4rem 0 0 0;
+    margin: 8rem 2rem 0 2rem;
   }
 `;
 

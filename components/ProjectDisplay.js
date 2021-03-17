@@ -14,7 +14,7 @@ const DivStyles = styled.div`
     width: 90vw;
   }
   @media ${device.mobileM} {
-    margin-top: 12rem;
+    margin-top: 8rem;
     justify-content: flex-start;
   }
   @media ${device.mobileS} {

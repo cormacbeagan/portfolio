@@ -19,25 +19,33 @@ const MobileSelect = styled.ul`
   background: ${(props) => props.theme.background};
   background: rgba(0, 0, 0, 0.1);
   text-align: center;
+  @media ${device.mobileL} {
+    height: 7rem;
+  }
   @media ${device.mobileS} {
     margin-left: -1rem;
+    padding: 0.5rem 2rem 0.5rem 0.8rem;
   }
 
   li {
     font-family: 'Abril Fatface';
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 500;
     margin: auto 0.7rem;
     button {
       text-align: center;
-    }
-    @media ${device.mobileL} {
-      font-size: 2rem;
-      line-height: 1.2;
-    }
-    @media ${device.mobileS} {
-      font-size: 1.8rem;
-      line-height: 1;
+      @media ${device.mobileL} {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+      @media ${device.mobileL} {
+        font-size: 1.9rem;
+        line-height: 1.2;
+      }
+      @media ${device.mobileS} {
+        font-size: 1.8rem;
+        line-height: 1;
+      }
     }
   }
 `;

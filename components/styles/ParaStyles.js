@@ -49,8 +49,6 @@ const ParaStyles = styled.article`
   }
   @media ${device.mobileL} {
     margin: 0;
-  }
-  @media ${device.mobileL} {
     padding: 0;
   }
 `;

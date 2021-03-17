@@ -98,6 +98,7 @@ export default function Home() {
         {theme.isWild && <Wild theme={theme} />}
         <ScrollContent theme={theme} id="root" height={height}>
           <Nav />
+          <Theme />
           <main>
             <SectionStyle id="home" height={height}>
               <ArticleDisplay top>
@@ -129,7 +130,6 @@ export default function Home() {
               <Contact />
             </SectionStyle>
           </main>
-          <Theme />
         </ScrollContent>
       </ThemeBody>
     </>

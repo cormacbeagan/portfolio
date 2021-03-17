@@ -3,34 +3,15 @@ import styled from 'styled-components';
 import { useTheme } from '../utils/themeState';
 import ExDivStyles from './styles/ExDivStyles';
 import LinkStyles from './styles/LinkStyles';
+import ParaStyles from './styles/ParaStyles';
 
 const LinkDiv = styled.div`
   padding: 3rem 0;
 `;
 export default function ProjectLinks({ links }) {
   const { theme } = useTheme();
-  const [display, setDisplay] = useState(false);
-  let timeout;
-  function handleDisplay() {
-    setDisplay(true);
-  }
-  function removeDisplay() {
-    timeout = setTimeout(() => {
-      setDisplay(false);
-    });
-  }
-
-  function handleFocus() {
-    clearTimeout(timeout);
-  }
   return (
-    <ExDivStyles
-      tabIndex="0"
-      onClick={handleDisplay}
-      onFocus={handleDisplay}
-      onBlur={removeDisplay}
-      show={display}
-    >
+    <ParaStyles>
       <h2>Links</h2>
       <LinkDiv>
         {links.map((item) => (
@@ -40,12 +21,11 @@ export default function ProjectLinks({ links }) {
             target="_blank"
             rel="noreferrer"
             theme={theme}
-            onFocus={handleFocus}
           >
             {item.text}
           </LinkStyles>
         ))}
       </LinkDiv>
-    </ExDivStyles>
+    </ParaStyles>
   );
 }

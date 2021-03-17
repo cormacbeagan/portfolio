@@ -21,29 +21,22 @@ export default function ProjectSection() {
     }
   }, [width]);
 
-  const [motivation, setMotivation] = useState();
-  useEffect(() => {
-    setMotivation(document.getElementById('Motivation'));
-  }, []);
-
   const list = text.projects.map((item) => (
     <ListStyles
       key={item.name}
       onClick={() => {
         setSelected(item.name);
-        motivation.focus();
       }}
       onKeyDown={(e) => {
         const key = e.key || e.keyCode;
         if (key === 'Enter' || key === 13) {
           setSelected(item.name);
-          motivation.focus();
         }
       }}
       theme={theme}
       selected={selected === item.name}
     >
-      <button tabIndex="0">
+      <button>
         {item.name}
         <span className="accessibly-hidden">Open Project details</span>
       </button>
@@ -51,6 +44,7 @@ export default function ProjectSection() {
   ));
   return (
     <>
+      <h1 className="accessibly-hidden">Projects Section</h1>
       {!mobile && <SelectStyle flip>{list}</SelectStyle>}
       <ArticleDisplay flip>
         {mobile && <MobileSelect theme={theme}>{list}</MobileSelect>}

@@ -31,7 +31,7 @@ const ScrollContent = styled.div`
   bottom: 0;
   left: 0;
   overflow-y: scroll;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   scrollbar-width: normal;
   scrollbar-color: ${(props) => props.theme.color} rgba(0, 0, 0, 0.2);
   scroll-behavior: smooth;

@@ -103,8 +103,10 @@ export default function Home() {
             <SectionStyle id="home" height={height}>
               <ArticleDisplay top>
                 <HeadingStyles>
-                  <H1Styles>{text.one}</H1Styles>
-                  <H1Styles>{text.two}</H1Styles>
+                  <H1Styles>
+                    <h1>{text.one}</h1>
+                    <h2>{text.two}</h2>
+                  </H1Styles>
                   <ParaStyles>{paragraph}</ParaStyles>
                 </HeadingStyles>
               </ArticleDisplay>

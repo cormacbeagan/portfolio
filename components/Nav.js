@@ -67,7 +67,7 @@ export default function Nav() {
   }, []);
 
   return (
-    <nav>
+    <nav onFocus={() => setDisplayNav(true)}>
       <NavStyles theme={theme} displayNav={displayNav}>
         <NavItem theme={theme}>
           <Link href="#home">home</Link>

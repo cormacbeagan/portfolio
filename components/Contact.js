@@ -43,6 +43,7 @@ const H2Styles = styled.h3`
   margin: 0.5rem;
   font-family: var(--oleo);
   font-size: 3rem;
+  font-weight: normal;
 `;
 
 const TextStyles = styled.textarea`

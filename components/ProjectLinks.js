@@ -18,7 +18,7 @@ export default function ProjectLinks({ links }) {
           <LinkStyles
             key={item.url}
             href={item.url}
-            target="_blank"
+            {...(item.isInternal ? 'target="_blank"' : null)}
             rel="noreferrer"
             theme={theme}
           >

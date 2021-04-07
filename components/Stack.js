@@ -45,6 +45,7 @@ const H2Styles = styled.h2`
   margin: 0 0 2rem 0;
   font-family: var(--oleo);
   font-size: 3rem;
+  font-weight: normal;
   @media ${device.tablet} {
     font-size: 2.2rem;
   }
@@ -68,6 +69,8 @@ const StackDivStyles = styled.div`
 const StackHeadingStyles = styled.h3`
   font-size: 2.5rem;
   font-family: var(--oleo);
+  font-weight: normal;
+
   @media ${device.tablet} {
     font-size: 2rem;
   }

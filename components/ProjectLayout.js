@@ -62,10 +62,17 @@ const MDXStyles = styled.section`
   }
 
   h3 {
+    margin-top: 30px;
+
     font-size: 30px;
   }
   a {
     color: ${(props) => props.theme.color};
+    text-decoration: underline;
+    &:hover,
+    &:focus {
+      color: red;
+    }
   }
 `;
 
@@ -86,7 +93,7 @@ export default function ProjectLayout({ children }) {
       <nav>
         <NavList theme={theme} displayNav>
           <li theme={theme}>
-            <Link href="/">Home</Link>
+            <Link href="/#projects">Home</Link>
           </li>
         </NavList>
       </nav>

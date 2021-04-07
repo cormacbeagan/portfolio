@@ -1,7 +1,6 @@
 import ProjectLayout from '../components/ProjectLayout';
 import { GridStyles } from '../components/styles/ProjectStyles';
 import { useTheme } from '../utils/themeState';
-// export const { theme } = useTheme();
 export const meta = {
   title: 'Visit Munich',
   author: 'Mac Beagan',
@@ -13,7 +12,11 @@ export const meta = {
 
 <GridStyles >
 
-<img src="/graffiti.png" alt="Visit Munich homepage screenshot" height="350" />
+<img
+  src="https://res.cloudinary.com/adv-react-tut/image/upload/v1617812773/graffiti_zsy3c4.png"
+  alt="Visit Munich homepage screenshot"
+  height="350"
+/>
 <p>
   For years I have been looking for a way to recommend works of street art to
   the guests of the hostel where I have been working for these past years.
@@ -28,37 +31,31 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 </GridStyles>
 
-<!-- ## The Tech Stack
-
-1. [React](#react)
-2. <a href="#firebase">Firebase</a>
-3. [Redux](#redux)
-4. [Styled-Components](#styled-components) -->
-
 ### React
 
 <GridStyles flip grow fade>
-<div>
-<p>
-  The project was started with Create React App, and makes good use of Reacts
-  component base architecture and the latest functional/hook based syntax.
-</p>
-<p>
-  It has however grown significantly from the original graffiti map leading to
-  the adoption of a few advanced features:
-</p>
+  <div>
+    <p>
+      The project was started with Create React App, and makes good use of
+      Reacts component base architecture and the latest functional/hook based
+      syntax.
+    </p>
+    <p>
+      It has however grown significantly from the original graffiti map leading
+      to the adoption of a few advanced features:
+    </p>
+    <p>&#x2192; Code splitting with React lazy loading and Suspense</p>
+    <p>&#x2192; Using the Browser router to handle dynamic routing</p>
+    <p> &#x2192; Custom hooks to keep components clean and readable</p>
+
 </div>
 <img
-  src="/visit-home.png"
+  src="https://res.cloudinary.com/adv-react-tut/image/upload/v1617812848/visit-home_itqymn.png"
   alt="Visit Munich homepage screenshot"
   height="280"
 />
 
 </GridStyles>
-
-- &#x2192; Code splitting with React lazy loading and Suspense
-- &#x2192; Using the Browser router to handle dynamic routing
-- &#x2192; Custom hooks to keep components clean and readable
 
 <br />
 

@@ -1,0 +1,79 @@
+import ProjectLayout from '../components/ProjectLayout';
+import { GridStyles } from '../components/styles/ProjectStyles';
+import { useTheme } from '../utils/themeState';
+import Flipper from '../components/Flipper';
+export const meta = {
+  title: 'Visit Munich',
+  author: 'Mac Beagan',
+};
+
+# Radio Player
+
+## A React SPA with music recognition
+
+<GridStyles grow fade>
+<div>
+<img src="/2day-home.png" alt="Player homepage screenshot" width="400" />
+<p>Radio 2day website</p>
+</div>
+<p>
+  Radio 2Day the Munich based radio station has a classic website straight out of the 90s, if you wish to know what song is or was playing they recommend sending an email... They clearly concentrate their efforts on what they know best - their music selection is spectacularly good and I strongly recommmend having a{' '}
+  <a href="https://radio2day.de/index.php" rel="noreferrer" target="_blank">
+    listen
+  </a>
+  .
+</p>
+
+</GridStyles>
+
+The plan was to make a React app which recognises whatever song is playing and gives the option of adding it to a Spotify playlist. With some experience working with React and using external APIs gained through Codecademy I decided to dive in.
+As a first independant project I had no plan and no idea how or even if it could or would work.
+
+### Audd.io
+
+<GridStyles flip>
+
+I chose the <a href="https://audd.io/" rel="noreferrer" target="_blank">Audd.io</a> music recognition API as a good straight forward music recognition service with clear documentation. Cost was also a big factor their 2$ indie plan offering 1000 calls per month fitted well. They also offer a streaming service where they will take a stream and send all the songs however that would have just been too easy..
+Finally after much head scratching, wrapping my head around the Javascript Web Audio API, creating audio recordings as binary data attaching it to the http body along with all the right headers to my great surprise I finally got a succesfull response which almost caused me to fall off my chair.
+
+<div>
+{/* https://blog.bitsrc.io/best-practices-in-using-iframes-with-react-6193feaa1e08 */}
+  <iframe src="https://radio-player-5a684.web.app/" title="Radio Player" style={{height: '510px', width: '350px', border: 'none'}}></iframe>
+
+</div>
+
+</GridStyles>
+
+### Spotify
+
+<div id="redux" />
+
+<GridStyles>
+  <img
+    src="/player-diamonds.png"
+    alt="Radio Player screenshot"
+    height="430"
+    style={{margin: '0 30px'}}
+  />
+
+The app queries the Spotify API for song details and album cover art as well as to create and add to a playlist. It uses two different authorization flows to access the API. For adding songs to the users profile it uses the client side implicit grant flow with the user signing in through Spotify.
+For accessing song data and to facilitate using the app without a spotify account the app uses Firbase cloud functions for token generation which keeps Spotify secret API keys server side.
+
+</GridStyles>
+
+### Keyboard Accessibility
+
+<Flipper>
+
+<p>
+  As a player which I use regularly keyboard controls were a great addition to
+  the usability of the app. The app is fully tab accessible and additionally the
+  &#x2191; &#x2193; gives volume control, the spacebar can be used for play and
+  pause, C for checking the song and S for adding to Spotify.
+</p>
+
+</Flipper>
+
+export default ({ children }) => (
+  <ProjectLayout meta={meta}>{children}</ProjectLayout>
+);

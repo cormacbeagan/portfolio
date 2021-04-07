@@ -81,9 +81,6 @@ export default function Nav() {
         <NavItem theme={theme}>
           <Link href="#contact">contact</Link>
         </NavItem>
-        <NavItem theme={theme}>
-          <Link href="/visit-munich">Project</Link>
-        </NavItem>
       </NavStyles>
     </nav>
   );

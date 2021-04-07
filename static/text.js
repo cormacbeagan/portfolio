@@ -10,31 +10,18 @@ export const text = {
     "Munich based web developer looking for my first professional experience. I build websites using React and co. Originally from Edinburgh, Scotland I have dual Irish British citizenship and grew up on a farm. You can see what I'm working on in my projects and for any questions or comments please don't hesitate to drop me a line.",
   projects: [
     {
-      name: 'radio player',
-      links: [
-        { url: 'https://radio-player-5a684.web.app/', text: 'Demo' },
-        { url: 'https://github.com/cormacbeagan/player', text: 'Repo' },
-      ],
-      descriptions: [
-        {
-          heading: 'Motivation',
-          paragraph:
-            'Fed up with shazaming songs from my favorite radio station in order to add them to Spotify I decided to make an app which does just this.',
-        },
-        {
-          heading: 'Challenges',
-          paragraph:
-            'As my first react app creating this project posed many challenges. From getting the Web Audio API to work across browsers, querying an API with bit chunks all the way to presenting data in a meaningfull manner and adding keyboard controls for ease of use. ',
-        },
-      ],
-    },
-    {
       name: 'visit munich',
       links: [
-        { url: 'https://visit-munich.web.app/', text: 'Live Site' },
+        { url: '/visit-munich', text: 'Tech Details', isExt: false },
+        {
+          url: 'https://visit-munich.web.app/',
+          text: 'Live Site',
+          isExt: true,
+        },
         {
           url: 'https://github.com/cormacbeagan/visit-munich',
           text: 'Repo',
+          isExt: true,
         },
       ],
       descriptions: [
@@ -51,15 +38,45 @@ export const text = {
       ],
     },
     {
+      name: 'radio player',
+      links: [
+        { url: '/player', text: 'Tech Details', isExt: false },
+        {
+          url: 'https://radio-player-5a684.web.app/',
+          text: 'Demo',
+          isExt: true,
+        },
+        {
+          url: 'https://github.com/cormacbeagan/player',
+          text: 'Repo',
+          isExt: true,
+        },
+      ],
+      descriptions: [
+        {
+          heading: 'Motivation',
+          paragraph:
+            'Fed up with shazaming songs from my favorite radio station in order to add them to Spotify I decided to make an app which does just this.',
+        },
+        {
+          heading: 'Challenges',
+          paragraph:
+            'As my first react app creating this project posed many challenges. From getting the Web Audio API to work across browsers, querying an API with bit chunks all the way to presenting data in a meaningfull manner and adding keyboard controls for ease of use. ',
+        },
+      ],
+    },
+    {
       name: 'neg-o-meter',
       links: [
         {
           url: 'https://devpost.com/software/wellnews',
           text: 'Devpost',
+          isExt: true,
         },
         {
           url: 'https://github.com/cormacbeagan/MHLWellnessHackathon',
           text: 'Repo',
+          isExt: true,
         },
       ],
       descriptions: [

@@ -48,15 +48,21 @@ const MDXStyles = styled.section`
   padding: 30px 20px;
   max-width: 800px;
   text-align: justify;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--abril);
+    font-weight: normal;
+  }
   h1 {
     font-size: 48px;
-  }
-  h2 {
   }
 
   h3 {
     font-size: 30px;
-    font-weight: bold;
   }
   a {
     color: ${(props) => props.theme.color};

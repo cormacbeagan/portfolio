@@ -76,9 +76,11 @@ const StackHeadingStyles = styled.h3`
   }
 `;
 const StackParaStyles = styled.p`
-  width: 80%;
+  width: 100%;
   height: auto;
   margin: 0 0 0 auto;
+  text-align: justify;
+  text-align-last: right;
   @media ${device.tablet} {
     width: 100%;
   }

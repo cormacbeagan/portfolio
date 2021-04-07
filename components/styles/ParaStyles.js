@@ -6,6 +6,8 @@ const ParaStyles = styled.article`
   position: relative;
   margin: 0.75rem 0;
   padding: 0.75rem 1rem;
+  text-align: justify;
+
   p {
     width: 80%;
     margin: 1.5rem 0 0 0;
@@ -29,7 +31,7 @@ const ParaStyles = styled.article`
   h2 {
     font-family: var(--oleo);
     font-size: 3rem;
-    font-weight: bold;
+    font-weight: normal;
     text-align: left;
     height: 3rem;
     margin: 0;

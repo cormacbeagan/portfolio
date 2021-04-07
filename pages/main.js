@@ -37,9 +37,11 @@ const HeadingStyles = styled.div`
   }
 `;
 
-const ParaStyles = styled.div`
+const ParaStylesMain = styled.div`
   max-width: 700px;
   margin: 0 0 0 auto;
+  text-align: justify;
+  text-align-last: right;
   p {
     margin: 0;
   }
@@ -75,11 +77,7 @@ export default function Home() {
                     <h1>{text.one}</h1>
                     <h2>{text.two}</h2>
                   </H1Styles>
-                  <ParaStyles>
-                    <p style={{ textAlign: 'justify', textAlignLast: 'right' }}>
-                      {text.paragraphOne}
-                    </p>
-                  </ParaStyles>
+                  <ParaStylesMain>{text.paragraphOne}</ParaStylesMain>
                 </HeadingStyles>
               </ArticleDisplay>
               <SelectStyle>

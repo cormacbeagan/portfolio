@@ -1,0 +1,128 @@
+import ProjectLayout from '../components/ProjectLayout';
+import { GridStyles } from '../components/styles/ProjectStyles';
+import { useTheme } from '../utils/themeState';
+// export const { theme } = useTheme();
+export const meta = {
+  title: 'Visit Munich',
+  author: 'Mac Beagan',
+};
+
+# Visit Munich
+
+## A React SPA hosted on Firebase
+
+<GridStyles >
+
+<img src="/graffiti.png" alt="Visit Munich homepage screenshot" height="350" />
+<p>
+  For years I have been looking for a way to recommend works of street art to
+  the guests of the hostel where I have been working for these past years.
+  However it is not easy to give someone directions to a random motorway bridge
+  over the Isar....
+</p>
+
+</GridStyles>
+
+<GridStyles>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting
+
+</GridStyles>
+
+<!-- ## The Tech Stack
+
+1. [React](#react)
+2. <a href="#firebase">Firebase</a>
+3. [Redux](#redux)
+4. [Styled-Components](#styled-components) -->
+
+### React
+
+<GridStyles flip grow fade>
+<div>
+<p>
+  The project was started with Create React App, and makes good use of Reacts
+  component base architecture and the latest functional/hook based syntax.
+</p>
+<p>
+  It has however grown significantly from the original graffiti map leading to
+  the adoption of a few advanced features:
+</p>
+</div>
+<img
+  src="/visit-home.png"
+  alt="Visit Munich homepage screenshot"
+  height="280"
+/>
+
+</GridStyles>
+
+- &#x2192; Code splitting with React lazy loading and Suspense
+- &#x2192; Using the Browser router to handle dynamic routing
+- &#x2192; Custom hooks to keep components clean and readable
+
+<br />
+
+### Firebase
+
+<div id="firebase" />
+
+<GridStyles flip>
+
+With my priority being to get up and running with a working MVP Firbase seemed
+like an obvious choice given that they will handle authorisation. I used the Firstore
+database to store user generated entries with content management handled on the
+frontend. Images are stored using firebase storage and image compression is run
+client side. Firebase Auth handles authorisation and gives users access to the
+content management/ user profile section of the site.
+
+<div
+  style={{
+    width: '380px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+  }}
+>
+  <img
+    src="/signup.png"
+    alt="Visit Munich sign up page screenshot"
+    height="240"
+  />
+  <img
+    src="/edit-blog.png"
+    alt="Visit Munich edit page screenshot"
+    width="380"
+  />
+</div>
+
+</GridStyles>
+
+### Redux
+
+<div id="redux" />
+
+<GridStyles grow fade>
+  <img
+    src="/brudermühl.png"
+    alt="Visit Munich edit page screenshot"
+    height="220"
+  />
+
+The app implements Redux stores for handling state, uses Redux Thunk for the async logic which updates the backend and makes extensive use of the hooks provided by React Redux. I also use the data subscription hooks provided by React-Redux-Firebase.
+
+</GridStyles>
+
+### Styled-Components
+
+<div id="styled-components" />
+
+<GridStyles>
+  Having started with inline CSS I soon found that as the project grew this was
+  becoming more and more inpractical so switched to Styled Components as they
+  offer a neet component based syntax which fits well with React. Nesting and
+  the ability to pass in props was
+</GridStyles>
+
+export default ({ children }) => (
+  <ProjectLayout meta={meta}>{children}</ProjectLayout>
+);

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { device } from './sizes';
 
 const SelectStyle = styled.ul`
-  width: 150px;
+  width: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;

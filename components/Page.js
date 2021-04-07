@@ -43,7 +43,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 62.5%;
     --maxWidth: 1000px;
     --kanit: Kanit;
-    --oleo: 'Oleo Script';
+    --oleo: 'Abril Fatface';/*'Oleo Script';*/
     --abril: 'Abril Fatface';
   }
  

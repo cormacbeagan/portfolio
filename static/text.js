@@ -6,6 +6,8 @@ export const text = {
     'Originally from Edinburgh, Scotland I have dual Irish British citizenship and grew up on a farm.',
     "You can see what I'm working on in my projects and for any questions or comments please don't hesitate to drop me a line.",
   ],
+  paragraphOne:
+    "Munich based web developer looking for my first professional experience. I build websites using React and co. Originally from Edinburgh, Scotland I have dual Irish British citizenship and grew up on a farm. You can see what I'm working on in my projects and for any questions or comments please don't hesitate to drop me a line.",
   projects: [
     {
       name: 'radio player',

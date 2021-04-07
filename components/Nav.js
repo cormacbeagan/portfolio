@@ -5,7 +5,7 @@ import { useTheme } from '../utils/themeState';
 import { device } from './styles/sizes';
 import { useDimensionSetter } from '../utils/useDimensionSetter';
 
-const NavStyles = styled.ul`
+export const NavStyles = styled.ul`
   width: 100%;
   height: 2.5rem;
   margin: 0 auto;
@@ -28,7 +28,7 @@ const NavStyles = styled.ul`
   }
 `;
 
-const NavItem = styled.li`
+export const NavItem = styled.li`
   margin: 0 1rem;
   a {
     color: ${(props) => props.theme.color};
@@ -80,6 +80,9 @@ export default function Nav() {
         </NavItem>
         <NavItem theme={theme}>
           <Link href="#contact">contact</Link>
+        </NavItem>
+        <NavItem theme={theme}>
+          <Link href="/visit-munich">Project</Link>
         </NavItem>
       </NavStyles>
     </nav>

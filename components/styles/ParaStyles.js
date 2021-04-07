@@ -12,6 +12,7 @@ const ParaStyles = styled.article`
     font-family: var(--kanit);
     transition: all 400ms ease;
     line-height: 1.5;
+
     @media ${device.tablet} {
       width: 100%;
     }

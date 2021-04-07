@@ -18,7 +18,7 @@ const ListStyles = styled.li`
   }
   button {
     margin: 0;
-    font-size: 24px;
+    font-size: 30px;
     cursor: pointer;
     color: ${(props) => props.theme.color};
     text-decoration: ${(props) => (props.selected ? 'underline' : 'none')};

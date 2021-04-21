@@ -12,7 +12,7 @@ export const text = {
     {
       name: 'visit munich',
       links: [
-        { url: '/visit-munich', text: 'Tech Details', isExt: false },
+        { url: '/visit-munich', text: 'Details', isExt: false },
         {
           url: 'https://visit-munich.web.app/',
           text: 'Live Site',
@@ -40,7 +40,7 @@ export const text = {
     {
       name: 'radio player',
       links: [
-        { url: '/player', text: 'Tech Details', isExt: false },
+        { url: '/player', text: 'Details', isExt: false },
         {
           url: 'https://radio-player-5a684.web.app/',
           text: 'Demo',

@@ -1,5 +1,5 @@
 const { default: styled } = require('styled-components');
-
+import { device } from './sizes';
 export const GridStyles = styled.div`
   margin: 30px 0;
   display: flex;
@@ -7,7 +7,7 @@ export const GridStyles = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   p {
-    width: 350px;
+    width: ${(props) => (props.single ? '100%' : '350px')};
   }
   img {
     margin: ${(props) => (props.flip ? '0 0 40px 0' : '0 20px 0 0')};
@@ -18,16 +18,47 @@ export const GridStyles = styled.div`
       opacity: 1;
     }
   }
+  .double-img {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .floyd-img {
+    @media ${device.tablet} {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
 
   /* // todo add all screen sizes */
-  @media (max-width: 500px) {
+  @media ${device.tablet} {
+    flex-direction: column;
     p {
-      max-width: 280px;
+      width: 100%;
     }
     img {
-      max-width: 280px;
+      max-width: 100%;
       height: auto;
       margin: 20px 0;
+      opacity: 1;
+      &:hover {
+        transform: none;
+      }
     }
+    .double-img {
+      width: 100%;
+    }
+  }
+`;
+
+export const RightHeading = styled.h3`
+  width: 100%;
+  max-width: 350px;
+  text-align: right;
+  margin: 0 !important;
+  @media ${device.tablet} {
+    text-align: left;
   }
 `;

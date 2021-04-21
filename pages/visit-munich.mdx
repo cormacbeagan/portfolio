@@ -26,9 +26,14 @@ export const meta = {
 
 </GridStyles>
 
-<GridStyles>
-So I set out to create a website which allows any user to easily add their favorite attraction, recommendation, piece of graffiti or bridge for others to see. There are a few other add ons such as a long term weather forcast and a map of live concerts for more opportunities to plan a great stay in Munich.
-
+<GridStyles single>
+  <p>
+    So I set out to create a website which allows any user to easily add their
+    favorite attraction, recommendation, piece of graffiti or bridge for others
+    to see. There are a few other add ons such as a long term weather forcast
+    and a map of live concerts for more opportunities to plan a great stay in
+    Munich.
+  </p>
 </GridStyles>
 
 ### React
@@ -69,23 +74,14 @@ frontend. Images are stored using firebase storage and image compression is run
 client side. Firebase Auth handles authorisation and gives users access to the
 content-management/user profile section of the site.
 
-<div
-  style={{
-    width: '380px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-  }}
->
+<div className="double-img">
   <img
     src="https://res.cloudinary.com/adv-react-tut/image/upload/v1619020767/Portfolio/signup_v3mhaj.png"
     alt="Visit Munich sign up page screenshot"
-    height="240"
   />
   <img
     src="https://res.cloudinary.com/adv-react-tut/image/upload/v1619020753/Portfolio/edit-blog_kiioff.png"
     alt="Visit Munich edit page screenshot"
-    width="380"
   />
 </div>
 
@@ -108,11 +104,13 @@ The app implements Redux stores for handling state, uses Redux Thunk for the asy
 
 ### Styled-Components
 
-<GridStyles>
-  Having started with inline CSS I soon found that as the project grew this was
-  becoming more and more inpractical so switched to Styled Components as they
-  offer a neet component based syntax which fits well with React. Nesting and
-  the ability to pass in props being tht most exciting features.
+<GridStyles single>
+  <p>
+    Having started with inline CSS I soon found that as the project grew this
+    was becoming more and more inpractical so switched to Styled Components as
+    they offer a neet component based syntax which fits well with React. Nesting
+    and the ability to pass in props being tht most exciting features.
+  </p>
 </GridStyles>
 
 export default ({ children }) => (

@@ -1,5 +1,5 @@
 import ProjectLayout from '../components/ProjectLayout';
-import { GridStyles } from '../components/styles/ProjectStyles';
+import { GridStyles, RightHeading } from '../components/styles/ProjectStyles';
 import { useTheme } from '../utils/themeState';
 import Flipper from '../components/Flipper';
 import PlayerEmbed from '../components/PlayerEmbed';
@@ -14,7 +14,7 @@ export const meta = {
 
 <GridStyles grow fade>
 <div>
-<img src="https://res.cloudinary.com/adv-react-tut/image/upload/v1619020902/Portfolio/2day-home_nfpcrd.png" alt="Player homepage screenshot" width="400" />
+<img src="https://res.cloudinary.com/adv-react-tut/image/upload/v1619020902/Portfolio/2day-home_nfpcrd.png" alt="Player homepage screenshot" height="260"/>
 <p>Radio 2day website</p>
 </div>
 <p>
@@ -43,21 +43,26 @@ Finally after much head scratching, wrapping my head around the Javascript Web A
 </div>
 </GridStyles>
 
-<h3 style={{ textAlign: 'right' }}>Spotify</h3>
-
-<div id="redux" />
-
 <GridStyles>
   <img
+    className="floyd-img"
     src="https://res.cloudinary.com/adv-react-tut/image/upload/v1619020737/Portfolio/thewall-front_w48r0f.png"
     alt="Radio Player screenshot"
     height="430"
-    style={{margin: '0 30px'}}
   />
-
-The app queries the Spotify API for song details and album cover art as well as to create and add to a playlist. It uses two different authorization flows to access the API. For adding songs to the users profile it uses the client side implicit grant flow with the user signing in through a Spotify popup .
-For accessing song data and to facilitate using the app without a spotify account the app uses Firbase cloud functions for token generation which keeps Spotify secret API keys server side.
-
+  <div>
+    <RightHeading>Spotify</RightHeading>
+    <p>
+      The app queries the Spotify API for song details and album cover art as
+      well as to create and add to a playlist. It uses two different
+      authorization flows to access the API. For adding songs to the users
+      profile it uses the client side implicit grant flow with the user signing
+      in through a Spotify popup . For accessing song data and to facilitate
+      using the app without a spotify account the app uses Firbase cloud
+      functions for token generation which keeps Spotify secret API keys server
+      side.
+    </p>
+  </div>
 </GridStyles>
 
 ### Keyboard Accessibility

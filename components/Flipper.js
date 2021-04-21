@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { device } from './styles/sizes';
 
 const FlipperStyles = styled.div`
   background-color: transparent;
@@ -43,6 +44,16 @@ const FlipperStyles = styled.div`
   }
   .back {
     transform: rotateY(180deg);
+  }
+  @media ${device.tablet} {
+    flex-direction: column;
+    p {
+      max-width: 100%;
+      width: 100%;
+    }
+    .outer {
+      margin: 0 auto;
+    }
   }
 `;
 

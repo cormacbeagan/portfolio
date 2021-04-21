@@ -7,6 +7,10 @@ const FlipperStyles = styled.div`
   margin: 20px 0;
   display: flex;
   flex-direction: row;
+  img {
+    width: 300px;
+    height: 300px;
+  }
   p {
     max-width: 350px;
     margin: 0 50px 0 0;
@@ -50,9 +54,22 @@ const FlipperStyles = styled.div`
     p {
       max-width: 100%;
       width: 100%;
+      margin: 0;
     }
     .outer {
       margin: 0 auto;
+    }
+  }
+  @media ${device.mobileS} {
+    img,
+    .outer,
+    .back,
+    .front {
+      width: 268px;
+      height: 268px;
+    }
+    .outer {
+      margin: 20px 0;
     }
   }
 `;

@@ -13,13 +13,15 @@ const EmbedStyles = styled.div`
     margin: 0 auto;
   }
   @media ${device.mobileL} {
+    width: 315px;
     iframe {
-      width: 320px;
+      width: 315px;
     }
   }
   @media ${device.mobileS} {
+    width: 300px;
+    margin-left: -15px;
     iframe {
-      margin-left: -15px;
       width: 300px;
       overflow: hidden;
     }

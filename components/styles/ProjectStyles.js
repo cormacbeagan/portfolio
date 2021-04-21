@@ -51,6 +51,11 @@ export const GridStyles = styled.div`
       width: 100%;
     }
   }
+  @media ${device.mobileS} {
+    .floyd-img {
+      width: 100%;
+    }
+  }
 `;
 
 export const RightHeading = styled.h3`

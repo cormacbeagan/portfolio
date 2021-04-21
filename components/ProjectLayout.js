@@ -8,8 +8,6 @@ import { ThemeBody, ScrollContent } from './styles/PageStyles';
 import Theme from './Theme';
 import { useDimensionSetter } from '../utils/useDimensionSetter';
 
-const title = 'Visit Munich';
-
 const NavList = styled.ul`
   width: 100%;
   height: 2.5rem;
@@ -76,7 +74,9 @@ const MDXStyles = styled.section`
   }
 `;
 
-export default function ProjectLayout({ children }) {
+export default function ProjectLayout({ children, meta }) {
+  console.log(meta);
+  const title = meta.title;
   const { theme } = useTheme();
   const { height } = useDimensionSetter();
 
@@ -89,6 +89,7 @@ export default function ProjectLayout({ children }) {
           content={`Project details for Mac Beagan's ${title} project`}
         />
         <meta name="og:title" content={title} />
+        <title>{title}</title>
       </Head>
       <nav>
         <NavList theme={theme} displayNav>

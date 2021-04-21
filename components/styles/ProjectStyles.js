@@ -27,7 +27,7 @@ export const GridStyles = styled.div`
 
   .floyd-img {
     @media ${device.tablet} {
-      max-width: 400px;
+      max-width: 300px;
       margin: 0 auto;
     }
   }

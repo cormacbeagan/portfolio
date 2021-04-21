@@ -11,6 +11,7 @@ const FlipperStyles = styled.div`
     margin: 0 50px 0 0;
   }
   .outer {
+    margin: 0 0 0 auto;
     perspective: 1000px;
     width: 300px;
     height: 300px;
@@ -52,10 +53,16 @@ export default function Flipper({ children }) {
       <div className="outer">
         <div className="inner">
           <div className="front">
-            <img src="/arctic-front.png" alt="Screenshot album cover" />
+            <img
+              src="https://res.cloudinary.com/adv-react-tut/image/upload/v1619020714/Portfolio/the-wall-album_ydq5tc.jpg"
+              alt="Screenshot album cover"
+            />
           </div>
           <div className="back">
-            <img src="/arctic-back.png" alt="Screenshot reverse side" />
+            <img
+              src="https://res.cloudinary.com/adv-react-tut/image/upload/v1619020720/Portfolio/the-wall-album-back_gvbmcs.jpg"
+              alt="Screenshot reverse side"
+            />
           </div>
         </div>
       </div>

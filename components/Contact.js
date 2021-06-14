@@ -1,14 +1,14 @@
-import { useRef, useState } from 'react';
-import { FaCopy } from 'react-icons/fa';
-import styled from 'styled-components';
-import { sendMail } from '../utils/email';
-import { useTheme } from '../utils/themeState';
-import { useDimensionSetter } from '../utils/useDimensionSetter';
-import useForm from '../utils/useForm';
-import ArticleDisplay from './ArticleDisplay';
-import BtnStyles from './styles/BtnStyles';
-import SelectNonList from './styles/SelectNonList';
-import { device } from './styles/sizes';
+import { useRef, useState } from "react";
+import { FaCopy } from "react-icons/fa";
+import styled from "styled-components";
+import { sendMail } from "../utils/email";
+import { useTheme } from "../utils/themeState";
+import { useDimensionSetter } from "../utils/useDimensionSetter";
+import useForm from "../utils/useForm";
+import ArticleDisplay from "./ArticleDisplay";
+import BtnStyles from "./styles/BtnStyles";
+import SelectNonList from "./styles/SelectNonList";
+import { device } from "./styles/sizes";
 
 const ContactContainer = styled.div`
   margin: 0 auto 0 0;
@@ -48,7 +48,7 @@ const H2Styles = styled.h3`
 
 const TextStyles = styled.textarea`
   width: 90%;
-  height: ${(props) => (props.height < 490 ? '8rem' : '15rem')};
+  height: ${(props) => (props.height < 490 ? "8rem" : "15rem")};
   padding: 1rem;
   border: none;
   border-radius: 10px;
@@ -184,18 +184,18 @@ const MsgStyle = styled.div`
   text-align: center;
   padding: 0 1rem;
   background: transparent;
-  height: ${(props) => (props.show ? '3rem' : '0')};
-  opacity: ${(props) => (props.show ? '1' : '.5')};
+  height: ${(props) => (props.show ? "3rem" : "0")};
+  opacity: ${(props) => (props.show ? "1" : ".5")};
   overflow: hidden;
   transition: all 800ms ease;
 `;
 
 export default function Contact() {
   const { theme, text } = useTheme();
-  const { inputs, handleChange, resetForm } = useForm({ text: '', email: '' });
+  const { inputs, handleChange, resetForm } = useForm({ text: "", email: "" });
   const [show, setShow] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [msg, setMsg] = useState('');
+  const [msg, setMsg] = useState("");
   const copyEmail = useRef();
   const [showMsg, setShowMsg] = useState(false);
   const { width, height } = useDimensionSetter();
@@ -208,15 +208,15 @@ export default function Contact() {
       setMsg(resp.message);
       setShowMsg(true);
       setTimeout(() => {
-        setMsg('');
+        setMsg("");
         setShowMsg(false);
       }, 5000);
       setLoading(false);
     } else {
       setShowMsg(true);
-      setMsg('Message sent - thank you');
+      setMsg("Message sent - thank you");
       setTimeout(() => {
-        setMsg('');
+        setMsg("");
         setShowMsg(false);
       }, 5000);
       resetForm();
@@ -234,7 +234,7 @@ export default function Contact() {
           <H2Styles>{text.contact.heading}</H2Styles>
           <form onSubmit={handleSubmit}>
             <label htmlFor="text" className="accessibly-hidden">
-              Enter message text{' '}
+              Enter message text{" "}
             </label>
             <TextStyles
               name="text"
@@ -248,7 +248,7 @@ export default function Contact() {
             />
 
             <label htmlFor="email" className="accessibly-hidden">
-              Enter your email address:{' '}
+              Enter your email address:{" "}
             </label>
             <EmailStyles
               type="email"
@@ -274,7 +274,7 @@ export default function Contact() {
           </form>
           <LineStyle theme={theme}>
             <LinkStyle
-              href="https://twitter.com/Mac53637606"
+              href="https://twitter.com/MacBeagan"
               rel="noreferrer"
               target="_blank"
               theme={theme}
@@ -306,7 +306,7 @@ export default function Contact() {
               onClick={() => {
                 const email = copyEmail.current;
                 email.select();
-                document.execCommand('copy');
+                document.execCommand("copy");
                 setShow(1);
                 setTimeout(() => {
                   setShow(0);

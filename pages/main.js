@@ -82,24 +82,24 @@ export default function Home() {
               </ArticleDisplay>
               <SelectStyle>
                 <ListStyle theme={theme}>
-                  <Link href="#projects">projects</Link>
+                  <Link href="#contact">contact</Link>
                 </ListStyle>
                 <ListStyle theme={theme}>
                   <Link href="#stack">stack</Link>
                 </ListStyle>
                 <ListStyle theme={theme}>
-                  <Link href="#contact">contact</Link>
+                  <Link href="#projects">projects</Link>
                 </ListStyle>
               </SelectStyle>
             </SectionStyle>
-            <SectionStyle flip id="projects" height={height}>
-              <ProjectSection />
+            <SectionStyle height={height} flip id="contact">
+              <Contact />
             </SectionStyle>
             <SectionStyle height={height} id="stack">
               <Stack />
             </SectionStyle>
-            <SectionStyle height={height} flip id="contact">
-              <Contact />
+            <SectionStyle flip id="projects" height={height}>
+              <ProjectSection />
             </SectionStyle>
           </main>
         </ScrollContent>

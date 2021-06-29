@@ -9,6 +9,7 @@ import {
   SiJavascript,
   SiNextDotJs,
   SiStyledComponents,
+  SiTypescript,
 } from 'react-icons/si';
 import { device } from './styles/sizes';
 import { useState } from 'react';
@@ -302,19 +303,19 @@ export default function Contact() {
               <li>
                 <TechLink
                   onClick={() => {
-                    setSelected('firebase');
+                    setSelected('typescript');
                   }}
-                  color={'#faa730'}
+                  color={'#3178c6'}
                 >
-                  <SiFirebase
+                  <SiTypescript
                     tabIndex="0"
                     alt="tech logo"
                     className="tech-link"
-                    aria-label="Firebase details"
+                    aria-label="Typescript details"
                     onKeyDown={(e) => {
                       const key = e.key || e.keyCode;
                       if (key === 'Enter' || key === 13) {
-                        setSelected('firebase');
+                        setSelected('typescript');
                       }
                     }}
                   />

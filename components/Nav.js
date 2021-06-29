@@ -73,13 +73,13 @@ export default function Nav() {
           <Link href="#home">home</Link>
         </NavItem>
         <NavItem theme={theme}>
-          <Link href="#projects">projects</Link>
+          <Link href="#contact">contact</Link>
         </NavItem>
         <NavItem theme={theme}>
           <Link href="#stack">stack</Link>
         </NavItem>
         <NavItem theme={theme}>
-          <Link href="#contact">contact</Link>
+          <Link href="#projects">projects</Link>
         </NavItem>
       </NavStyles>
     </nav>

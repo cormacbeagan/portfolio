@@ -75,7 +75,6 @@ const MDXStyles = styled.section`
 `;
 
 export default function ProjectLayout({ children, meta }) {
-  console.log(meta);
   const title = meta.title;
   const { theme } = useTheme();
   const { height } = useDimensionSetter();

@@ -31,7 +31,7 @@ const EmbedStyles = styled.div`
 export default function PlayerEmbed() {
   return (
     <EmbedStyles>
-      <iframe src="https://bl2-table.vercel.app/" title="Radio Player" />
+      <iframe src="https://radio-player-5a684.web.app/" title="Radio Player" />
     </EmbedStyles>
   );
 }

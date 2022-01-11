@@ -41,5 +41,3 @@ function sendEmail(text, email) {
     );
   });
 }
-
-//* https://stadtteilliebe.de/blog/serverless-contact-form

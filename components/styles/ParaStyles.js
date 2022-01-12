@@ -19,13 +19,13 @@ const ParaStyles = styled.article`
       width: 100%;
     }
     @media ${device.mobileL} {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       line-height: 1.2;
     }
     @media ${device.mobileS} {
       font-size: 1.6rem;
       margin: 0.5rem 0 0 0;
-      line-height: 1.2;
+      line-height: 1.1;
     }
   }
   h2 {

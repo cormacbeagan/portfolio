@@ -54,7 +54,7 @@ export const text = {
         {
           heading: 'The Website',
           paragraph:
-            'The motivation - to build a website which is both easy to maintain but performant and secure. I chose to do content management using Wordpress as a headless CMS,  wordpress for all its flaws is superb at providing a user friendly content management system. I then built the frontend using Astro, the latest and greatest in static site generators, connecting the two using GraphQL. The frontend is hosted with Netlify and for the backend I spun up a Digital Ocean Droplet running Ubuntu and Nginx',
+            'The motivation - to build a website which is both easy to maintain but performant and secure. Using Wordpress as a headless CMS, Astro as a frontend - connecting the two using GraphQL - worked well. The frontend is hosted with Netlify and for the backend I spun up a Digital Ocean Droplet running Ubuntu and Nginx',
         },
       ],
     },
@@ -110,7 +110,7 @@ export const text = {
         {
           heading: 'The Project',
           paragraph:
-            'The app plays the munich based radio station radio2day and holds a recording of the last 3 seconds. With the music playing a user can check what song is playing - the app sends the clip to the Audd.io music recognition API - which returns the song, artwork is fetched from the spotify API and the user can add the song to a personal playlist logging into Spotify through a popup.',
+            'The app play radio 2day and holds a recording of the last 3 seconds. With the music playing a user can check what song is playing - the app sends the clip to the Audd.io music recognition API - which returns the song, artwork is fetched from the spotify API and the user can add the song to a personal playlist logging into Spotify through a popup.',
         },
       ],
     },

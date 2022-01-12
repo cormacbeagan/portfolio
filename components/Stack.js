@@ -10,6 +10,7 @@ import {
   SiNextDotJs,
   SiStyledComponents,
   SiTypescript,
+  SiAngular,
 } from 'react-icons/si';
 import { device } from './styles/sizes';
 import { useState } from 'react';
@@ -282,19 +283,19 @@ export default function Contact() {
               <li>
                 <TechLink
                   onClick={() => {
-                    setSelected('next');
+                    setSelected('angular');
                   }}
-                  color={'#0072f7'}
+                  color={'#de3f33'}
                 >
-                  <SiNextDotJs
+                  <SiAngular
                     tabIndex="0"
                     alt="tech logo"
                     className="tech-link"
-                    aria-label="Next JS details"
+                    aria-label="Angular details"
                     onKeyDown={(e) => {
                       const key = e.key || e.keyCode;
                       if (key === 'Enter' || key === 13) {
-                        setSelected('next');
+                        setSelected('angular');
                       }
                     }}
                   />
@@ -321,7 +322,7 @@ export default function Contact() {
                   />
                 </TechLink>
               </li>
-              <li>
+              {/* <li>
                 <TechLink
                   onClick={() => {
                     setSelected('styled');
@@ -341,7 +342,7 @@ export default function Contact() {
                     }}
                   />
                 </TechLink>
-              </li>
+              </li> */}
             </LinkCont>
           </StackGrid>
           <LineStyle theme={theme}></LineStyle>

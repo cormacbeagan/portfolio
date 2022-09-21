@@ -13,7 +13,7 @@ export const text = {
       name: 'Trauma App',
       links: [
         {
-          url: 'https://www.thetraumaapp.com/',
+          url: 'https://thetraumaapp.com/',
           text: 'PromoSite',
           isExt: true,
         },

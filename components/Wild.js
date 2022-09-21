@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 function randomShadowGenerator(val) {
   const shadowArray = [];
-  const random = () => Math.floor(Math.random() * 5000);
+  const random = () => Math.floor(Math.random() * 8000);
   for (let i = 0; i < val; i++) {
     shadowArray.push(`${random() / 2}px ${random()}px white`);
   }
@@ -34,7 +34,7 @@ const WildStyle = styled.div`
   height: 5000px;
   font-size: 24px;
   text-shadow: ${frontShadow};
-  animation: ${movingStars} 230s linear infinite;
+  animation: ${movingStars} 200s linear infinite;
 `;
 
 const WildStyleTwo = styled.div`
@@ -54,7 +54,7 @@ const WildStyleThree = styled.div`
   height: 5000px;
   font-size: 12px;
   text-shadow: ${backShadow};
-  animation: ${movingStars} 200s linear infinite;
+  animation: ${movingStars} 230s linear infinite;
 `;
 
 export default function Wild({ theme }) {

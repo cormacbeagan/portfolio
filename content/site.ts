@@ -1,6 +1,7 @@
 import type { IconType } from 'react-icons';
 import { FaNodeJs, FaReact } from 'react-icons/fa';
-import { SiAngular, SiCss, SiHtml5, SiJavascript, SiTypescript } from 'react-icons/si';
+import { TbBrandReactNative } from 'react-icons/tb';
+import { SiAngular, SiExpo, SiFirebase, SiJavascript, SiTypescript } from 'react-icons/si';
 
 export type ProjectLink = {
   label: string;
@@ -35,21 +36,21 @@ export type Social = {
 
 export const profile = {
   name: 'Mac Beagan',
-  role: 'Web Developer',
+  role: 'Senior Software Engineer',
   location: 'Munich',
   email: 'cor@macbeagan.me',
   url: 'https://macbeagan.me',
   intro:
-    "Munich based freelance web developer. Originally from Edinburgh, Scotland, I have dual Irish–British citizenship and grew up on a farm. You can see what I've worked on in my projects, and for any questions or comments please don't hesitate to drop me a line.",
+    'I build React and React Native apps for healthcare: software that clinicians rely on in NHS hospitals. Since 2021 I’ve been the engineer behind The Trauma App, used in emergency departments across Scotland, and I’m a founding engineer on Daysix Health. I’m self-taught, freelance, and happiest working directly with the people who use what I build. Originally from Edinburgh, I grew up on a farm and now live in Munich.',
 };
 
 export const projects: Project[] = [
   {
     slug: 'trauma-app',
-    name: 'Trauma App',
-    tags: ['React Native', 'Redux', 'Angular', 'TypeScript', 'Express'],
+    name: 'The Trauma App',
+    tags: ['React Native', 'Expo', 'TypeScript', 'Redux Toolkit', 'SignalR', 'Angular'],
     links: [
-      { label: 'Promo site', url: 'https://thetraumaapp.com/' },
+      { label: 'Website', url: 'https://thetraumaapp.com/' },
       {
         label: 'App Store',
         url: 'https://apps.apple.com/de/app/the-trauma-app/id1576495091?l=en',
@@ -58,46 +59,77 @@ export const projects: Project[] = [
     sections: [
       {
         heading: 'The Project',
-        body: 'The Trauma App is a React Native app used for managing the treatment of trauma patients in A&E. The project includes a React Native iPad app, an Angular dashboard and an API.',
+        body: 'An iPad app for recording major trauma cases in real time, from pre-alert to handover. It is used in emergency departments across NHS Scotland and at Alder Hey Children’s Hospital, and won Pitchfest at Digital Health Rewired.',
       },
       {
         heading: 'My Role',
-        body: 'My first task was to write a clinical PDF report generator, a great opportunity to work on core JS skills and develop my TypeScript knowledge. Next up was building out the Angular dashboard, which is used to view cases and manage the app users. Aside from a couple of cloud functions running Express, the iPad app itself has been my main focus. It is built with React Native and uses Redux for state management.',
+        body: 'I’ve built and maintained the app since it went live in 2021, and since 2025 I’ve been its only app engineer, moving it to Expo and React 19. I work directly with clinicians to turn how they work into features, like the drag-and-drop trauma team screen. I also built the Angular and Power BI dashboards and took the app through NHS clinical safety assurance.',
       },
     ],
   },
   {
-    slug: 'garvald',
-    name: 'Garvald',
-    tags: ['Astro', 'Headless WordPress', 'GraphQL', 'Nginx'],
-    links: [{ label: 'Website', url: 'https://garvaldhomefarm.co.uk/' }],
+    slug: 'daysix-health',
+    name: 'Daysix Health',
+    tags: ['FHIR R4', 'React', 'React Native', 'TypeScript', 'Medplum', 'Turborepo'],
+    links: [],
     sections: [
       {
         heading: 'The Project',
-        body: 'Garvald Home Farm is a small community-based care home in the Scottish Borders who asked for help setting up a website and a business email service.',
+        body: 'A supported self-management platform connecting community clinical teams with the people they care for. It is built for NHS Scotland and third-sector care providers, on FHIR, the healthcare data standard.',
       },
       {
-        heading: 'The Website',
-        body: 'The motivation: build a website which is both easy to maintain and performant and secure. Using WordPress as a headless CMS and Astro as a frontend, connecting the two using GraphQL, worked well. The frontend is hosted with Netlify, and for the backend I spun up a Digital Ocean Droplet running Ubuntu and Nginx.',
+        heading: 'My Role',
+        body: 'I’m a founding engineer and the top contributor. I designed the platform’s role-based access control and integrated ScotAccount, the Scottish Government’s digital identity service. I also built the AI-assisted delivery process the team uses, from design through clinical safety review.',
       },
     ],
   },
   {
-    slug: 'radio-player',
-    name: 'Radio Player',
-    tags: ['React', 'Spotify API', 'Audd.io', 'Firebase'],
+    slug: 'mycare-scot',
+    name: 'MyCare.scot',
+    tags: ['Expo', 'React Native', 'TypeScript', 'Express'],
+    links: [{ label: 'Website', url: 'https://mycare.scot/' }],
+    sections: [
+      {
+        heading: 'The Project',
+        body: 'Scotland’s “digital front door”: a public app giving people access to their health and social care records.',
+      },
+      {
+        heading: 'My Role',
+        body: 'I was lead mobile developer on a six-month build, working embedded with the NHS Scotland digital team. I also built the Express server that handles authentication for the app.',
+      },
+    ],
+  },
+  {
+    slug: 'scribepro',
+    name: 'ScribePro',
+    tags: ['Expo', 'React', 'Firebase', 'Turborepo', 'Storybook'],
+    links: [{ label: 'Website', url: 'https://scribepro.co/' }],
+    sections: [
+      {
+        heading: 'The Project',
+        body: 'Injury, medical and wellbeing records for professional sports teams, with a mobile app for clinicians and coaches plus web apps for coaches, athletes and analytics.',
+      },
+      {
+        heading: 'My Role',
+        body: 'As senior engineer I led the move from bare React Native to Expo, including custom config plugins and a native module. I built clinical features such as injury forms, summaries and medical exports, and shared components across mobile and web.',
+      },
+    ],
+  },
+  {
+    slug: 'refswatch',
+    name: 'RefsWatch',
+    tags: ['SwiftUI', 'Expo', 'Firebase', 'Raspberry Pi', 'Redux Toolkit'],
     links: [
-      { label: 'Demo', url: 'https://radio-player-5a684.web.app/' },
-      { label: 'Repo', url: 'https://github.com/cormacbeagan/player' },
+      { label: 'App Store', url: 'https://apps.apple.com/us/app/refswatch-dev/id6463956529' },
     ],
     sections: [
       {
-        heading: 'Motivation',
-        body: 'Fed up with Shazaming songs from my favourite radio station in order to add them to Spotify, I decided to make an app which does just this. Having completed various course-led projects, I needed a first project which was mine from conception to completion.',
+        heading: 'The Project',
+        body: 'My side project: rugby match management. The referee runs the match from an Apple Watch or iPhone, and a pitchside scoreboard, a results site and an admin portal update live.',
       },
       {
-        heading: 'The Project',
-        body: 'The app plays Radio 2Day and holds a recording of the last 3 seconds. With the music playing, a user can check what song is on: the app sends the clip to the Audd.io music recognition API, which returns the song, artwork is fetched from the Spotify API, and the user can add the song to a personal playlist by logging into Spotify through a popup.',
+        heading: 'My Role',
+        body: 'I built all of it: a SwiftUI watch app linked to the Expo phone app through a custom native module, a Raspberry Pi scoreboard running on 4G, and a Firebase backend. My rugby club uses it on match days.',
       },
     ],
   },
@@ -122,9 +154,15 @@ export const stack = {
     },
     {
       name: 'React',
-      detail: 'React, React Native and the Next.js framework',
+      detail: 'React 19 and the Next.js framework',
       icon: FaReact,
       color: '#5ad7f1',
+    },
+    {
+      name: 'React Native',
+      detail: 'Expo, EAS, offline-first apps and custom native modules',
+      icon: TbBrandReactNative,
+      color: '#61dafb',
     },
     {
       name: 'Node.js',
@@ -139,16 +177,16 @@ export const stack = {
       color: '#de3f33',
     },
     {
-      name: 'HTML',
-      detail: 'Semantic, accessible HTML5',
-      icon: SiHtml5,
-      color: '#e34c26',
+      name: 'Expo',
+      detail: 'EAS builds and updates, config plugins and native modules',
+      icon: SiExpo,
+      color: '#4630eb',
     },
     {
-      name: 'CSS',
-      detail: 'Modern CSS and SCSS, plus Tailwind, Bootstrap and Styled Components',
-      icon: SiCss,
-      color: '#2864f1',
+      name: 'Firebase',
+      detail: 'Firestore, Realtime Database, Auth and Cloud Functions',
+      icon: SiFirebase,
+      color: '#ffca28',
     },
   ] satisfies Tech[],
 };

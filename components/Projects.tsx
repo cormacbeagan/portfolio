@@ -26,22 +26,24 @@ export function Projects({ projects }: { projects: Project[] }) {
                     <li key={tag}>{tag}</li>
                   ))}
                 </ul>
-                <ul className="flex flex-wrap gap-3">
-                  {project.links.map((link) => (
-                    <li key={link.url}>
-                      <a
-                        href={link.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="border-line hover:bg-fg hover:text-bg inline-flex items-center gap-1 rounded-full border-2 px-4 py-1 text-sm transition-colors"
-                      >
-                        {link.label}
-                        <FiArrowUpRight aria-hidden="true" />
-                        <span className="sr-only"> (opens in a new tab)</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                {project.links.length > 0 && (
+                  <ul className="flex flex-wrap gap-3">
+                    {project.links.map((link) => (
+                      <li key={link.url}>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="border-line hover:bg-fg hover:text-bg inline-flex items-center gap-1 rounded-full border-2 px-4 py-1 text-sm transition-colors"
+                        >
+                          {link.label}
+                          <FiArrowUpRight aria-hidden="true" />
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
               <div className="space-y-6">
                 {project.sections.map((section) => (

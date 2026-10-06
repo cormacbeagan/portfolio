@@ -17,7 +17,7 @@ const abril = localFont({
   display: 'swap',
 });
 
-const description = `Portfolio of ${profile.name}, a ${profile.location} based freelance web developer.`;
+const description = `Portfolio of ${profile.name}, a ${profile.location} based senior software engineer building React and React Native apps for healthcare.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.url),

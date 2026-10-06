@@ -1,0 +1,149 @@
+@import 'tailwindcss';
+
+/*
+ * Theme tokens. Each theme sets the same variables; components only use the
+ * Tailwind colours mapped below (bg-bg, text-fg, border-line, text-accent, etc).
+ */
+:root,
+[data-theme='light'] {
+  --bg: #f6f4ef;
+  --bg-image: none;
+  --fg: #1a1a1a;
+  --muted: #6e6a62;
+  --line: #1a1a1a;
+  --accent: #c2410c;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #161514;
+  --fg: #f3f1ec;
+  --muted: #9a958c;
+  --line: #f3f1ec;
+  --accent: #fb923c;
+  color-scheme: dark;
+}
+
+[data-theme='blue'] {
+  --bg: #406a8d;
+  --fg: #ffffff;
+  --muted: #cfdce8;
+  --line: #ffffff;
+  --accent: #fde68a;
+  color-scheme: dark;
+}
+
+[data-theme='rainbow'] {
+  --bg: #fdf6e3;
+  --bg-image: linear-gradient(
+    45deg,
+    rgb(125 16 16 / 0.3),
+    rgb(255 165 0 / 0.3),
+    rgb(255 255 0 / 0.3),
+    rgb(126 255 8 / 0.3),
+    rgb(78 199 188 / 0.3),
+    rgb(0 149 255 / 0.3),
+    rgb(172 22 172 / 0.3)
+  );
+  --fg: #0d0f31;
+  --muted: #3a3c5c;
+  --line: #0d0f31;
+  --accent: #a3168f;
+  color-scheme: light;
+}
+
+[data-theme='wild'] {
+  --bg: #04040e;
+  --bg-image: radial-gradient(ellipse at bottom, #203545 0%, #04040e 70%);
+  --fg: #f6f6f6;
+  --muted: #a9b6c2;
+  --line: #f6f6f6;
+  --accent: #fbbf24;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-kanit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-abril), Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  background-color: var(--bg);
+  background-image: var(--bg-image);
+  background-attachment: fixed;
+  color: var(--fg);
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Dotted leader between project name and its main tech, like a contents page. */
+.leader {
+  flex: 1;
+  min-width: 1.5rem;
+  margin: 0 0.75rem 0.45em;
+  border-bottom: 2px dotted currentColor;
+  opacity: 0.35;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.starfield {
+  display: none;
+}
+[data-theme='wild'] .starfield {
+  display: block;
+}
+.starfield span {
+  position: absolute;
+  inset: 0 auto auto 0;
+  border-radius: 9999px;
+  background: transparent;
+  animation: stars-drift linear infinite;
+}
+@keyframes stars-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

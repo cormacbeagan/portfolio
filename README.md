@@ -1,39 +1,38 @@
 ## Welcome
 
-This is my Portfolio site you can view it here [macbeagan.me](https://macbeagan.me/).
+This is my portfolio site. You can view it at [macbeagan.me](https://macbeagan.me/).
 
-Its built using Next (create-next-app) and styled with Styled-Components
+Built with Next.js (App Router), TypeScript and Tailwind CSS. The contact form uses a Server Action that sends mail via [Resend](https://resend.com).
 
 Please feel free to fork and play around if you're interested.
 
-Any questions or comments please do not hesitate to contact me cor@macbeagan.me
-
-## Getting Started
-
-Clone the repo and run
+## Getting started
 
 ```bash
 npm install
-
-```
-
-Then, run the development server:
-
-```bash
+cp .env.example .env.local   # then fill in the Resend values
 npm run dev
-
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-And you are good to go.
+| Script              | What it does                          |
+| ------------------- | ------------------------------------- |
+| `npm run dev`       | Start the dev server                  |
+| `npm run build`     | Production build                      |
+| `npm run lint`      | ESLint                                |
+| `npm run typecheck` | Generate Next route types and run tsc |
+| `npm run format`    | Prettier                              |
 
-## Credits:
+Site content (bio, projects, stack, socials) lives in `content/site.ts`.
 
-[Andrew Bliss useLocalStorage blog](https://andrewgbliss.medium.com/react-custom-hook-uselocalstorage-afbde976c72b)\
-[Josh Comeau dark-mode with ssr blog](https://www.joshwcomeau.com/react/dark-mode/)\
-[Brian Lovin dark-mode blog](https://brianlovin.com/overthought/adding-dark-mode-with-next-js)\
-[Nodemailer](https://nodemailer.com/about/)
+## Environment variables
+
+| Name                 | Description                                                     |
+| -------------------- | --------------------------------------------------------------- |
+| `RESEND_API_KEY`     | Resend API key                                                  |
+| `CONTACT_TO_EMAIL`   | Where contact form messages are delivered                       |
+| `CONTACT_FROM_EMAIL` | Sender on a Resend-verified domain, e.g. `contact@macbeagan.me` |
 
 ## Licence
 

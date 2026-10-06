@@ -6,17 +6,17 @@ import { sendContactMessage, type ContactState } from '@/app/actions/contact';
 const initialState: ContactState = { status: 'idle', message: '' };
 
 const inputClass =
-  'border-line bg-surface placeholder:text-muted/70 w-full rounded-lg border px-4 py-3 transition-colors focus-visible:border-accent focus-visible:outline-none aria-invalid:border-red-500';
+  'border-line placeholder:text-muted/70 w-full border-b-2 bg-transparent py-3 text-lg transition-colors focus-visible:border-accent focus-visible:outline-none aria-invalid:border-red-500';
 
 export function ContactForm() {
   // React resets the form after each action; defaultValue restores input on error.
   const [state, formAction, pending] = useActionState(sendContactMessage, initialState);
 
   return (
-    <form action={formAction} className="space-y-4">
+    <form action={formAction} className="space-y-8">
       <div>
-        <label htmlFor="message" className="text-muted mb-1.5 block font-mono text-xs">
-          message
+        <label htmlFor="message" className="text-muted block text-sm tracking-wide">
+          Message
         </label>
         <textarea
           id="message"
@@ -24,7 +24,7 @@ export function ContactForm() {
           required
           minLength={10}
           maxLength={5000}
-          rows={6}
+          rows={5}
           defaultValue={state.fields?.message}
           placeholder="Hi Mac, I'd like to talk about…"
           aria-invalid={!!state.fieldErrors?.message}
@@ -39,8 +39,8 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="text-muted mb-1.5 block font-mono text-xs">
-          your email
+        <label htmlFor="email" className="text-muted block text-sm tracking-wide">
+          Your email
         </label>
         <input
           id="email"
@@ -73,9 +73,9 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={pending}
-          className="bg-accent text-accent-fg rounded-lg px-5 py-2.5 font-mono text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-60"
+          className="bg-fg text-bg font-display hover:bg-accent rounded-full px-8 py-3 text-xl transition-colors disabled:opacity-60"
         >
-          {pending ? 'sending…' : 'send message →'}
+          {pending ? 'Sending…' : 'Send message →'}
         </button>
         <p
           aria-live="polite"

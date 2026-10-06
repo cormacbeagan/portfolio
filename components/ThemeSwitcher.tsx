@@ -1,10 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { FaMoon, FaStar, FaSun } from 'react-icons/fa';
 import { THEME_STORAGE_KEY, themes, type ThemeName } from '@/content/site';
 
-const icons = { light: FaSun, dark: FaMoon, wild: FaStar } satisfies Record<ThemeName, unknown>;
+const labels: Record<ThemeName, string> = {
+  light: 'light',
+  dark: 'dark',
+  blue: 'blue',
+  rainbow: 'rainbow',
+  wild: 'go wild',
+};
 
 function currentTheme(): ThemeName {
   const value = document.documentElement.dataset.theme;
@@ -15,7 +20,7 @@ function nextTheme(theme: ThemeName): ThemeName {
   return themes[(themes.indexOf(theme) + 1) % themes.length];
 }
 
-/** Cycles light → dark → wild. */
+/** Cycles through every theme, showing the current one. */
 export function ThemeSwitcher() {
   const [theme, setTheme] = useState<ThemeName | null>(null);
 
@@ -36,18 +41,16 @@ export function ThemeSwitcher() {
     setTheme(next);
   }
 
-  const Icon = theme ? icons[theme] : FaSun;
-  const label = theme ? `Switch to ${nextTheme(theme)} theme` : 'Switch theme';
-
   return (
     <button
       type="button"
       onClick={cycle}
-      aria-label={label}
-      title={label}
-      className="border-line hover:border-accent hover:text-accent grid size-9 place-items-center rounded-md border transition-colors"
+      aria-label={
+        theme ? `Theme: ${labels[theme]}. Switch to ${labels[nextTheme(theme)]}` : 'Switch theme'
+      }
+      className="border-line hover:bg-fg hover:text-bg min-w-28 rounded-full border-2 px-3 py-1 text-sm transition-colors"
     >
-      <Icon aria-hidden="true" className="size-4" />
+      theme: <span className="font-display">{theme ? labels[theme] : '…'}</span>
     </button>
   );
 }

@@ -1,16 +1,20 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import { profile, THEME_STORAGE_KEY, themes } from '@/content/site';
 import './globals.css';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+const kanit = localFont({
+  src: './fonts/Kanit-Medium.woff2',
+  weight: '500',
+  variable: '--font-kanit',
+  display: 'swap',
 });
 
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
+const abril = localFont({
+  src: './fonts/AbrilFatface-Regular.woff2',
+  weight: '400',
+  variable: '--font-abril',
+  display: 'swap',
 });
 
 const description = `Portfolio of ${profile.name}, a ${profile.location} based freelance web developer.`;
@@ -29,8 +33,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
-    { media: '(prefers-color-scheme: dark)', color: '#0b0b0d' },
+    { media: '(prefers-color-scheme: light)', color: '#f6f4ef' },
+    { media: '(prefers-color-scheme: dark)', color: '#161514' },
   ],
 };
 
@@ -45,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       lang="en-GB"
       data-theme="light"
       suppressHydrationWarning
-      className={`${inter.variable} ${mono.variable}`}
+      className={`${kanit.variable} ${abril.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

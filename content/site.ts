@@ -159,6 +159,6 @@ export const socials: Social[] = [
   { label: 'X / Twitter', url: 'https://twitter.com/MacBeagan' },
 ];
 
-export const themes = ['light', 'dark', 'wild'] as const;
+export const themes = ['light', 'dark', 'blue', 'rainbow', 'wild'] as const;
 export type ThemeName = (typeof themes)[number];
 export const THEME_STORAGE_KEY = 'theme';

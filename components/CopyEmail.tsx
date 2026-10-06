@@ -20,10 +20,10 @@ export function CopyEmail({ email }: { email: string }) {
     <button
       type="button"
       onClick={copy}
-      className="text-muted hover:text-fg inline-flex items-center gap-2 font-mono text-sm transition-colors"
+      className="text-muted hover:text-fg inline-flex items-center gap-2 text-sm transition-colors"
     >
       {copied ? <FiCheck aria-hidden="true" /> : <FiCopy aria-hidden="true" />}
-      <span aria-live="polite">{copied ? 'copied' : 'copy email'}</span>
+      <span aria-live="polite">{copied ? 'Copied' : 'Copy email address'}</span>
     </button>
   );
 }

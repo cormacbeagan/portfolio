@@ -8,12 +8,12 @@ import { profile, projects, socials, stack } from '@/content/site';
 
 function Section({
   id,
-  command,
+  number,
   title,
   children,
 }: {
   id: string;
-  command: string;
+  number: string;
   title: string;
   children: React.ReactNode;
 }) {
@@ -21,87 +21,80 @@ function Section({
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-24"
+      className="mx-auto max-w-6xl px-4 py-20 sm:px-8 sm:py-28"
     >
-      <p aria-hidden="true" className="text-accent mb-2 font-mono text-sm">
-        $ {command}
-      </p>
-      <h2 id={`${id}-heading`} className="mb-10 text-3xl font-semibold tracking-tight sm:text-4xl">
-        {title}
-      </h2>
+      <div className="border-line mb-12 flex items-baseline justify-between gap-6 border-t-2 pt-4">
+        <h2 id={`${id}-heading`} className="font-display text-4xl sm:text-6xl">
+          {title}
+        </h2>
+        <span aria-hidden="true" className="text-muted text-sm tracking-widest">
+          {number}
+        </span>
+      </div>
       {children}
     </section>
   );
 }
 
 export default function Home() {
+  const [first, last] = profile.name.split(' ');
+
   return (
     <>
       <Starfield />
       <Nav />
       <main id="top">
-        <section className="relative isolate">
-          <div aria-hidden="true" className="grid-bg absolute inset-0 -z-10" />
-          <div className="mx-auto flex min-h-[min(78svh,48rem)] max-w-5xl flex-col justify-center px-4 py-20 sm:px-6">
-            <p className="border-line bg-surface text-muted mb-8 inline-flex w-fit items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs">
-              <span className="bg-accent size-1.5 rounded-full" />
-              available for freelance work
-            </p>
-            <h1 className="text-5xl font-semibold tracking-tight sm:text-7xl">
-              <span aria-hidden="true" className="text-accent mr-3 font-mono sm:mr-5">
-                &gt;
-              </span>
-              {profile.name}
-            </h1>
-            <p className="cursor text-muted mt-4 font-mono text-base sm:text-lg">
-              freelance {profile.role.toLowerCase()} · {profile.location.toLowerCase()}
-            </p>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed">{profile.intro}</p>
-            <div className="mt-10 flex flex-wrap gap-3 font-mono text-sm">
-              <a
-                href="#projects"
-                className="bg-accent text-accent-fg rounded-lg px-5 py-2.5 font-medium transition-opacity hover:opacity-90"
-              >
-                view projects
-              </a>
-              <a
-                href="#contact"
-                className="border-line bg-surface hover:border-accent rounded-lg border px-5 py-2.5 transition-colors"
-              >
-                get in touch
-              </a>
+        <section className="mx-auto flex max-w-6xl flex-col justify-end px-4 pt-20 pb-16 sm:min-h-[min(88svh,56rem)] sm:px-8 sm:pb-24">
+          <h1 className="font-display pb-[0.12em] text-[clamp(4.5rem,17vw,13rem)] leading-[0.85] tracking-tight">
+            {first}
+            <br />
+            {last}
+            <span className="text-accent">.</span>
+          </h1>
+          <div className="border-line mt-10 grid gap-6 border-t-2 pt-6 md:grid-cols-[1fr_2fr]">
+            <div className="flex flex-col gap-3">
+              <p className="font-display text-2xl">
+                {profile.role}, {profile.location}.
+              </p>
+              <p className="text-muted inline-flex items-center gap-2 text-sm tracking-wide">
+                <span className="relative flex size-2">
+                  <span className="bg-accent absolute inline-flex size-full animate-ping rounded-full opacity-60" />
+                  <span className="bg-accent relative inline-flex size-2 rounded-full" />
+                </span>
+                Available for freelance work
+              </p>
             </div>
+            <p className="text-lg leading-relaxed md:text-xl">{profile.intro}</p>
           </div>
         </section>
 
-        <Section id="projects" command="ls ./projects" title="Selected work">
+        <Section id="projects" number="01" title="Selected work">
           <Projects projects={projects} />
         </Section>
 
-        <Section id="stack" command="cat stack.txt" title={stack.heading}>
+        <Section id="stack" number="02" title={stack.heading}>
           <Stack motivation={stack.motivation} tech={stack.tech} />
         </Section>
 
-        <Section id="contact" command="./contact.sh" title="Leave me a message">
-          <div className="grid gap-12 md:grid-cols-[1fr_15rem]">
+        <Section id="contact" number="03" title="Let's talk">
+          <div className="grid gap-16 md:grid-cols-[2fr_1fr]">
             <ContactForm />
-            <aside className="space-y-4">
-              <p className="text-muted text-sm">Or reach me directly:</p>
+            <aside className="space-y-5">
               <a
                 href={`mailto:${profile.email}`}
-                className="hover:text-accent block font-mono text-sm"
+                className="font-display hover:text-accent block text-2xl break-all"
               >
                 {profile.email}
               </a>
               <CopyEmail email={profile.email} />
-              <ul className="border-line space-y-2 border-t pt-4 font-mono text-sm">
+              <ul className="border-line space-y-2 border-t pt-5">
                 {socials.map((s) => (
                   <li key={s.url}>
                     <a
                       href={s.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-muted hover:text-fg transition-colors"
+                      className="hover:text-accent text-lg transition-colors"
                     >
                       {s.label} ↗
                     </a>
@@ -112,12 +105,14 @@ export default function Home() {
           </div>
         </Section>
       </main>
-      <footer className="border-line border-t">
-        <div className="text-muted mx-auto flex max-w-5xl justify-between px-4 py-8 font-mono text-xs sm:px-6">
+      <footer className="mx-auto max-w-6xl px-4 sm:px-8">
+        <div className="border-line text-muted flex justify-between border-t-2 py-8 text-sm">
           <span>
             © {new Date().getFullYear()} {profile.name}
           </span>
-          <span>built with next.js</span>
+          <a href="#top" className="hover:text-fg">
+            Back to top ↑
+          </a>
         </div>
       </footer>
     </>

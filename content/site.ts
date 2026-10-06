@@ -15,6 +15,7 @@ export type ProjectSection = {
 export type Project = {
   slug: string;
   name: string;
+  tags: string[];
   links: ProjectLink[];
   sections: ProjectSection[];
 };
@@ -35,6 +36,7 @@ export type Social = {
 export const profile = {
   name: 'Mac Beagan',
   role: 'Web Developer',
+  location: 'Munich',
   email: 'cor@macbeagan.me',
   url: 'https://macbeagan.me',
   intro:
@@ -45,6 +47,7 @@ export const projects: Project[] = [
   {
     slug: 'trauma-app',
     name: 'Trauma App',
+    tags: ['React Native', 'Redux', 'Angular', 'TypeScript', 'Express'],
     links: [
       { label: 'Promo site', url: 'https://thetraumaapp.com/' },
       {
@@ -66,6 +69,7 @@ export const projects: Project[] = [
   {
     slug: 'garvald',
     name: 'Garvald',
+    tags: ['Astro', 'Headless WordPress', 'GraphQL', 'Nginx'],
     links: [{ label: 'Website', url: 'https://garvaldhomefarm.co.uk/' }],
     sections: [
       {
@@ -81,6 +85,7 @@ export const projects: Project[] = [
   {
     slug: 'radio-player',
     name: 'Radio Player',
+    tags: ['React', 'Spotify API', 'Audd.io', 'Firebase'],
     links: [
       { label: 'Demo', url: 'https://radio-player-5a684.web.app/' },
       { label: 'Repo', url: 'https://github.com/cormacbeagan/player' },
@@ -154,6 +159,6 @@ export const socials: Social[] = [
   { label: 'X / Twitter', url: 'https://twitter.com/MacBeagan' },
 ];
 
-export const themes = ['light', 'dark', 'blue', 'rainbow', 'wild'] as const;
+export const themes = ['light', 'dark', 'wild'] as const;
 export type ThemeName = (typeof themes)[number];
 export const THEME_STORAGE_KEY = 'theme';

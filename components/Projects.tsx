@@ -1,88 +1,56 @@
-'use client';
-
-import { useId, useRef, useState, type KeyboardEvent } from 'react';
+import { FiArrowUpRight } from 'react-icons/fi';
 import type { Project } from '@/content/site';
 
 export function Projects({ projects }: { projects: Project[] }) {
-  const [selected, setSelected] = useState(0);
-  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  const id = useId();
-  const project = projects[selected];
-
-  // Arrow-key navigation per the WAI-ARIA tabs pattern.
-  function onKeyDown(e: KeyboardEvent) {
-    const step =
-      e.key === 'ArrowRight' || e.key === 'ArrowDown'
-        ? 1
-        : e.key === 'ArrowLeft' || e.key === 'ArrowUp'
-          ? -1
-          : 0;
-    if (!step) return;
-    e.preventDefault();
-    const next = (selected + step + projects.length) % projects.length;
-    setSelected(next);
-    tabs.current[next]?.focus();
-  }
-
   return (
-    <div className="grid gap-8 md:grid-cols-[12rem_1fr]">
-      <div
-        role="tablist"
-        aria-label="Projects"
-        aria-orientation="vertical"
-        onKeyDown={onKeyDown}
-        className="flex gap-2 overflow-x-auto md:flex-col"
-      >
-        {projects.map((p, i) => (
-          <button
-            key={p.slug}
-            ref={(el) => {
-              tabs.current[i] = el;
-            }}
-            role="tab"
-            id={`${id}-tab-${i}`}
-            aria-selected={i === selected}
-            aria-controls={`${id}-panel`}
-            tabIndex={i === selected ? 0 : -1}
-            onClick={() => setSelected(i)}
-            className="font-display aria-selected:bg-accent aria-selected:text-accent-fg hover:bg-line/50 shrink-0 rounded-lg px-4 py-2 text-left text-lg"
-          >
-            {p.name}
-          </button>
-        ))}
-      </div>
-
-      <div
-        role="tabpanel"
-        id={`${id}-panel`}
-        aria-labelledby={`${id}-tab-${selected}`}
-        className="border-line bg-surface rounded-2xl border p-6 sm:p-8"
-      >
-        <h3 className="font-display text-3xl">{project.name}</h3>
-        <div className="mt-6 space-y-6">
-          {project.sections.map((section) => (
-            <div key={section.heading}>
-              <h4 className="text-muted text-sm tracking-widest uppercase">{section.heading}</h4>
-              <p className="mt-2 leading-relaxed">{section.body}</p>
-            </div>
-          ))}
-        </div>
-        <ul className="mt-8 flex flex-wrap gap-3">
-          {project.links.map((link) => (
-            <li key={link.url}>
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noreferrer"
-                className="border-fg hover:bg-fg hover:text-bg inline-block rounded-full border px-4 py-1.5 transition-colors"
-              >
-                {link.label}
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <ol className="space-y-6">
+      {projects.map((project, i) => (
+        <li
+          key={project.slug}
+          className="border-line bg-surface hover:border-accent/50 grid gap-6 rounded-xl border p-6 transition-colors sm:p-8 md:grid-cols-[14rem_1fr]"
+        >
+          <div className="space-y-4">
+            <p className="text-muted font-mono text-xs">{String(i + 1).padStart(2, '0')}</p>
+            <h3 className="text-2xl font-semibold tracking-tight">{project.name}</h3>
+            <ul className="flex flex-wrap gap-1.5">
+              {project.tags.map((tag) => (
+                <li
+                  key={tag}
+                  className="border-line text-muted rounded border px-2 py-0.5 font-mono text-xs"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+            <ul className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-sm">
+              {project.links.map((link) => (
+                <li key={link.url}>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-accent inline-flex items-center gap-0.5 hover:underline"
+                  >
+                    {link.label}
+                    <FiArrowUpRight aria-hidden="true" />
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="space-y-5">
+            {project.sections.map((section) => (
+              <div key={section.heading}>
+                <h4 className="text-muted font-mono text-xs tracking-wider uppercase">
+                  {section.heading}
+                </h4>
+                <p className="mt-1.5 leading-relaxed">{section.body}</p>
+              </div>
+            ))}
+          </div>
+        </li>
+      ))}
+    </ol>
   );
 }

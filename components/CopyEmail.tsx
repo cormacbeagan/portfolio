@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaCopy } from 'react-icons/fa';
+import { FiCheck, FiCopy } from 'react-icons/fi';
 
 export function CopyEmail({ email }: { email: string }) {
   const [copied, setCopied] = useState(false);
@@ -17,9 +17,13 @@ export function CopyEmail({ email }: { email: string }) {
   }
 
   return (
-    <button type="button" onClick={copy} className="inline-flex items-center gap-2 hover:underline">
-      <FaCopy aria-hidden="true" />
-      <span aria-live="polite">{copied ? 'copied!' : 'copy email'}</span>
+    <button
+      type="button"
+      onClick={copy}
+      className="text-muted hover:text-fg inline-flex items-center gap-2 font-mono text-sm transition-colors"
+    >
+      {copied ? <FiCheck aria-hidden="true" /> : <FiCopy aria-hidden="true" />}
+      <span aria-live="polite">{copied ? 'copied' : 'copy email'}</span>
     </button>
   );
 }

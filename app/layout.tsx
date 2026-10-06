@@ -1,41 +1,43 @@
 import type { Metadata, Viewport } from 'next';
-import localFont from 'next/font/local';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import { profile, THEME_STORAGE_KEY, themes } from '@/content/site';
 import './globals.css';
 
-const kanit = localFont({
-  src: './fonts/Kanit-Medium.woff2',
-  weight: '500',
-  variable: '--font-kanit',
-  display: 'swap',
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
 });
 
-const abril = localFont({
-  src: './fonts/AbrilFatface-Regular.woff2',
-  weight: '400',
-  variable: '--font-abril',
-  display: 'swap',
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
 });
+
+const description = `Portfolio of ${profile.name}, a ${profile.location} based freelance web developer.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.url),
   title: `${profile.name} | ${profile.role}`,
-  description: `Portfolio of ${profile.name}, a Munich based freelance web developer.`,
+  description,
   openGraph: {
     title: `${profile.name} | ${profile.role}`,
-    description: `Portfolio of ${profile.name}, a Munich based freelance web developer.`,
+    description,
     url: profile.url,
     type: 'website',
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#f6f6f6',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
+    { media: '(prefers-color-scheme: dark)', color: '#0b0b0d' },
+  ],
 };
 
-// Runs before first paint so the saved theme never flashes. Older versions of
-// the site stored the value JSON-encoded (e.g. "\"dark\""), hence the replace.
-const themeScript = `(function(){try{var t=(localStorage.getItem('${THEME_STORAGE_KEY}')||'').replace(/"/g,'');if(${JSON.stringify(themes)}.indexOf(t)>-1)document.documentElement.dataset.theme=t;}catch(e){}})();`;
+// Runs before first paint so the theme never flashes. Uses the saved choice,
+// otherwise the OS preference. Older versions of the site stored the value
+// JSON-encoded (e.g. "\"dark\""), hence the replace; retired themes fall back.
+const themeScript = `(function(){try{var t=(localStorage.getItem('${THEME_STORAGE_KEY}')||'').replace(/"/g,'');if(${JSON.stringify(themes)}.indexOf(t)<0)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();`;
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
@@ -43,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       lang="en-GB"
       data-theme="light"
       suppressHydrationWarning
-      className={`${kanit.variable} ${abril.variable}`}
+      className={`${inter.variable} ${mono.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

@@ -2,23 +2,21 @@ import type { Tech } from '@/content/site';
 
 export function Stack({ motivation, tech }: { motivation: string; tech: Tech[] }) {
   return (
-    <div className="space-y-10">
-      <p className="max-w-2xl text-lg leading-relaxed">{motivation}</p>
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-10 md:grid-cols-[1fr_1.4fr]">
+      <p className="text-muted leading-relaxed">{motivation}</p>
+      <ul className="divide-line border-line bg-surface divide-y rounded-xl border">
         {tech.map(({ name, detail, icon: Icon, color }) => (
           <li
             key={name}
             style={{ '--brand': color } as React.CSSProperties}
-            className="group border-line bg-surface flex items-start gap-4 rounded-2xl border p-5"
+            className="group flex items-center gap-4 px-5 py-3.5"
           >
             <Icon
               aria-hidden="true"
-              className="size-9 shrink-0 transition-colors group-hover:text-(--brand)"
+              className="text-muted size-5 shrink-0 transition-colors group-hover:text-(--brand)"
             />
-            <div>
-              <h3 className="font-display text-xl">{name}</h3>
-              <p className="text-muted mt-1">{detail}</p>
-            </div>
+            <span className="w-28 shrink-0 font-mono text-sm">{name}</span>
+            <span className="text-muted text-sm">{detail}</span>
           </li>
         ))}
       </ul>

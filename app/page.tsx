@@ -8,10 +8,12 @@ import { profile, projects, socials, stack } from '@/content/site';
 
 function Section({
   id,
+  command,
   title,
   children,
 }: {
   id: string;
+  command: string;
   title: string;
   children: React.ReactNode;
 }) {
@@ -19,9 +21,12 @@ function Section({
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28"
+      className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-24"
     >
-      <h2 id={`${id}-heading`} className="font-display mb-10 text-4xl sm:text-5xl">
+      <p aria-hidden="true" className="text-accent mb-2 font-mono text-sm">
+        $ {command}
+      </p>
+      <h2 id={`${id}-heading`} className="mb-10 text-3xl font-semibold tracking-tight sm:text-4xl">
         {title}
       </h2>
       {children}
@@ -35,58 +40,85 @@ export default function Home() {
       <Starfield />
       <Nav />
       <main id="top">
-        <section className="mx-auto flex min-h-[80svh] max-w-5xl flex-col justify-center px-4 py-20 sm:px-6">
-          <h1 className="font-display text-6xl leading-none sm:text-8xl">{profile.name}</h1>
-          <p className="font-display text-muted mt-4 text-2xl sm:text-3xl">{profile.role}</p>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed">{profile.intro}</p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="bg-accent text-accent-fg font-display rounded-full px-6 py-2 text-lg"
-            >
-              see my work
-            </a>
-            <a
-              href="#contact"
-              className="border-fg font-display rounded-full border px-6 py-2 text-lg"
-            >
-              get in touch
-            </a>
+        <section className="relative isolate">
+          <div aria-hidden="true" className="grid-bg absolute inset-0 -z-10" />
+          <div className="mx-auto flex min-h-[min(78svh,48rem)] max-w-5xl flex-col justify-center px-4 py-20 sm:px-6">
+            <p className="border-line bg-surface text-muted mb-8 inline-flex w-fit items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs">
+              <span className="bg-accent size-1.5 rounded-full" />
+              available for freelance work
+            </p>
+            <h1 className="text-5xl font-semibold tracking-tight sm:text-7xl">
+              <span aria-hidden="true" className="text-accent mr-3 font-mono sm:mr-5">
+                &gt;
+              </span>
+              {profile.name}
+            </h1>
+            <p className="cursor text-muted mt-4 font-mono text-base sm:text-lg">
+              freelance {profile.role.toLowerCase()} · {profile.location.toLowerCase()}
+            </p>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed">{profile.intro}</p>
+            <div className="mt-10 flex flex-wrap gap-3 font-mono text-sm">
+              <a
+                href="#projects"
+                className="bg-accent text-accent-fg rounded-lg px-5 py-2.5 font-medium transition-opacity hover:opacity-90"
+              >
+                view projects
+              </a>
+              <a
+                href="#contact"
+                className="border-line bg-surface hover:border-accent rounded-lg border px-5 py-2.5 transition-colors"
+              >
+                get in touch
+              </a>
+            </div>
           </div>
         </section>
 
-        <Section id="projects" title="Projects">
+        <Section id="projects" command="ls ./projects" title="Selected work">
           <Projects projects={projects} />
         </Section>
 
-        <Section id="stack" title={stack.heading}>
+        <Section id="stack" command="cat stack.txt" title={stack.heading}>
           <Stack motivation={stack.motivation} tech={stack.tech} />
         </Section>
 
-        <Section id="contact" title="Leave me a message">
-          <div className="grid gap-12 md:grid-cols-[1fr_16rem]">
+        <Section id="contact" command="./contact.sh" title="Leave me a message">
+          <div className="grid gap-12 md:grid-cols-[1fr_15rem]">
             <ContactForm />
-            <div className="space-y-4">
-              <p className="text-muted">Or reach me directly:</p>
-              <a href={`mailto:${profile.email}`} className="block hover:underline">
+            <aside className="space-y-4">
+              <p className="text-muted text-sm">Or reach me directly:</p>
+              <a
+                href={`mailto:${profile.email}`}
+                className="hover:text-accent block font-mono text-sm"
+              >
                 {profile.email}
               </a>
               <CopyEmail email={profile.email} />
-              <ul className="space-y-2 pt-4">
+              <ul className="border-line space-y-2 border-t pt-4 font-mono text-sm">
                 {socials.map((s) => (
                   <li key={s.url}>
-                    <a href={s.url} target="_blank" rel="noreferrer" className="hover:underline">
-                      {s.label}
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-muted hover:text-fg transition-colors"
+                    >
+                      {s.label} ↗
                     </a>
                   </li>
                 ))}
               </ul>
-            </div>
+            </aside>
           </div>
         </Section>
       </main>
-      <footer className="text-muted mx-auto max-w-5xl px-4 py-10 text-sm sm:px-6">
-        © {new Date().getFullYear()} {profile.name}
+      <footer className="border-line border-t">
+        <div className="text-muted mx-auto flex max-w-5xl justify-between px-4 py-8 font-mono text-xs sm:px-6">
+          <span>
+            © {new Date().getFullYear()} {profile.name}
+          </span>
+          <span>built with next.js</span>
+        </div>
       </footer>
     </>
   );

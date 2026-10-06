@@ -1,25 +1,23 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { FaMoon, FaStar, FaSun } from 'react-icons/fa';
 import { THEME_STORAGE_KEY, themes, type ThemeName } from '@/content/site';
 
-const labels: Record<ThemeName, string> = {
-  light: 'Light',
-  dark: 'Dark',
-  blue: 'Blue',
-  rainbow: 'Rainbow',
-  wild: 'Go wild',
-};
+const icons = { light: FaSun, dark: FaMoon, wild: FaStar } satisfies Record<ThemeName, unknown>;
 
 function currentTheme(): ThemeName {
   const value = document.documentElement.dataset.theme;
   return themes.includes(value as ThemeName) ? (value as ThemeName) : 'light';
 }
 
+function nextTheme(theme: ThemeName): ThemeName {
+  return themes[(themes.indexOf(theme) + 1) % themes.length];
+}
+
+/** Cycles light → dark → wild. */
 export function ThemeSwitcher() {
-  const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<ThemeName | null>(null);
-  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Sync with the theme the inline script applied before hydration.
@@ -27,24 +25,8 @@ export function ThemeSwitcher() {
     setTheme(currentTheme());
   }, []);
 
-  useEffect(() => {
-    if (!open) return;
-    const close = (e: MouseEvent | KeyboardEvent) => {
-      if (
-        e instanceof KeyboardEvent ? e.key === 'Escape' : !ref.current?.contains(e.target as Node)
-      ) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', close);
-    document.addEventListener('keydown', close);
-    return () => {
-      document.removeEventListener('mousedown', close);
-      document.removeEventListener('keydown', close);
-    };
-  }, [open]);
-
-  function choose(next: ThemeName) {
+  function cycle() {
+    const next = nextTheme(currentTheme());
     document.documentElement.setAttribute('data-theme', next);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, next);
@@ -52,40 +34,20 @@ export function ThemeSwitcher() {
       // Storage can be unavailable (private mode); the theme still applies.
     }
     setTheme(next);
-    setOpen(false);
   }
 
+  const Icon = theme ? icons[theme] : FaSun;
+  const label = theme ? `Switch to ${nextTheme(theme)} theme` : 'Switch theme';
+
   return (
-    <div ref={ref} className="relative">
-      <button
-        type="button"
-        aria-haspopup="true"
-        aria-expanded={open}
-        aria-controls="theme-menu"
-        onClick={() => setOpen((o) => !o)}
-        className="font-display text-lg hover:underline"
-      >
-        theme
-      </button>
-      {open && (
-        <ul
-          id="theme-menu"
-          className="border-line bg-surface absolute right-0 z-20 mt-2 w-36 rounded-lg border p-1 shadow-lg backdrop-blur"
-        >
-          {themes.map((name) => (
-            <li key={name}>
-              <button
-                type="button"
-                aria-pressed={theme === name}
-                onClick={() => choose(name)}
-                className="hover:bg-line/60 w-full rounded px-3 py-1.5 text-left aria-pressed:font-semibold"
-              >
-                {labels[name]}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <button
+      type="button"
+      onClick={cycle}
+      aria-label={label}
+      title={label}
+      className="border-line hover:border-accent hover:text-accent grid size-9 place-items-center rounded-md border transition-colors"
+    >
+      <Icon aria-hidden="true" className="size-4" />
+    </button>
   );
 }

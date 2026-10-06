@@ -7,6 +7,8 @@ export type ContactState = {
   status: 'idle' | 'success' | 'error';
   message: string;
   fieldErrors?: Partial<Record<'email' | 'message', string[]>>;
+  /** Submitted values, echoed back so React's post-action form reset doesn't wipe them on error. */
+  fields?: { email: string; message: string };
 };
 
 const schema = z.object({
@@ -27,16 +29,18 @@ export async function sendContactMessage(
     return { status: 'success', message: 'Message sent. Thank you!' };
   }
 
-  const parsed = schema.safeParse({
-    email: formData.get('email'),
-    message: formData.get('message'),
-  });
+  const fields = {
+    email: String(formData.get('email') ?? ''),
+    message: String(formData.get('message') ?? ''),
+  };
+  const parsed = schema.safeParse(fields);
 
   if (!parsed.success) {
     return {
       status: 'error',
       message: 'Please check the form and try again.',
       fieldErrors: z.flattenError(parsed.error).fieldErrors,
+      fields,
     };
   }
 
@@ -46,6 +50,7 @@ export async function sendContactMessage(
     return {
       status: 'error',
       message: 'The contact form is unavailable right now. Please email me directly.',
+      fields,
     };
   }
 
@@ -65,6 +70,7 @@ export async function sendContactMessage(
     return {
       status: 'error',
       message: 'Something went wrong sending your message. Please try again or email me directly.',
+      fields,
     };
   }
 

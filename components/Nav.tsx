@@ -1,4 +1,3 @@
-import { profile } from '@/content/site';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 const links = [
@@ -9,19 +8,19 @@ const links = [
 
 export function Nav() {
   return (
-    <header className="bg-bg/80 sticky top-0 z-10 backdrop-blur">
+    <header className="border-line bg-bg/80 sticky top-0 z-10 border-b backdrop-blur">
       <nav
         aria-label="Main"
-        className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 sm:px-6"
+        className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4 font-mono text-sm sm:px-6"
       >
-        <a href="#top" className="font-display text-xl">
-          {profile.name}
+        <a href="#top" className="hover:text-accent">
+          <span className="text-muted">~/</span>macbeagan
         </a>
-        <div className="flex items-center gap-4 sm:gap-6">
-          <ul className="font-display hidden gap-6 text-lg sm:flex">
+        <div className="flex items-center gap-5">
+          <ul className="hidden gap-5 sm:flex">
             {links.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="hover:underline">
+                <a href={link.href} className="text-muted hover:text-fg transition-colors">
                   {link.label}
                 </a>
               </li>

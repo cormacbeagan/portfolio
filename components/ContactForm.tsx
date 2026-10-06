@@ -1,26 +1,22 @@
 'use client';
 
-import { useActionState, useEffect, useRef } from 'react';
+import { useActionState } from 'react';
 import { sendContactMessage, type ContactState } from '@/app/actions/contact';
 
 const initialState: ContactState = { status: 'idle', message: '' };
 
 const inputClass =
-  'border-line bg-surface placeholder:text-muted w-full rounded-xl border px-4 py-3 focus-visible:outline-2';
+  'border-line bg-surface placeholder:text-muted/70 w-full rounded-lg border px-4 py-3 transition-colors focus-visible:border-accent focus-visible:outline-none aria-invalid:border-red-500';
 
 export function ContactForm() {
+  // React resets the form after each action; defaultValue restores input on error.
   const [state, formAction, pending] = useActionState(sendContactMessage, initialState);
-  const form = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    if (state.status === 'success') form.current?.reset();
-  }, [state]);
 
   return (
-    <form ref={form} action={formAction} className="space-y-4">
+    <form action={formAction} className="space-y-4">
       <div>
-        <label htmlFor="message" className="mb-1 block text-sm">
-          Message
+        <label htmlFor="message" className="text-muted mb-1.5 block font-mono text-xs">
+          message
         </label>
         <textarea
           id="message"
@@ -29,6 +25,8 @@ export function ContactForm() {
           minLength={10}
           maxLength={5000}
           rows={6}
+          defaultValue={state.fields?.message}
+          placeholder="Hi Mac, I'd like to talk about…"
           aria-invalid={!!state.fieldErrors?.message}
           aria-describedby={state.fieldErrors?.message ? 'message-error' : undefined}
           className={inputClass}
@@ -41,8 +39,8 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1 block text-sm">
-          Your email
+        <label htmlFor="email" className="text-muted mb-1.5 block font-mono text-xs">
+          your email
         </label>
         <input
           id="email"
@@ -50,6 +48,8 @@ export function ContactForm() {
           type="email"
           required
           autoComplete="email"
+          defaultValue={state.fields?.email}
+          placeholder="you@example.com"
           aria-invalid={!!state.fieldErrors?.email}
           aria-describedby={state.fieldErrors?.email ? 'email-error' : undefined}
           className={inputClass}
@@ -69,15 +69,18 @@ export function ContactForm() {
         </label>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-4">
         <button
           type="submit"
           disabled={pending}
-          className="bg-accent text-accent-fg font-display rounded-full px-6 py-2 text-lg disabled:opacity-60"
+          className="bg-accent text-accent-fg rounded-lg px-5 py-2.5 font-mono text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-60"
         >
-          {pending ? 'sending…' : 'send'}
+          {pending ? 'sending…' : 'send message →'}
         </button>
-        <p aria-live="polite" className={state.status === 'error' ? 'text-red-500' : ''}>
+        <p
+          aria-live="polite"
+          className={`text-sm ${state.status === 'error' ? 'text-red-500' : 'text-accent'}`}
+        >
           {state.message}
         </p>
       </div>

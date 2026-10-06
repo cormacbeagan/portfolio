@@ -38,10 +38,11 @@ export const profile = {
   name: 'Mac Beagan',
   role: 'Senior Software Engineer',
   location: 'Munich',
+  status: 'Open to full-time roles',
   email: 'cor@macbeagan.me',
   url: 'https://macbeagan.me',
   intro:
-    'I build React and React Native apps for healthcare: software that clinicians rely on in NHS hospitals. Since 2021 I’ve been the engineer behind The Trauma App, used in emergency departments across Scotland, and I’m a founding engineer on Daysix Health. I’m self-taught, freelance, and happiest working directly with the people who use what I build. Originally from Edinburgh, I grew up on a farm and now live in Munich.',
+    'I build React and React Native apps for healthcare: software that clinicians rely on in NHS hospitals. Since 2021 I’ve been the engineer behind The Trauma App, used in emergency departments across Scotland, and I’m a founding engineer on Daysix Health. I’m self-taught, have freelanced since 2021, and am happiest working directly with the people who use what I build. Originally from Edinburgh, I grew up on a farm and now live in Munich.',
 };
 
 export const projects: Project[] = [

@@ -61,7 +61,7 @@ export default function Home() {
                   <span className="bg-accent absolute inline-flex size-full animate-ping rounded-full opacity-60" />
                   <span className="bg-accent relative inline-flex size-2 rounded-full" />
                 </span>
-                Available for freelance work
+                {profile.status}
               </p>
             </div>
             <p className="text-lg leading-relaxed md:text-xl">{profile.intro}</p>

@@ -38,7 +38,7 @@ export const profile = {
   name: 'Mac Beagan',
   role: 'Senior Software Engineer',
   location: 'Munich',
-  status: 'Open to full-time roles',
+  status: 'Open to work',
   email: 'cor@macbeagan.me',
   url: 'https://macbeagan.me',
   intro:

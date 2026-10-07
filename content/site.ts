@@ -41,6 +41,8 @@ export const profile = {
   status: 'Open to work',
   email: 'cor@macbeagan.me',
   url: 'https://macbeagan.me',
+  /** Served from public/; the download attribute sets the saved filename. */
+  cv: { href: '/cv.pdf', filename: 'Mac-Beagan-CV.pdf' },
   intro:
     'I build React and React Native apps for healthcare: software that clinicians rely on in NHS hospitals. Since 2021 I’ve been the engineer behind The Trauma App, used in emergency departments across Scotland, and I’m a founding engineer on Daysix Health. I’m self-taught, have freelanced since 2021, and am happiest working directly with the people who use what I build. Originally from Edinburgh, I grew up on a farm and now live in Munich.',
 };
@@ -193,6 +195,7 @@ export const stack = {
 };
 
 export const socials: Social[] = [
+  { label: 'LinkedIn', url: 'https://de.linkedin.com/in/mac-beagan/en' },
   { label: 'GitHub', url: 'https://github.com/cormacbeagan' },
   { label: 'Instagram', url: 'https://www.instagram.com/macbeagan/' },
   { label: 'X / Twitter', url: 'https://twitter.com/MacBeagan' },

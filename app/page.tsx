@@ -4,6 +4,7 @@ import { Nav } from '@/components/Nav';
 import { Projects } from '@/components/Projects';
 import { Stack } from '@/components/Stack';
 import { Starfield } from '@/components/Starfield';
+import { FiDownload } from 'react-icons/fi';
 import { profile, projects, socials, stack } from '@/content/site';
 
 function Section({
@@ -63,6 +64,14 @@ export default function Home() {
                 </span>
                 {profile.status}
               </p>
+              <a
+                href={profile.cv.href}
+                download={profile.cv.filename}
+                className="border-line hover:bg-fg hover:text-bg mt-2 inline-flex w-fit items-center gap-2 border-2 px-4 py-2 text-sm tracking-wide transition-colors"
+              >
+                <FiDownload aria-hidden="true" />
+                Download CV <span className="sr-only">(PDF)</span>
+              </a>
             </div>
             <p className="text-lg leading-relaxed md:text-xl">{profile.intro}</p>
           </div>
